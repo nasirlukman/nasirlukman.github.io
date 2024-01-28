@@ -28,9 +28,8 @@ pagination:
     <h2>{{ site.blog_description }}</h2>
   </div>
   {% endif %}
-
+<!--
 {% if site.display_tags or site.display_categories %}
-
   <div class="tag-category-list">
     <ul class="p-0 m-0">
       {% for tag in site.display_tags %}
@@ -55,7 +54,7 @@ pagination:
     </ul>
   </div>
   {% endif %}
-
+-->
 {% assign featured_posts = site.posts | where: "featured", "true" %}
 {% if featured_posts.size > 0 %}
 <br>
