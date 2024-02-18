@@ -15,18 +15,16 @@
       institution: Gadjah Mada University, Indonesia
       year: 2015
       description:
-        - Description 1.
-        - Description 2.
+        - Geological Engineering
         - title: Description 3.
           contents:
             - Sub-description 1.
             - Sub-description 2.
-    - title: Federal teaching diploma
-      institution: Eidgenössische Technische Hochschule, Zurich, Switzerland
-      year: 1900
+    - title: Master of Science
+      institution: University of Twente, Netherlands
+      year: 2024
       description:
-        - Description 1.
-        - Description 2.
+        - Geoinformation and Earth Observation
 
 - title: Experience
   type: time_table
