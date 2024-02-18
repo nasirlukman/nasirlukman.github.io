@@ -16,10 +16,6 @@
       year: 2015
       description:
         - Geological Engineering
-        - title: Description 3.
-          contents:
-            - Sub-description 1.
-            - Sub-description 2.
     - title: Master of Science
       institution: University of Twente, Netherlands
       year: 2024
@@ -29,9 +25,9 @@
 - title: Experience
   type: time_table
   contents:
-    - title: Professor of Theoretical Physics
-      institution: Institute for Advanced Study, Princeton University
-      year: 1933 - 1955
+    - title: 
+      institution: 
+      year: 2018 - 2021
       description:
         - Description 1.
         - Description 2.
@@ -39,8 +35,8 @@
           contents:
             - Sub-description 1.
             - Sub-description 2.
-    - title: Visiting Professor
-      institution: California Institute of Technology, Pasadena, California, US
+    - title: Exploration Geologist
+      institution: PT. Timah Tbk.
       year: 1933
       description:
         - Description 1.
