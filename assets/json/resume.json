@@ -1,18 +1,18 @@
 {
   "basics": {
-    "name": "Albert Einstein",
-    "label": "Scientist",
+    "name": "Muhamad Nasir Lukman",
+    "label": "Earth Scientist and Data Analyst",
     "image": "",
-    "email": "albert@einstein.de",
-    "phone": "(912) 123-4567",
-    "url": "https://alshedivat.github.io/al-folio/",
-    "summary": "A German-born theoretical physicist, widely ranked among the greatest and most influential scientists of all time",
+    "email": "muhamadnasirlukman@gmail.com",
+    "phone": "(+62) 821 7834 7955",
+    "url": "https://nasirlukman.github.io/",
+    "summary": "Indonesian-born geologist, advancing as image and geospatial analyst",
     "location": {
-      "address": "2712 Broadway St",
-      "postalCode": "CA 94115",
-      "city": "San Francisco",
-      "countryCode": "US",
-      "region": "California"
+      "address": "Boulevard 1945",
+      "postalCode": "7511 AE",
+      "city": "Enschede",
+      "countryCode": "Netherlands",
+      "region": "Overijssel"
     },
     "profiles": [
       {
@@ -24,11 +24,11 @@
   },
   "work": [
     {
-      "name": "Institute for Advanced Study, Princeton University",
-      "position": "Professor of Theoretical Physics",
-      "url": "https://example.com",
-      "startDate": "1933-01-01",
-      "endDate": "1955-01-01",
+      "name": "PT. Timah Tbk.",
+      "position": "Exploration Geologist",
+      "url": "https://www.timah.com/",
+      "startDate": "2018",
+      "endDate": "2021",
       "summary": "Teaching at Palmer Physical Laboratory (now 302 Frist Campus Center). While not a professor at Princeton, I associated with the physics professors and continued to give lectures on campus.",
       "highlights": ["Relativity"]
     }
@@ -46,15 +46,26 @@
   ],
   "education": [
     {
-      "institution": "University of Zurich, Zurich, Switzerland",
-      "location": "Zurich, Switzerland",
-      "url": "https://www.uzh.ch/",
-      "area": "Software Development",
-      "studyType": "PhD",
-      "startDate": "1905-01-01",
-      "endDate": "1905-01-01",
-      "score": "10",
-      "courses": ["Theory of Relativity"]
+      "institution": "Universitas Gadjah Mada",
+      "location": "Yogyakarta, Indonesia",
+      "url": "https://ugm.ac.id/en/",
+      "area": "Geological Engineering",
+      "studyType": "Banchelor of Engineering",
+      "startDate": "2011",
+      "endDate": "2015",
+      "score": "3.35",
+      "courses": ["Physical Earth", "Geodynamics", "Resources Exploration"]
+    },
+    {
+      "institution": "University of Twente",
+      "location": "Enschede, Netherlands",
+      "url": "https://www.utwente.nl/en/",
+      "area": "Geo-information Science and Earth Observation",
+      "studyType": "Master of Science",
+      "startDate": "2022",
+      "endDate": "2024",
+      "score": "",
+      "courses": ["Spectral Geology", "GIS", "Advance Image Analysis", "Geophysics", "Machine Learning", "Bayesian Inference"]
     }
   ],
   "awards": [
@@ -135,16 +146,35 @@
   ],
   "skills": [
     {
-      "name": "Physics",
+      "name": "Earth Science",
       "level": "Master",
       "icon": "fa-solid fa-hashtag",
       "keywords": [
-        "Quantum Mechanics",
-        "Quantum Computing",
-        "Quantum Information",
-        "Quantum Cryptography",
-        "Quantum Communication",
-        "Quantum Teleportation"
+        "Geomorphology",
+        "Mineralogy",
+        "Geophysics",
+        "Resources Exploration"
+      ]
+    },
+    {
+      "name": "Programming Language",
+      "level": "Master",
+      "icon": "fa-solid fa-hashtag",
+      "keywords": [
+        "Python",
+        "R",
+        "Javascript (Earth Engine)"
+      ]
+    },
+    {
+      "name": "Software",
+      "level": "Master",
+      "icon": "fa-solid fa-hashtag",
+      "keywords": [
+        "ArcGIS",
+        "QGIS",
+        "ENVI",
+        "ERDAS"
       ]
     }
   ],
