@@ -1,6 +1,6 @@
 ---
 layout: page
-title: project 1
+title: What to do with tailings that's already there?
 description: a project with a background image
 img: assets/img/12.jpg
 importance: 1
@@ -8,11 +8,16 @@ category: work
 related_publications: true
 ---
 
-Every project has a beautiful feature showcase page.
-It's easy to include images in a flexible 3-column grid format.
-Make your photos 1/3, 2/3, or full width.
+Our current best efforts to achieve a greener future is weirdly enough dependent upon the mining activity of critical raw materials, at least until foreseeable future where fully circular economy may be possible[1](https://www.nature.com/articles/s41578-021-00325-9). A great deal of care needs to be taken so this "new demand" of critical raw materials will not causes new environement and societal problems. One important frontier on this aspect is to take another look at the (mostly) neglected and problematic mine tailings.
 
-To give your project a background in the portfolio page, just add the img tag to the front matter like so:
+Tailings are waste materials left after the target mineral is extracted from a mining activity. Its often contain heavy metals which may causes risks for environemnt and human health if it's not properly managed. And let's be honest, it's just ugly to look at.
+Managing tailings should be one of the responsibility for the mining company with the main goal to fianlly do revegation and rehabilitation of the tailings stockpiles and restor natural habitats on the affected areas. While this can be really challenging and expensive in practice, In most country, it is strictly regulated to do so, as it should be. In some regions, thought, some external factors (economy, policies, lobbies) make it more complicated to enforced.
+
+While causing a great deal of risks, a lot of tailings are reported to still contain a high consentration of critical raw material that still potentially economically mineable[2](https://theintelligentminer.com/2024/01/17/take-two-why-mine-tailings-are-worth-another-look/). This remaining of econocmically mineable critical raw materials may resulted from various reasons. For example, it may be at the time of mining activity occur, the cut of grade of ores are different to the difference of prices in the market, and also different cost related to mining activity. It may also related to insufienece technology or capital to mine or process other secondary minerals in a mine. All of this is ofcourse against today's good mining practice which pushes the miner to extract any potentially valuable minerals from the dugged dirt.
+
+
+
+In this project I was looking at the possibilities of using Sentinel-2A time series data. The Idea was to exploit the absorption feature of a certain REE metals that is reported to present in mining tailing in Bangka Island in a times series images. assuming a constant influx of materials to the tailings, 
 
     ---
     layout: page

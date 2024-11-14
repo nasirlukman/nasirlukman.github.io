@@ -19,6 +19,7 @@ social: false # includes social icons at the bottom of the page
 ---
 <div style="text-align: justify">
 
-I'm an Earth scientist - turns to GIS and remote sensing analyst. I have +5 years experience as exploration geologist and now Im pursuing a Master's in Geoinformation and Earth Observation at the University of Twente. My research focuses on a Bayesian approach to spectral unmixing in hyperspectral images, aiming to quantify sub-pixel abundances of specific materials on the images. I'm passionate about applying practical Earth science knowledge with GIS, image analysis, and machine learning to tackle complex geo-problems.
+I'm a geospatial data scientist and remote sensing analyst with expertise in earth sciences. This blog will feature snapshots of my projects, study notes, ideas, and insights, mostly related to remote sensing and earth science. My goal is to make geospatial data science and remote sensing methods more accessible, so they can be applied by a wider stakeholders to tackle complex, real-world problems and enable more informed decision-making.
+
 
 </div>
