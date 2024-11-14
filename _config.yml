@@ -123,7 +123,7 @@ bing_site_verification: # out your bing-site-verification ID (Bing Webmaster)
 # -----------------------------------------------------------------------------
 
 blog_name: Earth.etc # blog_name will be displayed in your blog page
-blog_description: lecture notes, ideas, short essays, etc.
+blog_description: Half baked ideas. Mostly about earth from the sky.
 permalink: /blog/:year/:title/
 
 # Pagination
