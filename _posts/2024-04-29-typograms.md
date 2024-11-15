@@ -1,11 +1,8 @@
 ---
 layout: post
-title: a post with typograms
-date: 2024-04-29 23:36:10
-description: this is what included typograms code could look like
-tags: formatting diagrams
-categories: sample-posts
-typograms: true
+title: Different Distance Metrics Example in Spectral Unmixing
+date: 2024-11-15 23:36:10
+description: Comapirson between Euclidean distance, Manhattan distance, and angular distance in spectral unmixing
 ---
 
 In data space, distance typically measures similarity between data points. For instance, if points *a* and *b* are "close" to each other (i.e., have a small distance), they are considered more similar. When distance equals zero, data points *a* and *b* are exactly the same. This concept is essential in machine learning and data analysis as it quantifies similarity between datasets.
