@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Different Distance Metrics Example in Spectral Unmixing
-date: 2024-11-15 21:01:00
+date: 2024-11-15 21:01:00-0400
 description: show
 tags: formatting images
 categories: sample-posts
