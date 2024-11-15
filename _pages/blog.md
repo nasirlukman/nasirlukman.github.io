@@ -3,12 +3,12 @@ layout: default
 permalink: /blog/
 title: blog
 nav: true
-nav_order: 3
+nav_order: 1
 pagination:
   enabled: true
   collection: posts
   permalink: /page/:num/
-  per_page: 10
+  per_page: 5
   sort_field: date
   sort_reverse: true
   trail:
@@ -18,9 +18,19 @@ pagination:
 
 <div class="post">
 
+{% assign blog_name_size = site.blog_name | size %}
+{% assign blog_description_size = site.blog_description | size %}
 
-<!--
-{% if site.display_tags or site.display_categories %}
+{% if blog_name_size > 0 or blog_description_size > 0 %}
+
+  <div class="header-bar">
+    <h1>{{ site.blog_name }}</h1>
+    <h2>{{ site.blog_description }}</h2>
+  </div>
+  {% endif %}
+
+{% if site.display_tags and site.display_tags.size > 0 or site.display_categories and site.display_categories.size > 0 %}
+
   <div class="tag-category-list">
     <ul class="p-0 m-0">
       {% for tag in site.display_tags %}
@@ -45,7 +55,7 @@ pagination:
     </ul>
   </div>
   {% endif %}
--->
+
 {% assign featured_posts = site.posts | where: "featured", "true" %}
 {% if featured_posts.size > 0 %}
 <br>
@@ -54,7 +64,7 @@ pagination:
 {% assign is_even = featured_posts.size | modulo: 2 %}
 <div class="row row-cols-{% if featured_posts.size <= 2 or is_even == 0 %}2{% else %}3{% endif %}">
 {% for post in featured_posts %}
-<div class="card-item col">
+<div class="col mb-4">
 <a href="{{ post.url | relative_url }}">
 <div class="card hoverable">
 <div class="row g-0">
@@ -106,11 +116,10 @@ pagination:
     {% else %}
       {% assign read_time = post.feed_content | strip_html | number_of_words | divided_by: 180 | plus: 1 %}
     {% endif %}
-  <!--
     {% assign year = post.date | date: "%Y" %}
     {% assign tags = post.tags | join: "" %}
     {% assign categories = post.categories | join: "" %}
-  -->
+
     <li>
 
 {% if post.thumbnail %}
@@ -138,13 +147,39 @@ pagination:
         &nbsp; &middot; &nbsp; {{ post.external_source }}
         {% endif %}
       </p>
+      <p class="post-tags">
+        <a href="{{ year | prepend: '/blog/' | prepend: site.baseurl}}">
+          <i class="fa-solid fa-calendar fa-sm"></i> {{ year }} </a>
+
+          {% if tags != "" %}
+          &nbsp; &middot; &nbsp;
+            {% for tag in post.tags %}
+            <a href="{{ tag | slugify | prepend: '/blog/tag/' | prepend: site.baseurl}}">
+              <i class="fa-solid fa-hashtag fa-sm"></i> {{ tag }}</a>
+              {% unless forloop.last %}
+                &nbsp;
+              {% endunless %}
+              {% endfor %}
+          {% endif %}
+
+          {% if categories != "" %}
+          &nbsp; &middot; &nbsp;
+            {% for category in post.categories %}
+            <a href="{{ category | slugify | prepend: '/blog/category/' | prepend: site.baseurl}}">
+              <i class="fa-solid fa-tag fa-sm"></i> {{ category }}</a>
+              {% unless forloop.last %}
+                &nbsp;
+              {% endunless %}
+              {% endfor %}
+          {% endif %}
+    </p>
 
 {% if post.thumbnail %}
 
 </div>
 
   <div class="col-sm-3">
-    <img class="card-img" src="{{post.thumbnail | relative_url}}" style="object-fit: cover; height: 90%" alt="image">
+    <img class="card-img" src="{{ post.thumbnail | relative_url }}" style="object-fit: cover; height: 90%" alt="image">
   </div>
 </div>
 {% endif %}
