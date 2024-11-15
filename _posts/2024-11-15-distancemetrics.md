@@ -5,7 +5,6 @@ date: 2024-11-15 21:01:00
 description: show
 tags: formatting images
 categories: sample-posts
-thumbnail: assets/img/9.jpg
 ---
 In data space, distance typically measures similarity between data points. For instance, if points \(a\) and \(b\) are "close" to each other (i.e., have a small distance), they are considered more similar. When distance equals zero, data points \(a\) and \(b\) are exactly the same. This concept is essential in machine learning and data analysis as it quantifies similarity between datasets.
 
