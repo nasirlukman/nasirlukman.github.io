@@ -12,7 +12,7 @@ In two dimensions, it's easy to visualize data points and assess their distances
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid path="/assets/img/post_1_image_1_three_point_distance.jpg" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid path="assets/img/post_1_image_1_three_point_distance.jpg" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
@@ -25,7 +25,7 @@ In this post, we will examine three different distance metrics and compare their
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid path="\assets\img\post_1_image_2_three_type_of_distance.png" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid path="assets/img/post_1_image_2_three_type_of_distance.png" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
@@ -82,7 +82,7 @@ For the first test, suppose we have four mineral endmembers (example taken from 
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid path="\assets\img\post_1_image_3_four_endmembers.png" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid path="assets/img/post_1_image_3_four_endmembers.png" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
@@ -97,7 +97,7 @@ The accuracy of the spectral unmixing using the three distance metrics are shown
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid path="\assets\img\post_1_first_test.png" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid path="assets/img/post_1_first_test.png" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
@@ -110,7 +110,7 @@ For the second test, we use the same synthetic mixtures, but this time we add ra
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid path="\assets\img\post_1_second_test.png" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid path="assets/img/post_1_second_test.png" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
@@ -123,7 +123,7 @@ While random spikes in reflectance values may not be common in spectroscopy or r
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid path="\assets\img\post_1_third_test.png" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid path="assets/img/post_1_third_test.png" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
