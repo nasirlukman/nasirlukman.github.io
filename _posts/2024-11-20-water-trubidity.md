@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Water Turbidity Analysis with Sentine-2
-date: 2024-20-11 23:36:10
+date: 2024-11-20 23:36:10
 description: Using Empirical Model to estimate water turbidity level i n coastal area using Sentinel-2 timeseries
 ---
 
