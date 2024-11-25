@@ -2,12 +2,14 @@
 layout: post
 title: Bayesian Spectral Unmixing
 date: 2024-11-24 12:36:10
-description: Bayesian approach on spectral unmixing
+description: Bayesian approach on spectral unmixing with an example case using hyperspectral images of sandstone drill core sample.
 ---
 
-In the [last post](https://nasirlukman.github.io/blog/2024/distance/) we've talk a little bit about how spectral unmixing in practice will always suffer from a certain level of uncertainty both related to the data and the model that we are using. Optimization approach to such problem such as the one used in previous post assume that the data and the model are perfect, or at least the uncertainty related to both are negligible. In this post we will look briefly at the Bayesian approach on spectral unmixing, where we explicitly model the uncertainty related to our problem and pass the uncertainty to the final results of our unmixing. So instead of getting a vector of mineral abundances as the result of our unmixing, we got the full probability distribution of the results. 
+In the [previous post](https://nasirlukman.github.io/blog/2024/distance/) we discussed how spectral unmixing inherently suffers from uncertainty—stemming both from the data and the model. Traditional optimization approaches, like the one we used earlier, often assume that these uncertainties are either negligible or nonexistent. However, in practice, this is rarely the case.
 
-In this post we will not going into too much detail related to the math, but some formulations are necessary to laid down the problem. First, we can formulate linear mixture model as:
+In this post, we'll take a brief look at the Bayesian approach to spectral unmixing, which explicitly accounts for these uncertainties. By incorporating them into the model, we propagate the uncertainty through to the final results. Instead of a single vector of mineral abundances, the Bayesian approach provides a probability distribution for these abundances, offering deeper insight into the confidence we have in our estimates.
+
+While we won’t dive too deeply into the math, a basic formulation helps set the stage. The linear mixture model can be expressed as:
 
 $$ \mathbf{y} = \mathbf{E} \mathbf{a} + \mathbf{e} $$
 
@@ -17,71 +19,64 @@ where:
 - $$ \mathbf{a} $$ is the abundance vector,
 - $$ \mathbf{e} $$ represents error terms/uncertainty.
 
-> Note for the context of this post, we will be dealing with the unmixing problem for minerals in a particulate surface (such as rocks surface). Due to multtiple scattering-effect the linear relationship above breaks down for reflectance. Instead of reflectance, we will be using [Single Scattering Albedo (SSA)](https://en.wikipedia.org/wiki/Single-scattering_albedo) which derived from Hapke's Model for the remaining of this post. For further information the reader are advised to read [](), [](), or other sources available online (including my [thesis](https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=http://essay.utwente.nl/101556/1/Lukman_MA_ITC.pdf&ved=2ahUKEwjqlY-m8faJAxUdw6ACHRUJKj0QFnoECBkQAQ&usg=AOvVaw3Tbo1LEGrTchQ7edNZoxGt)😉)
+> Context for this post: We are focusing on unmixing for minerals on particulate surfaces (e.g., rock surfaces). Due to multiple-scattering effects, the linear relationship above does not hold when using reflectance data. Instead, we will use the [Single Scattering Albedo (SSA)](https://en.wikipedia.org/wiki/Single-scattering_albedo) which derived from Hapke's Model, as it better handles these effect. For those interested in the underlying theory, I highly recommend consulting [this book](https://www.cambridge.org/core/books/theory-of-reflectance-and-emittance-spectroscopy/C266E1164D5E14DA18141F03D0E0EAB0); these two papers that really helps a lot with the subject: [1](https://agupubs.onlinelibrary.wiley.com/doi/abs/10.1029/JB094iB10p13619), [2](https://www.researchgate.net/publication/264564339_A_Review_of_Nonlinear_Hyperspectral_Unmixing_Methods); or other sources (including my [thesis](https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=http://essay.utwente.nl/101556/1/Lukman_MA_ITC.pdf&ved=2ahUKEwjqlY-m8faJAxUdw6ACHRUJKj0QFnoECBkQAQ&usg=AOvVaw3Tbo1LEGrTchQ7edNZoxGt)😉)
 
-Following [Bayes Theorem](https://en.wikipedia.org/wiki/Bayes%27_theorem) we can formulate this problems as:
 
-$$ bayes formula $$
+### bayesian Framework
 
-where:
-(descrition of symbols)
-
-here we will assume that $$ \mathbf{e} $$ is normally distributed, hence we will use a normal likelihood. We will use a dirichlet prior for $$ \mathbf{a} $$ since it respect the non-negativity and sum-to-one constraint of the abundance vector, and half cauchy prior for the  && \sigma_2 $$ with uniform distribution for its scale hyperparameter $$ \beta $$. the heirarchical structure of the random variable are:
-
-(show the heirarchical structure)
-
-start
-Following [Bayes' Theorem](https://en.wikipedia.org/wiki/Bayes%27_theorem), we can formulate this problem as:
+Following [Bayes' Theorem](https://en.wikipedia.org/wiki/Bayes%27_theorem), we can represent the spectral unmixing problem as:
 
 $$
 P(\mathbf{a}, \sigma^2 \mid \mathbf{y}, \mathbf{E}) \propto P(\mathbf{y} \mid \mathbf{a}, \sigma^2, \mathbf{E}) P(\mathbf{a}) P(\sigma^2)
 $$
 
 where:
-- $$ \(P(\mathbf{a}, \sigma^2 \mid \mathbf{y}, \mathbf{E})\) $$ is the posterior distribution of the abundance vector and error variance given the observed spectrum and endmembers,
-- $$ \(P(\mathbf{y} \mid \mathbf{a}, \sigma^2, \mathbf{E})\) $$ is the likelihood of the observed spectrum,
-- $$ \(P(\mathbf{a})\) $$ is the prior distribution of the abundance vector,
-- $$ \(P(\sigma^2)\) $$ is the prior distribution of the error variance,
-- $$ \propto $$ denote proportionality
+- $$ P(\mathbf{a}, \sigma^2 \mid \mathbf{y}, \mathbf{E}) $$ is the posterior distribution of the abundance vector and error variance given the observed spectrum and endmembers,
+- $$ P(\mathbf{y} \mid \mathbf{a}, \sigma^2, \mathbf{E}) $$ is the likelihood of the observed spectrum,
+- $$ P(\mathbf{a}) $$ is the prior distribution of the abundance vector,
+- $$ P(\sigma^2) $$ is the prior distribution of the error variance,
+- $$ and \propto $$ denote proportionality
 
-Here we assume that the error term $$ \(\mathbf{e}\) $$ is normally distributed, so we use a normal likelihood:
+We assume that the error term $$ \mathbf{e} $$ is normally distributed, giving us a [Normal](https://distribution-explorer.github.io/continuous/normal.html) likelihood:
 
 $$
 P(\mathbf{y} \mid \mathbf{a}, \sigma^2, \mathbf{E}) = \mathcal{N}(\mathbf{y} \mid \mathbf{E}\mathbf{a}, \sigma^2\mathbf{I}),
 $$
 
-where $$ \(\mathbf{I}\) $$ is the identity matrix. 
+where $$ \mathbf{I} $$ is the identity matrix. 
 
-For the abundance vector $$ \(\mathbf{a}\) $$, we use a [Dirichlet](https://en.wikipedia.org/wiki/Dirichlet_distribution) prior, which respects the non-negativity and sum-to-one constraints:
+For the abundance vector $$ \mathbf{a} $$, we use a [Dirichlet](https://distribution-explorer.github.io/multivariate_continuous/dirichlet.html) prior to enforce the non-negativity and sum-to-one constraints:
 
 $$
 P(\mathbf{a}) = \mathcal{D}(\mathbf{a} \mid \boldsymbol{\alpha}),
 $$
 
-where $$ \(\boldsymbol{\alpha}\) $$ is the concentration parameter. 
+where $$ \boldsymbol{\alpha} $$ is the concentration parameter. 
 
-For the variance $$ \(\sigma^2\) $$, we use a Half-Cauchy prior:
+For the error variance $$ \sigma^2 $$, we assign a [Half-Cauchy](https://distribution-explorer.github.io/continuous/halfcauchy.html) prior:
 
 $$
 P(\sigma^2) = \mathcal{HC}(\sigma^2 \mid \beta),
 $$
 
-where $$ \(\beta\) $$ is the scale hyperparameter, and we assume a uniform prior for $$ \(\beta\) $$:
+with the scale hyperparamter $$ \beta $$ given a [Unifrom](https://distribution-explorer.github.io/continuous/uniform.html) prior such as:
 
 $$
-P(\beta) = \mathcal{U}(\beta \mid 0, \infty).
+P(\beta) = \mathcal{U}(\beta \mid 0, 0^{-4}).
 $$
 
 Terefore, we can summarize the hierarchical structure of the random variables as:
 
-- $$ \(\mathbf{y} \sim \mathcal{N}(\mathbf{E}\mathbf{a}, \sigma^2\mathbf{I})\) $$,
-- $$ \(\mathbf{a} \sim \mathcal{D}(\boldsymbol{\alpha})\) $$,
-- $$ \(\sigma^2 \sim \mathcal{HC}(\beta)\) $$,
-- $$ \(\beta \sim \mathcal{U}(0, 10_{-4})\) $$.
+$$ \mathbf{y} \sim \mathcal{N}(\mathbf{E}\mathbf{a}, \sigma^2\mathbf{I}) $$,
+$$ \mathbf{a} \sim \mathcal{D}(\boldsymbol{\alpha}) $$,
+$$ \sigma^2 \sim \mathcal{HC}(\beta) $$,
+$$ \beta \sim \mathcal{U}(0, 10^{-4}) $$.
 
-end
+As you might guess, this formulation of the posterior distribution cannot be solved analytically. Instead, we use [*Markov Chain Monte Caelo (MCMC)*](https://en.wikipedia.org/wiki/Markov_chain_Monte_Carlo) to sample and estimate the posterior. For educational purposes, I’ve implemented a custom sampler based on the [*Metropolis-Hastings Random Walk*](https://en.wikipedia.org/wiki/Metropolis%E2%80%93Hastings_algorithm) in Python. In practice, however, modern samplers like *NUTS (No-U-Turn Sampler)* in an established library such as [PyMC](https://www.pymc.io/welcome.html) are often preferable. They offer a more efficient and streamlined sampling process, sparing users the burden of directly managing the nasty mathematics behind these algorithms.
 
+In the Metropolis-Hastings algorithm, we iteratively draw samples from the posterior. For each new sample, we evaluate its probability relative to the previous sample. The sample is either accepted or rejected based on this evaluation. Over many iterations, the density of accepted samples approximates the true posterior distribution.
 
+To illustrate, the animation below shows the random walk process for sampling three abundance parameters in a mixture of three endmembers. The blue regions represent the true posterior distribution. Notice how the sampler, starting from a random point in the parameter space, gradually converges to the high-probability regions:
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
@@ -89,10 +84,13 @@ end
     </div>
 </div>
 <div class="caption">
-    Image 1. Random Walk Example on synthetic target distribution
+    Image 1. Random Walk Example on a known target distribution
 </div>
 
+
 ### Practical Example
+
+In this example, we are dealing with a sandstone rock sample. We have three minerals that represent the three main component of sandstone rock which quartz as the grains, clay as the matrix and carbonates as the cement. We assume that the endmember spectra is known for this mineral either by direct measurement in laboratory, from a spectral library, or from an [endmember extraction algorithm](https://nasirlukman.github.io/blog/2024/endmember-extraction/) if we are dealing with hyperspectral imagery. We wil begin the example with a single mixed spectra as shown in image below:
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
@@ -104,6 +102,8 @@ end
 </div>
 
 
+pharagraph
+
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid path="assets/img/post_2_trace_plot.png" class="img-fluid rounded" %}
@@ -112,6 +112,9 @@ end
 <div class="caption">
     Image 3. Marginal posterior distribution of each endmembers abundance and its trace plots
 </div>
+
+
+pharagraph
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
@@ -122,6 +125,8 @@ end
     Image 4. Corner plot of the marginal posterior showing correlations between each endmember abundances
 </div>
 
+pharagraph
+
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid path="assets/img/post_2_ternary.png" class="img-fluid rounded" %}
@@ -131,6 +136,8 @@ end
     Image 5. Ternary plot 
 </div>
 
+pharagraph
+
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid path="assets/img/post_2_modeled_spectra.png" class="img-fluid rounded" %}
@@ -139,6 +146,8 @@ end
 <div class="caption">
     Image 6. Observed spectra vs distribution of the modeled spectra 
 </div>
+
+pharagraph
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
