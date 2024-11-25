@@ -69,18 +69,19 @@ Terefore, we can summarize the hierarchical structure of the random variables as
 
 $$ 
 \mathbf{y} \sim \mathcal{N}(\mathbf{E}\mathbf{a}, \sigma^2\mathbf{I}) 
-$$,
+$$
+
 $$ 
 \mathbf{a} \sim \mathcal{D}(\boldsymbol{\alpha}) 
-$$,
+$$
 
 $$ 
 \sigma^2 \sim \mathcal{HC}(\beta) 
-$$,
+$$
 
 $$ 
 \beta \sim \mathcal{U}(0, 10^{-4}) 
-$$.
+$$
 
 As you might guess, this formulation of the posterior distribution cannot be solved analytically. Instead, we use [*Markov Chain Monte Caelo (MCMC)*](https://en.wikipedia.org/wiki/Markov_chain_Monte_Carlo) to sample and estimate the posterior. For educational purposes, I’ve implemented a custom sampler based on the [*Metropolis-Hastings Random Walk*](https://en.wikipedia.org/wiki/Metropolis%E2%80%93Hastings_algorithm) in Python. In practice, however, modern samplers like *NUTS (No-U-Turn Sampler)* in an established library such as [PyMC](https://www.pymc.io/welcome.html) are often preferable. They offer a more efficient and streamlined sampling process, sparing users the burden of directly managing the nasty mathematics behind these algorithms.
 
@@ -90,7 +91,7 @@ To illustrate, the animation below shows the random walk process for sampling th
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/post_2_random_walk.gif" %}
+        {% path="assets/img/post_2_random_walk.gif" %}
     </div>
 </div>
 <div class="caption">
