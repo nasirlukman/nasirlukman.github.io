@@ -98,8 +98,8 @@ To illustrate, the animation below shows the random walk process for sampling th
     Image 1. Random Walk Example on a known target distribution
 </div>
 
-![randm Walk](./assets/img/post_2_random_walk.gif)
-<img src="./assets/img/post_2_random_walk.gif" alt="Funny Cat" width="300" height="200">
+![randm Walk](post_2_random_walk.gif)
+<img src="post_2_random_walk.gif" alt="Funny Cat" width="300" height="200">
 
 ### Practical Example
 
