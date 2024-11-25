@@ -89,9 +89,7 @@ In the Metropolis-Hastings algorithm, we iteratively draw samples from the poste
 
 To illustrate, the animation below shows the random walk process for sampling three abundance parameters in a mixture of three endmembers. The blue regions represent the true posterior distribution. Notice how the sampler, starting from a random point in the parameter space, gradually converges to the high-probability regions:
 
-<div class="row mt-3">
-    <img src="/assets/img/post_2_random_walk.gif" alt="Random Walk">
-</div>
+<img src="/assets/img/post_2_random_walk.gif" alt="Random Walk">
 <div class="caption">
     Image 1. Random Walk Example on a known target distribution
 </div>
