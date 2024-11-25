@@ -7,7 +7,7 @@ description: Bayesian approach on spectral unmixing with an example case using h
 
 In the [previous post](https://nasirlukman.github.io/blog/2024/distance/) we discussed how spectral unmixing inherently suffers from uncertainty—stemming both from the data and the model. Traditional optimization approaches, like the one we used earlier, often assume that these uncertainties are either negligible or nonexistent. However, in practice, this is rarely the case.
 
-In this post, we'll take a brief look at the Bayesian approach to spectral unmixing, which explicitly accounts for these uncertainties. By incorporating them into the model, we propagate the uncertainty through to the final results. Instead of a single vector of mineral abundances, the Bayesian approach provides a probability distribution for these abundances, offering deeper insight into the confidence we have in our estimates.
+In this post, we'll take a brief look at the **Bayesian approach** to **spectral unmixing**, which explicitly accounts for these uncertainties. By incorporating them into the model, we propagate the uncertainty through to the final results. Instead of a single vector of mineral abundances, the Bayesian approach provides a probability distribution for these abundances, offering deeper insight into the confidence we have in our estimates.
 
 While we won’t dive too deeply into the math, a basic formulation helps set the stage. The linear mixture model can be expressed as:
 
@@ -22,7 +22,7 @@ where:
 > Context for this post: We are focusing on unmixing for minerals on particulate surfaces (e.g., rock surfaces). Due to multiple-scattering effects, the linear relationship above does not hold when using reflectance data. Instead, we will use the [Single Scattering Albedo (SSA)](https://en.wikipedia.org/wiki/Single-scattering_albedo) which derived from Hapke's Model, as it better handles these effect. For those interested in the underlying theory, I highly recommend consulting [this book](https://www.cambridge.org/core/books/theory-of-reflectance-and-emittance-spectroscopy/C266E1164D5E14DA18141F03D0E0EAB0); these two papers that really helps me a lot with the subject: [[1]](https://agupubs.onlinelibrary.wiley.com/doi/abs/10.1029/JB094iB10p13619), [[2]](https://www.researchgate.net/publication/264564339_A_Review_of_Nonlinear_Hyperspectral_Unmixing_Methods); or other sources (including my [thesis](https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=http://essay.utwente.nl/101556/1/Lukman_MA_ITC.pdf&ved=2ahUKEwjqlY-m8faJAxUdw6ACHRUJKj0QFnoECBkQAQ&usg=AOvVaw3Tbo1LEGrTchQ7edNZoxGt)😉)
 
 
-### bayesian Framework
+### Bayesian Framework
 
 Following [Bayes' Theorem](https://en.wikipedia.org/wiki/Bayes%27_theorem), we can represent the spectral unmixing problem as:
 
@@ -87,7 +87,7 @@ As you might guess, this formulation of the posterior distribution cannot be sol
 
 In the Metropolis-Hastings algorithm, we iteratively draw samples from the posterior. For each new sample, we evaluate its probability relative to the previous sample. The sample is either accepted or rejected based on this evaluation. Over many iterations, the density of accepted samples approximates the true posterior distribution.
 
-To illustrate, the animation below shows the random walk process for sampling three abundance parameters in a mixture of three endmembers. The blue regions represent the true posterior distribution. Notice how the sampler, starting from a random point in the parameter space, gradually converges to the high-probability regions:
+For illustration, the animation below shows the random walk process for sampling abundance parameters in a mixture of three endmembers. The blue regions represent the true target distribution. Notice how the sampler, starting from a random point in the parameter space, gradually converges to the high-probability regions:
 
 <div style="display: flex; justify-content: center;">
   <img src="/assets/img/post_2_random_walk.gif" alt="Random Walk">
@@ -98,7 +98,7 @@ To illustrate, the animation below shows the random walk process for sampling th
 
 ### Practical Example
 
-In this example, we will analyze a sandstone rock sample. Rock samples are ideal for testing this method since they represent natural surfaces and still allow us to conduct toher detailed analytical measurements with laboratory instruments to produce high-quality 'ground truth' data for comparison with our results.
+In this example, we will analyze a sandstone rock sample. Rock samples are ideal for testing this method since they represent natural surfaces and still allow us to conduct other detailed analytical measurements with laboratory instruments to produce high-quality 'ground truth' data for comparison with our results.
 
 For the endmembers, we consider three primary components of sandstone: quartz (grains), clay (matrix), and carbonates (cement). The endmember spectra for these minerals are assumed to be known, either from direct laboratory measurements, spectral libraries, or endmember extraction algorithms for hyperspectral imagery. We begin with a single mixed spectrum, as shown in the image below:
 
@@ -124,7 +124,7 @@ Using our Metropolis-Hastings sampler, we draw four chains of $$ 10^5 $$ random 
 </div>
 
 
-There are some cool things that we can do with the posteriors. For instance, we can visualize parameter correlations using a corner plot, as shown below.  Note as well how we denote the result with some notation such as: $$ 0.14_{+0.16}^{-0.12} $$ where the central value represents the expected value, while the subscript and superscript indicate the range of possible value within 90% confidence interval.
+There are some cool things that we can do with the posteriors. For instance, we can visualize parameter correlations using a corner plot, as shown below.  Note as well how we denote the result with some notation such as: $$ 0.14_{-0.12}^{+0.16} $$ where the central value represents the expected value, while the subscript and superscript indicate the range of possible value within 90% confidence interval.
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
@@ -132,7 +132,7 @@ There are some cool things that we can do with the posteriors. For instance, we 
     </div>
 </div>
 <div class="caption">
-    Image 4. Corner plot of the marginal posterior showing correlations between each endmember abundances. Red and blue line represent the expected value (mean) and the true value. the black stripped line represent the boundary of 90% confidence interval.
+    Image 4. Corner plot of the marginal posterior showing correlations between each endmember abundances. Red and blue line represent the expected value (mean) and the true value. The black stripped line represent the boundary of 90% confidence interval.
 </div>
 
 
@@ -166,7 +166,7 @@ This visualization highlights that, given the data and assumed uncertainties, th
 
 ### Hyperspectral Images
 
-The same process applies to hyperspectral images on a pixel-by-pixel basis. Here, we analyze a hyperspectral image of a sandstone drill core sample. Remember that for individual spectra (or also pixel in this case) the sampler will need to take and store $$ 10^{5} $$ sample for each parameters. This means that the final result will be a huge 4D array, adn the computation might take some time, depending on the efficinecy of the sampling algorithm used. Below, we visualize the expected abundance values for each endmember and their 90% confidence intervals range:
+The same process applies to hyperspectral images on a pixel-by-pixel basis. Here, we analyze a hyperspectral image of a sandstone drill core sample. Remember that for individual spectra (or also pixel in this case) the sampler will need to take and store $$ 10^{5} $$ sample for each parameters. This means that the final result will be a huge 4D array, and the computation might take some time, depending on the efficiency of the sampling algorithm used. Below, we visualize the expected abundance values for each endmember and their 90% confidence intervals range:
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
