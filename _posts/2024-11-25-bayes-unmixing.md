@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Bayesian Spectral Unmixing
-date: 2024-11-25 23:36:10
+date: 2024-11-15 23:36:10
 description: Bayesian approach on spectral unmixing
 ---
 
@@ -17,7 +17,7 @@ where:
 - $$ \mathbf{a} $$ is the abundance vector,
 - $$ \mathbf{e} $$ represents error terms/uncertainty.
 
-> Note for the context of this post, we will be dealing with the unmixing problem for minerals in a particulate surface (such as rocks surface). Due to multtiple scattering-effect the linear relationship above breaks down for reflectance. Instead of reflectance, we will be using [Single Scattering Albedo (SSA)](https://en.wikipedia.org/wiki/Single-scattering_albedo) which derived from Hapke's Model for the remaining of this post. For further information the reader are advised to read [](), [](), or other sources available online (including my [thesis](https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=http://essay.utwente.nl/101556/1/Lukman_MA_ITC.pdf&ved=2ahUKEwjqlY-m8faJAxUdw6ACHRUJKj0QFnoECBkQAQ&usg=AOvVaw3Tbo1LEGrTchQ7edNZoxGt)🤪)
+> Note for the context of this post, we will be dealing with the unmixing problem for minerals in a particulate surface (such as rocks surface). Due to multtiple scattering-effect the linear relationship above breaks down for reflectance. Instead of reflectance, we will be using [Single Scattering Albedo (SSA)](https://en.wikipedia.org/wiki/Single-scattering_albedo) which derived from Hapke's Model for the remaining of this post. For further information the reader are advised to read [](), [](), or other sources available online (including my [thesis](https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=http://essay.utwente.nl/101556/1/Lukman_MA_ITC.pdf&ved=2ahUKEwjqlY-m8faJAxUdw6ACHRUJKj0QFnoECBkQAQ&usg=AOvVaw3Tbo1LEGrTchQ7edNZoxGt)😉)
 
 Following [Bayes Theorem](https://en.wikipedia.org/wiki/Bayes%27_theorem) we can formulate this problems as:
 
