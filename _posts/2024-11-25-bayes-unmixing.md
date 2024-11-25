@@ -88,22 +88,12 @@ As you might guess, this formulation of the posterior distribution cannot be sol
 In the Metropolis-Hastings algorithm, we iteratively draw samples from the posterior. For each new sample, we evaluate its probability relative to the previous sample. The sample is either accepted or rejected based on this evaluation. Over many iterations, the density of accepted samples approximates the true posterior distribution.
 
 To illustrate, the animation below shows the random walk process for sampling three abundance parameters in a mixture of three endmembers. The blue regions represent the true posterior distribution. Notice how the sampler, starting from a random point in the parameter space, gradually converges to the high-probability regions:
-<div style="text-align: center;">
-    <img src="/assets/img/post_2_random_walk.gif" alt="Random Walk">
-</div>  
-
-<div class="caption">
-    Image 1. Random Walk Example on a known target distribution
-</div>
-
-<img src="/assets/img/post_2_random_walk.gif" alt="Random Walk" style="display: block; margin: 0 auto;">
-<div class="caption">
-    Image 1. Random Walk Example on a known target distribution
-</div>
-
 
 <div style="display: flex; justify-content: center;">
   <img src="/assets/img/post_2_random_walk.gif" alt="Random Walk">
+</div>
+<div class="caption">
+    Image 1. Random Walk Example on a known target distribution
 </div>
 
 ### Practical Example
