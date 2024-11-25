@@ -95,7 +95,10 @@ To illustrate, the animation below shows the random walk process for sampling th
     Image 1. Random Walk Example on a known target distribution
 </div>
 
-
+<img src="/assets/img/post_2_random_walk.gif" alt="Random Walk" style="display: block; margin: 0 auto;">
+<div class="caption">
+    Image 1. Random Walk Example on a known target distribution
+</div>
 
 ### Practical Example
 
