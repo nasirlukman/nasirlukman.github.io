@@ -91,7 +91,7 @@ To illustrate, the animation below shows the random walk process for sampling th
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% path="assets/img/post_2_random_walk.gif" %}
+        {% include figure.liquid path="assets/img/post_2_random_walk.gif" class="img-fluid rounded" %}
     </div>
 </div>
 <div class="caption">
