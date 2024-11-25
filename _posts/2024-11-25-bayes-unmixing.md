@@ -142,7 +142,7 @@ end
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/post_2_rokc_sample.png" class="img-fluid rounded" %}
+        {% include figure.liquid path="assets/img/post_2_rock_sample.png" class="img-fluid rounded" %}
     </div>
 </div>
 <div class="caption">
