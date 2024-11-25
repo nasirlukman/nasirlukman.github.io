@@ -90,7 +90,7 @@ To illustrate, the animation below shows the random walk process for sampling th
 
 ### Practical Example
 
-In this example, we are dealing with a sandstone rock sample. We have three minerals that represent the three main component of sandstone rock which quartz as the grains, clay as the matrix and carbonates as the cement. We assume that the endmember spectra is known for this mineral either by direct measurement in laboratory, from a spectral library, or from an [endmember extraction algorithm](https://nasirlukman.github.io/blog/2024/endmember-extraction/) if we are dealing with hyperspectral imagery. We wil begin the example with a single mixed spectra as shown in image below:
+In this example, we are dealing with a sandstone rock sample. We have three minerals that represent the three main component of sandstone rock which quartz as the grains, clay as the matrix and carbonates as the cement. We assume that the endmember spectra is known for this mineral either by direct measurement in laboratory, from a spectral library, or from an endmember extraction algorithm if we are dealing with hyperspectral imagery. We wil begin the example with a single mixed spectra as shown in image below:
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
