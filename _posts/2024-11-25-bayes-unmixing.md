@@ -34,50 +34,50 @@ start
 Following [Bayes' Theorem](https://en.wikipedia.org/wiki/Bayes%27_theorem), we can formulate this problem as:
 
 $$
-P(\mathbf{a}, \sigma^2 \mid \mathbf{y}, \mathbf{E}) = \frac{P(\mathbf{y} \mid \mathbf{a}, \sigma^2, \mathbf{E}) P(\mathbf{a}) P(\sigma^2)}{P(\mathbf{y} \mid \mathbf{E})}
+P(\mathbf{a}, \sigma^2 \mid \mathbf{y}, \mathbf{E}) \propto P(\mathbf{y} \mid \mathbf{a}, \sigma^2, \mathbf{E}) P(\mathbf{a}) P(\sigma^2)
 $$
 
 where:
-- \(P(\mathbf{a}, \sigma^2 \mid \mathbf{y}, \mathbf{E})\) is the posterior distribution of the abundance vector and error variance given the observed spectrum and endmembers,
-- \(P(\mathbf{y} \mid \mathbf{a}, \sigma^2, \mathbf{E})\) is the likelihood of the observed spectrum,
-- \(P(\mathbf{a})\) is the prior distribution of the abundance vector,
-- \(P(\sigma^2)\) is the prior distribution of the error variance,
-- \(P(\mathbf{y} \mid \mathbf{E})\) is the evidence (or marginal likelihood) which normalizes the posterior.
+- $$ \(P(\mathbf{a}, \sigma^2 \mid \mathbf{y}, \mathbf{E})\) $$ is the posterior distribution of the abundance vector and error variance given the observed spectrum and endmembers,
+- $$ \(P(\mathbf{y} \mid \mathbf{a}, \sigma^2, \mathbf{E})\) $$ is the likelihood of the observed spectrum,
+- $$ \(P(\mathbf{a})\) $$ is the prior distribution of the abundance vector,
+- $$ \(P(\sigma^2)\) $$ is the prior distribution of the error variance,
+- $$ \propto $$ denote proportionality
 
-Here we assume that the error term \(\mathbf{e}\) is normally distributed, so we use a normal likelihood:
+Here we assume that the error term $$ \(\mathbf{e}\) $$ is normally distributed, so we use a normal likelihood:
 
 $$
 P(\mathbf{y} \mid \mathbf{a}, \sigma^2, \mathbf{E}) = \mathcal{N}(\mathbf{y} \mid \mathbf{E}\mathbf{a}, \sigma^2\mathbf{I}),
 $$
 
-where \(\mathbf{I}\) is the identity matrix. 
+where $$ \(\mathbf{I}\) $$ is the identity matrix. 
 
-For the abundance vector \(\mathbf{a}\), we use a [Dirichlet prior](https://en.wikipedia.org/wiki/Dirichlet_distribution), which respects the non-negativity and sum-to-one constraints:
-
-$$
-P(\mathbf{a}) = \text{Dirichlet}(\mathbf{a} \mid \boldsymbol{\alpha}),
-$$
-
-where \(\boldsymbol{\alpha}\) is the concentration parameter. 
-
-For the variance \(\sigma^2\), we use a Half-Cauchy prior:
+For the abundance vector $$ \(\mathbf{a}\) $$, we use a [Dirichlet](https://en.wikipedia.org/wiki/Dirichlet_distribution) prior, which respects the non-negativity and sum-to-one constraints:
 
 $$
-P(\sigma^2) = \text{Half-Cauchy}(\sigma^2 \mid \beta),
+P(\mathbf{a}) = \mathcal{D}(\mathbf{a} \mid \boldsymbol{\alpha}),
 $$
 
-where \(\beta\) is the scale hyperparameter, and we assume a uniform prior for \(\beta\):
+where $$ \(\boldsymbol{\alpha}\) $$ is the concentration parameter. 
+
+For the variance $$ \(\sigma^2\) $$, we use a Half-Cauchy prior:
 
 $$
-P(\beta) = \text{Uniform}(\beta \mid 0, \infty).
+P(\sigma^2) = \mathcal{HC}(\sigma^2 \mid \beta),
 $$
 
-The hierarchical structure of the random variables is:
+where $$ \(\beta\) $$ is the scale hyperparameter, and we assume a uniform prior for $$ \(\beta\) $$:
 
-- \(\mathbf{y} \sim \mathcal{N}(\mathbf{E}\mathbf{a}, \sigma^2\mathbf{I})\),
-- \(\mathbf{a} \sim \text{Dirichlet}(\boldsymbol{\alpha})\),
-- \(\sigma^2 \sim \text{Half-Cauchy}(\beta)\),
-- \(\beta \sim \text{Uniform}(0, \infty)\).
+$$
+P(\beta) = \mathcal{U}(\beta \mid 0, \infty).
+$$
+
+Terefore, we can summarize the hierarchical structure of the random variables as:
+
+- $$ \(\mathbf{y} \sim \mathcal{N}(\mathbf{E}\mathbf{a}, \sigma^2\mathbf{I})\) $$,
+- $$ \(\mathbf{a} \sim \mathcal{D}(\boldsymbol{\alpha})\) $$,
+- $$ \(\sigma^2 \sim \mathcal{HC}(\beta)\) $$,
+- $$ \(\beta \sim \mathcal{U}(0, 10_{-4})\) $$.
 
 end
 
