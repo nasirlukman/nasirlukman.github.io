@@ -98,7 +98,9 @@ To illustrate, the animation below shows the random walk process for sampling th
 
 ### Practical Example
 
-In this example, we are dealing with a sandstone rock sample. We have three minerals that represent the three main component of sandstone rock which quartz as the grains, clay as the matrix and carbonates as the cement. We assume that the endmember spectra is known for this mineral either by direct measurement in laboratory, from a spectral library, or from an endmember extraction algorithm if we are dealing with hyperspectral imagery. We wil begin the example with a single mixed spectra as shown in image below:
+In this example, we will analyze a sandstone rock sample. Rock samples are ideal for testing this method since they represent natural surfaces and still allow us to conduct toher detailed analytical measurements with laboratory instruments to produce high-quality 'ground truth' data for comparison with our results.
+
+For the endmembers, we consider three primary components of sandstone: quartz (grains), clay (matrix), and carbonates (cement). The endmember spectra for these minerals are assumed to be known, either from direct laboratory measurements, spectral libraries, or endmember extraction algorithms for hyperspectral imagery. We begin with a single mixed spectrum, as shown in the image below:
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
@@ -109,10 +111,8 @@ In this example, we are dealing with a sandstone rock sample. We have three mine
     Image 2. Endmember spectra for Carbonate, Quartz, Clay minerals, and the observed mixed spectra
 </div>
 
+Using our Metropolis-Hastings sampler, we draw four chains of $$ 10^5 $$ random samples, tuning them carefully to ensure we only consider representative samples. For simplicity, we focus solely on the mineral abundances and omit other parameters. Below, we display the abundance trace plots alongside their corresponding marginal posterior distributions. The mean value (expected values) of the samples and the true abundance values are also shown as comparison. The RMSE for this result is 0.0209.
 
-
-
-pharagraph
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
@@ -124,7 +124,7 @@ pharagraph
 </div>
 
 
-pharagraph
+There are some cool things that we can do with the posteriors. For instance, we can visualize parameter correlations using a corner plot, as shown below.  Note as well how we denote the result with some notation such as: $$ 0.14_{+0.16}^{-0.12} $$ where the central value represents the expected value, while the subscript and superscript indicate the range of possible value within 90% confidence interval.
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
@@ -132,10 +132,11 @@ pharagraph
     </div>
 </div>
 <div class="caption">
-    Image 4. Corner plot of the marginal posterior showing correlations between each endmember abundances
+    Image 4. Corner plot of the marginal posterior showing correlations between each endmember abundances. Red and blue line represent the expected value (mean) and the true value. the black stripped line represent the boundary of 90% confidence interval.
 </div>
 
-pharagraph
+
+Corner plots are a really useful visualization, especially for high-dimensional parameter spaces. For this three-parameter example, however, we can also visualize the posterior on a ternary diagram:
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
@@ -143,10 +144,12 @@ pharagraph
     </div>
 </div>
 <div class="caption">
-    Image 5. Ternary plot 
+    Image 5. Ternary plot of the posterior of the abundances. Red and blue dot represent the expected value (mean) and the true value.
 </div>
 
-pharagraph
+
+The corner and ternary plots reveal a strong correlation between carbonate and quartz abundances. As carbonate increases, the algorithm compensates by reducing quartz to maintain a reasonable modeled spectrum that aligns with the observed data. Instead of a single modeled spectrum, the output is a distribution of spectra, visualized below:
+
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
@@ -157,7 +160,13 @@ pharagraph
     Image 6. Observed spectra vs distribution of the modeled spectra 
 </div>
 
-pharagraph
+
+This visualization highlights that, given the data and assumed uncertainties, the reasonable set of modeled spectra is represented by the 2D Normal distribution visualize by its percentiles as shown on the image above.
+
+
+### Hyperspectral Images
+
+The same process applies to hyperspectral images on a pixel-by-pixel basis. Here, we analyze a hyperspectral image of a sandstone drill core sample. Remember that for individual spectra (or also pixel in this case) the sampler will need to take and store $$ 10^{5} $$ sample for each parameters. This means that the final result will be a huge 4D array, adn the computation might take some time, depending on the efficinecy of the sampling algorithm used. Below, we visualize the expected abundance values for each endmember and their 90% confidence intervals range:
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
@@ -167,3 +176,11 @@ pharagraph
 <div class="caption">
     Image 7. Bayesian spectral unmixing result on a hyperspectral image of a rock sample
 </div>
+
+Comparing our bulk results with [QEMSCAN](https://en.wikipedia.org/wiki/QEMSCAN) results, we can achieve excellent agreement with an RMSE of 0.0186.
+
+It's important to highlight that quantification through imaging techniques like this does more than just identify mineral abundances—it also provides a detailed view of the rock's texture. By analyzing mineral distributions and their spatial relationships, we can potentially infer other critical physical properties of the rock such as porosity and permeability, which might be really usefult for application like reservoir characterization and groundwater studies.
+
+The inclusion of uncertainty measurement in spectral unmixing offers an important insights into the reliability of the results. Rather than relying solely on point estimates, we gain a more nuanced understanding of the possible variations and correlations in parameter space. This is particularly valuable when making decisions based on complex data, as it helps avoid overconfidence and identifies parameters requiring further refinement. In mineral quantification, understanding uncertainties can reveal how robust the mineral abundance estimates are, guiding both data interpretation and future analyses.
+
+Hyperspectral imaging, as demonstrated in this example, have the potential for a more fast and cost-effective alternative of mineral abundance mapping compared to other laboratory method. Moreover, it has the potential to scale up to airborne and satellite platforms, making it one of a kind method for larger-scale mineral mapping and monitoring.
