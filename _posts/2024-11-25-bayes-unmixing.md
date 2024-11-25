@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Bayesian Spectral Unmixing
-date: 2024-11-25 12:36:10
+date: 2024-11-24 12:36:10
 description: Bayesian approach on spectral unmixing
 ---
 
