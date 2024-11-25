@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Different Distance Metrics Example in Spectral Unmixing
-date: 2024-11-15 23:36:10
-description: Comparison between Euclidean distance, Manhattan distance, and angular distance in spectral unmixing
+title: Bayesian Spectral Unmixing
+date: 2024-11-25 23:36:10
+description: Bayesian approach on spectral unmixing
 ---
 
 In the [last post](https://nasirlukman.github.io/blog/2024/distance/) we've talk a little bit about how spectral unmixing in practice will always suffer from a certain level of uncertainty both related to the data and the model that we are using. Optimization approach to such problem such as the one used in previous post assume that the data and the model are perfect, or at least the uncertainty related to both are negligible. In this post we will look briefly at the Bayesian approach on spectral unmixing, where we explicitly model the uncertainty related to our problem and pass the uncertainty to the final results of our unmixing. So instead of getting a vector of mineral abundances as the result of our unmixing, we got the full probability distribution of the results. 
