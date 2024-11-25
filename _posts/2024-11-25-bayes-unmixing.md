@@ -19,7 +19,7 @@ where:
 - $$ \mathbf{a} $$ is the abundance vector,
 - $$ \mathbf{e} $$ represents error terms/uncertainty.
 
-> Context for this post: We are focusing on unmixing for minerals on particulate surfaces (e.g., rock surfaces). Due to multiple-scattering effects, the linear relationship above does not hold when using reflectance data. Instead, we will use the [Single Scattering Albedo (SSA)](https://en.wikipedia.org/wiki/Single-scattering_albedo) which derived from Hapke's Model, as it better handles these effect. For those interested in the underlying theory, I highly recommend consulting [this book](https://www.cambridge.org/core/books/theory-of-reflectance-and-emittance-spectroscopy/C266E1164D5E14DA18141F03D0E0EAB0); these two papers that really helps a lot with the subject: [1](https://agupubs.onlinelibrary.wiley.com/doi/abs/10.1029/JB094iB10p13619), [2](https://www.researchgate.net/publication/264564339_A_Review_of_Nonlinear_Hyperspectral_Unmixing_Methods); or other sources (including my [thesis](https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=http://essay.utwente.nl/101556/1/Lukman_MA_ITC.pdf&ved=2ahUKEwjqlY-m8faJAxUdw6ACHRUJKj0QFnoECBkQAQ&usg=AOvVaw3Tbo1LEGrTchQ7edNZoxGt)😉)
+> Context for this post: We are focusing on unmixing for minerals on particulate surfaces (e.g., rock surfaces). Due to multiple-scattering effects, the linear relationship above does not hold when using reflectance data. Instead, we will use the [Single Scattering Albedo (SSA)](https://en.wikipedia.org/wiki/Single-scattering_albedo) which derived from Hapke's Model, as it better handles these effect. For those interested in the underlying theory, I highly recommend consulting [this book](https://www.cambridge.org/core/books/theory-of-reflectance-and-emittance-spectroscopy/C266E1164D5E14DA18141F03D0E0EAB0); these two papers that really helps me a lot with the subject: [[1]](https://agupubs.onlinelibrary.wiley.com/doi/abs/10.1029/JB094iB10p13619), [[2]](https://www.researchgate.net/publication/264564339_A_Review_of_Nonlinear_Hyperspectral_Unmixing_Methods); or other sources (including my [thesis](https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=http://essay.utwente.nl/101556/1/Lukman_MA_ITC.pdf&ved=2ahUKEwjqlY-m8faJAxUdw6ACHRUJKj0QFnoECBkQAQ&usg=AOvVaw3Tbo1LEGrTchQ7edNZoxGt)😉)
 
 
 ### bayesian Framework
@@ -35,7 +35,7 @@ where:
 - $$ P(\mathbf{y} \mid \mathbf{a}, \sigma^2, \mathbf{E}) $$ is the likelihood of the observed spectrum,
 - $$ P(\mathbf{a}) $$ is the prior distribution of the abundance vector,
 - $$ P(\sigma^2) $$ is the prior distribution of the error variance,
-- $$ and \propto $$ denote proportionality
+- and $$ \propto $$ denote proportionality
 
 We assume that the error term $$ \mathbf{e} $$ is normally distributed, giving us a [Normal](https://distribution-explorer.github.io/continuous/normal.html) likelihood:
 
@@ -68,8 +68,11 @@ $$
 Terefore, we can summarize the hierarchical structure of the random variables as:
 
 $$ \mathbf{y} \sim \mathcal{N}(\mathbf{E}\mathbf{a}, \sigma^2\mathbf{I}) $$,
+
 $$ \mathbf{a} \sim \mathcal{D}(\boldsymbol{\alpha}) $$,
+
 $$ \sigma^2 \sim \mathcal{HC}(\beta) $$,
+
 $$ \beta \sim \mathcal{U}(0, 10^{-4}) $$.
 
 As you might guess, this formulation of the posterior distribution cannot be solved analytically. Instead, we use [*Markov Chain Monte Caelo (MCMC)*](https://en.wikipedia.org/wiki/Markov_chain_Monte_Carlo) to sample and estimate the posterior. For educational purposes, I’ve implemented a custom sampler based on the [*Metropolis-Hastings Random Walk*](https://en.wikipedia.org/wiki/Metropolis%E2%80%93Hastings_algorithm) in Python. In practice, however, modern samplers like *NUTS (No-U-Turn Sampler)* in an established library such as [PyMC](https://www.pymc.io/welcome.html) are often preferable. They offer a more efficient and streamlined sampling process, sparing users the burden of directly managing the nasty mathematics behind these algorithms.
@@ -80,7 +83,7 @@ To illustrate, the animation below shows the random walk process for sampling th
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/post_2_random_walk.gif" class="img-fluid rounded" %}
+        <img src="assets/img/post_2_random_walk.gif" alt="Random Walk Example">
     </div>
 </div>
 <div class="caption">
