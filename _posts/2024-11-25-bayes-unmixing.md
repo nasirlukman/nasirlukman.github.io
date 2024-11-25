@@ -91,14 +91,14 @@ To illustrate, the animation below shows the random walk process for sampling th
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/post_2_random_walk.gif" class="img-fluid rounded" %}
+        <img src="/assets/img/post_2_random_walk.gif" alt="Random Walk">
     </div>
 </div>
 <div class="caption">
     Image 1. Random Walk Example on a known target distribution
 </div>
 
-<img src="/assets/img/post_2_random_walk.gif" alt="Funny Cat" width="300" height="200">
+
 
 ### Practical Example
 
