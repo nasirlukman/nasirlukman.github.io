@@ -5,19 +5,18 @@ date: 2024-11-24 12:36:10
 description: Bayesian approach on spectral unmixing with an example case using hyperspectral images of sandstone drill core sample.
 ---
 
-Hyperspectral imagery often contains mixed pixels—pixels that represent areas with more than one class of interest. Given the complexity of the scenes, and the rigid structure of images, it is unrealistic to assume every pixel to correspond to a single class. These classes could include features like water, trees, shrubs, grass, soil, or roads when performing land cover classification using satellite or airborne imagery. In earht escience, the class of interest often is minerals that forms rocks. In any way, trying to find the purest pixels of each class in our image is something that often useful for further analysis.
+Hyperspectral imagery often contains mixed pixels—pixels that represent areas with more than one class of interest. Given the complexity of the scenes, and the rigid structure of images, it is unrealistic to assume every pixel to correspond to a single class. These classes could include features like water, trees, shrubs, grass, soil, or roads when performing land cover classification using satellite or airborne imagery. In earth science, the class of interest often is minerals that forms rocks. In any way, trying to find the purest pixels , or *endmembers*, of each class in our image is something that often useful for further analysis.
 
-In this post, I'll provide a brief overview of one endmember extraction algorithm reffered to as N-FINDR. But, before diving into the details of the algorithm, it is important to acknowledge the general limitations of endmember extraction algorithms:
+In this post, I'll provide a brief overview of one endmember extraction algorithm reffered to as *N-FINDR*. But, before diving into the details of the algorithm, it is important to acknowledge the general limitations of endmember extraction algorithms:
 
-1. Purity is not guaranteed: These algorithms don’t guarantee that the extracted spectra represent a pure spectra of specific class of interest. Instead, they identify the purest spectra present in the image.
-2. Known number of endmembers: The number of endmembers in the image must be known beforehand. This can be estimated using domain expertise, auxiliary measurements, other algorithms, or trial and error.
-3. Linear mixture model assumption: Most endmember extraction algorithms, including N-FINDR, assume a linear mixture model.
+1. **Purity is not guaranteed**: These algorithms don’t guarantee that the extracted spectra represent a pure spectra of specific class of interest. Instead, they identify the purest spectra present in the image.
+2. **Known number of endmembers**: The number of endmembers in the image must be known beforehand. This can be estimated using domain expertise, auxiliary measurements, other algorithms, or trial and error.
+3. **Linear mixture model assumption**: Most endmember extraction algorithms, including N-FINDR, assume a linear mixture model.
 
 
 ## How N-FINDR Works
 
-The core idea of N-FINDR is simple yet clever: it identifies the vertices of the simplex formed by the data distribution in reduced dimensions. These vertices are the purest spectra, or *endmembers*, present in the dataset.
-Steps of the Algorithm:
+The core idea of N-FINDR is simple yet clever: it identifies the vertices of the simplex formed by the data distribution in reduced dimensions. These vertices are the purest spectra present in the dataset. The general steps of the algorithm is as follows:
 
 1. **Reprojection**: Reproject all pixels into a lower-dimensional space using an orthogonal transformation like Principle Component Analysis (PCA) or Minimum Noise Fraction (MNF). MNF is often preferred because it minimizes the influence of noise.
 2. **Dimensionality reduction**: Reduce the dimensionality to the first $$ (n−1) $$ components, where $$ n $$ is the number of endmembers. At this stage, the data points should lie inside an $$ (n-1) $$ dimensional simplex.
@@ -69,7 +68,7 @@ A quick inspection of the rock suggests that it is predominantly composed of thr
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/post_3_rock_image.png" class="img-fluid rounded" %}
+        {% include figure.liquid path="assets/img/post_3_real_mixture_MNF.png" class="img-fluid rounded" %}
     </div>
 </div>
 <div class="caption">
@@ -82,14 +81,14 @@ We can examine the spectra of the selected purest pixels by transforming them ba
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/post_3_endmember_result.png" class="img-fluid rounded" %}
+        {% include figure.liquid path="assets/img/post_3_pure_endmember_result.png" class="img-fluid rounded" %}
     </div>
 </div>
 <div class="caption">
     Image 5. Resulting spectra of the three endmember from N-FINDR algorithm
 </div>
 
-If you know your mineralogy and infrared spectroscopy you can immedietly recognize these minerals. The red spectra have a strong absorption feature in ~2200 nm region which related the Al-OH bonds of white mica/clay mienrals. The blue spectra have an absroption feature in ~2330 nm region related to CO3 bonds of carbonate minerals. The green and bright spectra represent quartz mineral. we still can see a very weak feature in ~2200 nm sugest that it is not 100% pure spectra adn there is still a small influence of clay minerals. 
+If you know your mineralogy and infrared spectroscopy you can immedietly recognize these minerals. The red spectra have a strong absorption feature in $$ ~2200 nm $$ region which related the $$ Al-OH $$ bonds of white mica/clay mienrals. The blue spectra have an absroption feature in $$ ~2330 nm $$ region related to $$ CO_3 $$ bonds of carbonate minerals. The green and bright spectra represent quartz mineral. we still can see a very weak feature in $$ ~2200 nm $$ sugest that it is not 100% pure spectra adn there is still a small influence of clay minerals. 
 
 While these spectra are not perfectly pure, they are sufficiently representative to be useful for further analysis. For instance, as shown in our [previous post](https://nasirlukman.github.io/blog/2024/bayes-unmixing/), we used these endmember spectra for spectral unmixing and achieved excellent results, with an RMSE of only 0.0186.
 
