@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Bayesian Spectral Unmixings
+title: Endmember Extraction from Hyperspectral Imagery Using N-FINDR
 date: 2024-11-24 12:36:10
 description: Bayesian approach on spectral unmixing with an example case using hyperspectral images of sandstone drill core sample.
 ---
