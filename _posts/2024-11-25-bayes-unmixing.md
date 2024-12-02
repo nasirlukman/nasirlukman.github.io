@@ -65,7 +65,7 @@ $$
 P(\beta) = \mathcal{U}(\beta \mid 0, 0^{-4}).
 $$
 
-Terefore, we can summarize the hierarchical structure of the random variables as:
+Therefore, we can summarize the hierarchical structure of the random variables as:
 
 $$ 
 \mathbf{y} \sim \mathcal{N}(\mathbf{E}\mathbf{a}, \sigma^2\mathbf{I}) 
