@@ -41,7 +41,7 @@ pagination:
     </ul>
   </div>
   {% endif %}
-  
+
 <div class="post">
 
 {% assign featured_posts = site.posts | where: "featured", "true" %}
@@ -104,7 +104,6 @@ pagination:
     {% else %}
       {% assign read_time = post.feed_content | strip_html | number_of_words | divided_by: 180 | plus: 1 %}
     {% endif %}
-    {% assign year = post.date | date: "%Y" %}
     {% assign tags = post.tags | join: "" %}
     {% assign categories = post.categories | join: "" %}
 
