@@ -1,11 +1,12 @@
 ---
 layout: post
 title: Quick Soil Sampling Data Summary With Python
-subtitle: Using pandas, matplotlib, and numpy to create a quick and dirty plot that summarized your data. Just enough to make your job easier.
-tags: [python, geology, exploration, soil sampling, data, pandas, matplotlib, numpy]
+date: 2021-02-14 23:36:10
+description: Using pandas, matplotlib, and numpy to create a quick and dirty plot that summarized your data. Just enough to make your job easier.
+tags: 
 ---
 
-Geologists often use soil sampling methods in mineral exploration to gather information about elements anomaly in the soil of a certain area. The output of this activity is a database containing coordinates and various elements concentration from the sample taken at that point. Before diving deep into the data and doing any fancy analysis, it is always a good idea to familiarize ourselves with the data by looking into the summary statistics and the general and spatial relationship of the data as a whole. By using python we can write a simple code to get the summary statistics and some useful graphs to summarize the data in just a few minutes.
+Geologists often use soil sampling methods in mineral exploration to gather information about element anomalies in the soil of a certain area. The output of this activity is a database containing coordinates and various element concentrations from the sample taken at that point. Before diving deep into the data and doing any fancy analysis, it is always a good idea to familiarize ourselves with the data by looking into the summary statistics and the general and spatial relationship of the data as a whole. By using Python we can write a simple code to get the summary statistics and some useful graphs to summarize the data in just a few minutes.
 
 We will use `pandas`, `numpy`, and `matplotib` libraries for this code, so let's begin with importing our library
 
