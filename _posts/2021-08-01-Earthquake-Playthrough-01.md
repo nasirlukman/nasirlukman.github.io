@@ -3,7 +3,7 @@ layout: post
 title: Earthquake Playthrough 01
 date: 2021-08-01 23:36:10
 description: Practicing python with earthquake data from USGS libcomcat API
-tags: [python, geology, earthquake, libcomcat, data, pandas, matplotlib, numpy, basemap, USGS]
+tags: 
 ---
 USGS provides a very useful API to their earthquake catalog called `libcomcat` which I think stands for [*library comprehensive catalog*](https://github.com/usgs/libcomcat). In this post, we will try to use `libcomcat` to get the earthquake dataset and make some data visualization from it. Hopefully, we can exercise a few python libraries while also learning a few interesting facts about earthquakes.
 
@@ -205,8 +205,15 @@ plt.show()
 ```
 
 
-    
-![png](/img/Earthquake_Playthrough_01_files/Earthquake_Playthrough_01_11_0.png)
+ <div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid path="/img/Earthquake_Playthrough_01_files/Earthquake_Playthrough_01_11_0.png" class="img-fluid rounded" %}
+    </div>
+</div>
+<div class="caption">
+    Image 1. Study area extent
+</div>   
+
     
 
 
@@ -284,8 +291,14 @@ plt.show()
 ```
 
 
-    
-![png](/img/Earthquake_Playthrough_01_files/Earthquake_Playthrough_01_15_0.png)
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid path="/img/Earthquake_Playthrough_01_files/Earthquake_Playthrough_01_15_0.png" class="img-fluid rounded" %}
+    </div>
+</div>
+<div class="caption">
+    Image 3. Earthquake density map
+</div>  
     
 
 
@@ -326,12 +339,15 @@ plt.show()
 
 ```
 
-    
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid path="/img/Earthquake_Playthrough_01_files/Earthquake_Playthrough_01_18_1.png" class="img-fluid rounded" %}
+    </div>
+</div>
+<div class="caption">
+    Image 4. Earthquake kernel density map
+</div>     
 
-
-    
-![png](/img/Earthquake_Playthrough_01_files/Earthquake_Playthrough_01_18_1.png)
-    
 
 
 We can see from the map above that the most notable *seismic gap* are located at the south of Central and West Java, Bali & Lombok, and NTT.
@@ -365,10 +381,15 @@ plt.show()
 ```
 
 
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid path="/img/Earthquake_Playthrough_01_files/Earthquake_Playthrough_01_24_0.png" class="img-fluid rounded" %}
+    </div>
+</div>
+<div class="caption">
+    Image 5. Y-axis cross-section of the earthquake depth shows a subduction slab shape
+</div>     
     
-![png](/img/Earthquake_Playthrough_01_files/Earthquake_Playthrough_01_24_0.png)
-    
-
 
 Well, yeah, It's a subduction zone alright. I wonder what our plot would look like if we use 'X_WM' coordinate as our X-axis. Let's try to make one.
 
@@ -388,8 +409,14 @@ plt.show()
 ```
 
 
-    
-![png](/img/Earthquake_Playthrough_01_files/Earthquake_Playthrough_01_26_0.png)
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid path="/img/Earthquake_Playthrough_01_files/Earthquake_Playthrough_01_26_0.png" class="img-fluid rounded" %}
+    </div>
+</div>
+<div class="caption">
+    Image 6. Y-axis cross-section of the earthquake depth highlight seismic gap at depth of 3km to 5 km.
+</div>          
     
 
 
@@ -425,11 +452,16 @@ plt.show()
 ```
 
 
-    
-![png](/img/Earthquake_Playthrough_01_files/Earthquake_Playthrough_01_29_0.png)
-    
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid path="/img/Earthquake_Playthrough_01_files/Earthquake_Playthrough_01_29_0.png" class="img-fluid rounded" %}
+    </div>
+</div>
+<div class="caption">
+    Image 7. Histograms of Depths and Magnitudes.
+</div>          
 
-
+    
 The interesting thing to notice in this depth distribution is the anomaly at the deep-focal earthquake, earthquake frequency seems to get lower with depth and reach its lowest point at around 300 km, this is expected due to the increasing plasticity of slabs with depths due to increasing pressure and temperature. What is quite unexpected is the rise of the frequency at around 500 km (it is important to note that deep-focus earthquakes are only observed around a subduction zone, so it is safe to assume that it is directly related to subduction activity). One possible explanation of the deep-focus earthquake is transformational faulting in metastable peridotite wedges within
 a cold slab. Where the mechanical faulting at those depths is hard to explain, some models suggest that transformational faulting due to polymorphic reactions in which olivine transforms to the spinel structure and clinoenstatite transforms to ilmenite may cause such shear instability ([Kirby et al., 1996](https://www.earth.northwestern.edu/public/emile/PDF/EAO104.pdf)).
 This effect of decreasing seismic activity with depth until it reaches the depth where olivine and clinoesntatie transformation occurs where there is a little bump in the earthquake frequency caused an apparent seismic gap in the vertical plane which occurs at around 300 to 500 km.
@@ -495,10 +527,16 @@ classification_histogram(depth_class_list,'depth',2 ,3)
 ```
 
 
-    
-![png](/img/Earthquake_Playthrough_01_files/Earthquake_Playthrough_01_36_0.png)
-    
+ <div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid path="/img/Earthquake_Playthrough_01_files/Earthquake_Playthrough_01_36_0.png" class="img-fluid rounded" %}
+    </div>
+</div>
+<div class="caption">
+    Image 8. Histograms of different earthquake depth classification.
+</div>   
 
+  
 
 At this stage, I think the normality assumption is reasonable and it could be the basis to split our depth dataset into several groups in our classification. If we look at depth distribution in our present classification, there are still indications of mixing population since we still don't have an unimodal distribution. I think it is a good idea to try multiple Gaussian fixes in the data in the future, for now, we will settle with this USGS classification.
 
@@ -532,8 +570,15 @@ classification_histogram(magnitude_class_list,'magnitude',2 ,5)
 ```
 
 
-    
-![png](/img/Earthquake_Playthrough_01_files/Earthquake_Playthrough_01_40_0.png)
+
+ <div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid path="/img/Earthquake_Playthrough_01_files/Earthquake_Playthrough_01_40_0.png" class="img-fluid rounded" %}
+    </div>
+</div>
+<div class="caption">
+    Image 9. Histograms of different earthquake magnitude classification.
+</div>      
     
 
 
