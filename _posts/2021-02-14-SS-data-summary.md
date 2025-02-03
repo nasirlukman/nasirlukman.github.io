@@ -1022,7 +1022,5 @@ plt.show()
 <div class="caption">
     Image 3. Elements concentration map
 </div>
-![png](/img/SS_data_summary_files/SS_data_summary_25_0.png)
-
 
 And that's it. Your soil sampling data summary in just about a minute. You can download the full code on my [GitHub page](https://github.com/nasirlukman/project-dump/tree/main) and reuse it for your next project. Hope it can save you the trouble and you can be more focused on your real geologist work. Have fun exploring!
