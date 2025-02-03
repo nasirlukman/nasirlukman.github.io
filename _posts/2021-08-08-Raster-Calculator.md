@@ -15,18 +15,19 @@ The benefit of calculating SR in a raster calculator, rather than in any build-u
 
 ### Data Preparation
 
-Readily available raw elevation data is usually stored in a vector format of in [x,y,z] point text format; so first, we need to convert our data format. If our points data are already in a grid structure, we can perform conversion directly with vector to raster which in QGIS can be found in ***Raster>Conversion>Rasterized(Vector to Raster)***. If our data point is not neatly and densely structured then it becomes an interpolation problem. There are a lot of interpolation methods that we can pick, depending on our initial data and our desired products. For this purpose, I will use IDW Interpolation that in QGIS can be found in ***Processing>Toolbox>Interpolation>IDW interpolation***. Below is an example of IDW interpolation from my topography data.
+Readily available raw elevation data is usually stored in a vector format of in [x,y,z] point text format; so first, we need to convert our data format. If our points data are already in a grid structure, we can perform conversion directly with vector to raster which in QGIS can be found in ***Raster>Conversion>Rasterized(Vector to Raster)***. If our data point is not neatly and densely structured then it becomes an interpolation problem. There are a lot of interpolation methods that we can pick, depending on our initial data and our desired products. For this purpose, I will use IDW Interpolation that in QGIS can be found in ***Processing>Toolbox>Interpolation>IDW Interpolation ***. Below is an example of IDW interpolation from my topography data.
 
 
 
 
-
-
-
-
-    
-![png](/img/Raster_Calculator_files/Raster_Calculator_6_0.png)
-    
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid path="/img/Raster_Calculator_files/Raster_Calculator_6_0.png" class="img-fluid rounded" %}
+    </div>
+</div>
+<div class="caption">
+    Image 1. IDW interpolation of topo data points.
+</div>         
 
 
 
@@ -34,11 +35,14 @@ After all our data layers are ready in raster format, it is always a good idea t
 
 
 
-
-
-    
-![png](/img/Raster_Calculator_files/Raster_Calculator_8_0.png)
-    
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid path="/img/Raster_Calculator_files/Raster_Calculator_8_0.png" class="img-fluid rounded" %}
+    </div>
+</div>
+<div class="caption">
+    Image 2. Quick inspection of the cross section with QGIS Profile Tool.
+</div>  
 
 
 
@@ -50,13 +54,14 @@ After all of our data are ready in raster format, we can start to write our expr
 now if we want to make SR blocks, first we have to figure out the expression to calculate it. The simplest definition of SR is just the ratio between overburden and coal or any other valuable material of interest, both on its respective cost units. In this example, it is the ratio between overburden in bulk cubic meters (bcm) to coal in ton.
 
 
-
-
-
-
-    
-![png](/img/Raster_Calculator_files/Raster_Calculator_12_0.png)
-    
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid path="/img/Raster_Calculator_files/Raster_Calculator_12_0.png" class="img-fluid rounded" %}
+    </div>
+</div>
+<div class="caption">
+    Image 3. A simple equation to compute SR blocks
+</div> 
 
 
 
@@ -68,41 +73,41 @@ There is a good text indicator at the bottom of the window that tells us whether
 
 Below is the results of our calculation above after I adjusted the Legends in layer properties.
 
-
-
-
-
-
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid path="/img/Raster_Calculator_files/Raster_Calculator_14_0.png" class="img-fluid rounded" %}
+    </div>
+</div>
+<div class="caption">
+    Image 3. SR block results.
+</div> 
     
-![png](/img/Raster_Calculator_files/Raster_Calculator_14_0.png)
-    
-
 
 
 After we are familiar with how the raster calculator works, we can run any expression that we want, for our next example, We will try to calculate operating income blocks by subtracting operating cost from revenue.
 
 
-
-
-
-
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid path="/img/Raster_Calculator_files/Raster_Calculator_16_0.png" class="img-fluid rounded" %}
+    </div>
+</div>
+<div class="caption">
+    Image 3. Estimating operating income blocks using price and cost assumptions.
+</div> 
     
-![png](/img/Raster_Calculator_files/Raster_Calculator_16_0.png)
-    
-
-
 
 This is the result of that operation:
 
 
-
-
-
-
-    
-![png](/img/Raster_Calculator_files/Raster_Calculator_18_0.png)
-    
-
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid path="/img/Raster_Calculator_files/Raster_Calculator_18_0.png" class="img-fluid rounded" %}
+    </div>
+</div>
+<div class="caption">
+    Image 3. Estimated operation income blocks (in USD).
+</div> 
 
 
 ## Using Raster Calculator in QGIS Python Console
