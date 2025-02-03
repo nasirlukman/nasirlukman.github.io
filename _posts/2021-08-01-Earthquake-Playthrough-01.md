@@ -1,10 +1,11 @@
 ---
 layout: post
 title: Earthquake Playthrough 01
-subtitle: Practicing python with earthquake data from USGS libcomcat API
+date: 2021-08-01 23:36:10
+description: Practicing python with earthquake data from USGS libcomcat API
 tags: [python, geology, earthquake, libcomcat, data, pandas, matplotlib, numpy, basemap, USGS]
 ---
-USGS provides a very useful API to their earthquake catalog called `libcomcat` which I think stands for [*library comprehensive catalog*](https://github.com/usgs/libcomcat). In this post, we will try to use `libcomcat` to get the earthquake dataset and make some data visualization from it. Hopefully, we can exercise a few python libraries while also learning a few interesting facts about earthquake.
+USGS provides a very useful API to their earthquake catalog called `libcomcat` which I think stands for [*library comprehensive catalog*](https://github.com/usgs/libcomcat). In this post, we will try to use `libcomcat` to get the earthquake dataset and make some data visualization from it. Hopefully, we can exercise a few python libraries while also learning a few interesting facts about earthquakes.
 
 # Using `libcomcat` to get our dataframe
 
@@ -173,11 +174,11 @@ df.head()
 
 We must be cautious with the units of each variable in our data, which in this case are as follows :
 - x and y coordinates in decimal degrees
-- depths in kilometer below sea level
+- depths in kilometers below sea level
 - magnitude in Moment Magnitude (Mw)
 
 
-> We may be familiar with *Ritcher Scale* as the unit of earthquake magnitude. Since there are a few proven inaccuracies in *Ritcher Scale* most seismology authorities reported their magnitude in *Moment Magnitude*. These two unit measures earthquake magnitude in base ten logarithmic scale and the difference between the unit is quite low. Consult [wikipedia](https://en.wikipedia.org/wiki/Seismic_magnitude_scales) for more information about this.
+> We may be familiar with *the Ritcher Scale* as the unit of earthquake magnitude. Since there are a few proven inaccuracies in *the Ritcher Scale* most seismology authorities reported their magnitude in *Moment Magnitude*. These two units measure earthquake magnitude in base ten logarithmic scale and the difference between the units is quite low. Consult [wikipedia](https://en.wikipedia.org/wiki/Seismic_magnitude_scales) for more information about this.
 
 # Map plot with `Basemap`
 
@@ -243,9 +244,9 @@ plt.show()
     
 
 
-It's interesting how the depth of the earthquake is increasing to the north. Its most probably related to the subducted oceanic crust depth which also must be increasing to the north. A section along the latitude would show the shape of the subducted oceanic crust, we will try to make it later. 
+It's interesting how the depth of the earthquake is increasing to the north. It's most probably related to the subducted oceanic crust depth which also must be increasing to the north. A section along the latitude would show the shape of the subducted oceanic crust, we will try to make it later. 
 
-Another piece of information that we can get from the plot above is that the earthquakes are not distributed uniformly along the subduction zone. There are several areas with significantly fewer earthquake occurrences than its surroundings which are usually referred to as [*seismic gap*](https://en.wikipedia.org/wiki/Seismic_gap#:~:text=A%20seismic%20gap%20is%20a,segments%20along%20the%20same%20structure.). let's try to make a density heatmap to get a better visualization for this. We will use `np.histogram` to calculate a gridded density of the earthquake and plot it with `plt.pcolormash()` above our `Basemap`.
+Another piece of information that we can get from the plot above is that the earthquakes are not distributed uniformly along the subduction zone. There are several areas with significantly fewer earthquake occurrences than it's surroundings which are usually referred to as [*seismic gap*](https://en.wikipedia.org/wiki/Seismic_gap#:~:text=A%20seismic%20gap%20is%20a,segments%20along%20the%20same%20structure.). let's try to make a density heatmap to get a better visualization for this. We will use `np.histogram` to calculate a gridded density of the earthquake and plot it with `plt.pcolormash()` above our `Basemap`.
 
 
 ```python
@@ -285,7 +286,7 @@ plt.show()
 
 we can go one step further and use *kernel density estimation* to draw a smoother density heatmap by using `gaussian_kde` from `scipy`.
 
->*kernel density estimation* or KDE for short is a statistic method to estimate the probability density function of a random variable based on a finite sample. [Here](https://mathisonian.github.io/kde/) is a very neat explanation of how KDE works on one-dimensional data.
+>*kernel density estimation* or KDE for short is a statistical method to estimate the probability density function of a random variable based on a finite sample. [Here](https://mathisonian.github.io/kde/) is a very neat explanation of how KDE works on one-dimensional data.
 
 
 ```python
@@ -332,7 +333,7 @@ We can see from the map above that the most notable *seismic gap* are located at
 
 # Cross Section
 
-Now, to see the shape of subducting slabs below Java let's plot our earthquake datasets along the Y coordinate cross-section. To make a properly scaled cross-section first we need to transform our coordinate from latitude/longitude in decimal degree, into UTM in the metric unit so it has the same measurement unit with the depth. Our problem is that we are dealing with a large area that spans multiple UTM zone here, and as far as I know, there is no simple and straightforward solution to this issue. Lucky for us, Google already solved this for us when they were facing the same issue for their Google Maps projects in 2005 by inventing a new projection system called [Web Mercator](https://en.wikipedia.org/wiki/Web_Mercator_projection). Let us make two new columns called 'X_WM' and 'Y_WM' for our X dan Y coordinate in Web Mercator Projection. We will use  `Transformer` from `pyproj` library to calculate our coordinates transformation.
+Now, to see the shape of subducting slabs below Java let's plot our earthquake datasets along the Y coordinate cross-section. To make a properly scaled cross-section first we need to transform our coordinate from latitude/longitude in decimal degrees, into UTM in the metric unit so it has the same measurement unit with the depth. Our problem is that we are dealing with a large area that spans multiple UTM zones here, and as far as I know, there is no simple and straightforward solution to this issue. Lucky for us, Google already solved this for us when they were facing the same issue for their Google Maps projects in 2005 by inventing a new projection system called [Web Mercator](https://en.wikipedia.org/wiki/Web_Mercator_projection). Let us make two new columns called 'X_WM' and 'Y_WM' for our X dan Y coordinate in Web Mercator Projection. We will use  `Transformer` from `pyproj` library to calculate our coordinates transformation.
 
 
 ```python
@@ -341,7 +342,7 @@ transformer = Transformer.from_crs("epsg:4326", "epsg:3857", always_xy=True)
 df['X_WM'], df['Y_WM'] = transformer.transform(df['longitude'].values, df['latitude'].values)
 ```
 
-now to make our cross-section in this case we want to use 'Y_WM' as our X-axis in the plot, and 'depth' as our Y-axis. Remember that depth in our database is still in a positive kilometer so we need to transform it to a negative meter value at our plot by multiplying it with -1000.
+now to make our cross-section in this case we want to use 'Y_WM' as our X-axis in the plot, and 'depth' as our Y-axis. Remember that depth in our database is still in a positive kilometer so we need to transform it to a negative meter value at our plot by multiplying it by -1000.
 
 
 ```python
@@ -387,7 +388,7 @@ plt.show()
     
 
 
-Obviously, we cannot see the shape of our subduction slab in this cross-section, but we can still get a piece of good information with this visualization. Note another *seismic gap* around depth 3 km to 5 km. *Seismic gaps* do not only occur on a horizontal plane, but also on a vertical plane. We cannot see this gap clearly on our previous cross-section because our visualization is distracted by an anomaly at the eastern part of our area where apparently there is not much seismic gap there. If you look back at our map plot, you can see that this anomalous area is in the southern part of Sulawesi. Well as any Geologist knows, there are a lot of suspicious things going on in Sulawesi's tectonic settings, so this kind of anomaly comes as no surprise.
+Obviously, we cannot see the shape of our subduction slab in this cross-section, but we can still get a piece of good information with this visualization. Note another *seismic gap* around depth 3 km to 5 km. *Seismic gaps* do not only occur on a horizontal plane but also on a vertical plane. We cannot see this gap clearly on our previous cross-section because our visualization is distracted by an anomaly at the eastern part of our area where apparently there is not much seismic gap there. If you look back at our map plot, you can see that this anomalous area is in the southern part of Sulawesi. Well as any Geologist knows, there are a lot of suspicious things going on in Sulawesi's tectonic settings, so this kind of anomaly comes as no surprise.
 
 # Depth and magnitude distribution
 
@@ -429,10 +430,10 @@ a cold slab. Where the mechanical faulting at those depths is hard to explain, s
 This effect of decreasing seismic activity with depth until it reaches the depth where olivine and clinoesntatie transformation occurs where there is a little bump in the earthquake frequency caused an apparent seismic gap in the vertical plane which occurs at around 300 to 500 km.
 
 
-And what is surprising for me is the distribution of the magnitude which is closely resemble a normal distribution with mean and median value close with each other (or we can say it a log-normal distribution since the magnitudes are in Ritcher Scale which is a logarithmic scale) rather than resembling a power-law distribution.
-As for now, I can't find any explanation for this, whether this is really the case or we actually have a problem with our datasets where USGS have difficulties in detecting the smaller magnitude earthquakes. This [wikipedia page](https://en.wikipedia.org/wiki/Gutenberg%E2%80%93Richter_law#Background) suggests the later would be the case but also mention some earthquake dynamics models that explain the lower frequency in lower magnitude earthquakes physically.
+What is surprising for me is the distribution of the magnitude which closely resembles a normal distribution with mean and median values close to each other (or we can say it a log-normal distribution since the magnitudes are in the Ritcher Scale which is a logarithmic scale) rather than resembling a power-law distribution.
+As for now, I can't find any explanation for this, whether this is really the case or we actually have a problem with our datasets where USGS has difficulties in detecting the smaller magnitude earthquakes. This [wikipedia page](https://en.wikipedia.org/wiki/Gutenberg%E2%80%93Richter_law#Background) suggests the latter would be the case but also mentions some earthquake dynamics models that explain the lower frequency in lower magnitude earthquakes physically.
 
-Now it is probably a good idea to splits our dataset into several categories and sees the distribution on each. Let split the depth into three categories based on [USGS classification](https://www.usgs.gov/natural-hazards/earthquake-hazards/science/determining-depth-earthquake?qt-science_center_objects=0#qt-science_center_objects) into:
+Now it is probably a good idea to split our dataset into several categories and see the distribution of each. Let's split the depth into three categories based on [USGS classification](https://www.usgs.gov/natural-hazards/earthquake-hazards/science/determining-depth-earthquake?qt-science_center_objects=0#qt-science_center_objects) into:
 
 - shallow earthquake (0-70)km
 - intermediate earthquake (70-300)km
@@ -445,7 +446,7 @@ df['depth_classification'] = df['depth'].apply(lambda x: 'shallow' if x <=70 els
 
 ```
 
-In the line above we will use `apply()` and `lambda` to make a new column called `'depth_classification'` in `df` Dataframe and put values on it based on condition in column `depth`.
+In the line above we will use `apply()` and `lambda` to make a new column called `'depth_classification'` in `df` Dataframe and put values on it based on the condition in column `depth`.
 
 Since we need to draw a lot of histograms for depth and magnitude distribution in every classification, let's write a function to draw it more efficiently
 
@@ -494,11 +495,11 @@ classification_histogram(depth_class_list,'depth',2 ,3)
     
 
 
-At this stage, I think the normality assumption is reasonable and it could be the basis to split our depth dataset into several groups in our classification. If we look at depth distribution in our present classification, there are still indications of mixing population since we still don't have a unimodal distribution. I think it is a good idea to try multiple gaussian fixes into the data in the future, for now, we will settle with this USGS classification.
+At this stage, I think the normality assumption is reasonable and it could be the basis to split our depth dataset into several groups in our classification. If we look at depth distribution in our present classification, there are still indications of mixing population since we still don't have an unimodal distribution. I think it is a good idea to try multiple Gaussian fixes in the data in the future, for now, we will settle with this USGS classification.
 
-I still don't think it is a good idea to assume normality in magnitude distribution since I assume that smaller magnitude earthquake occurrences are exponentially higher than larger magnitude occurrences. But since our initial datasets distribution for magnitude shows a normal behavior, I imagine our classification should preserve the shape of the original data (which is the case for this classification), since I assume that earthquake magnitude spread with the same behavior in all depths. Well, let's try to split our magnitude to see if that assumption holds!
+I still don't think it is a good idea to assume normality in magnitude distribution since I assume that smaller magnitude earthquake occurrences are exponentially higher than larger magnitude occurrences. But since our initial dataset distribution for magnitude shows a normal behavior, I imagine our classification should preserve the shape of the original data (which is the case for this classification), since I assume that earthquake magnitude spreads with the same behavior in all depths. Well, let's try to split our magnitude to see if that assumption holds!
 
-We will divide out magnitude data into several groups based on [this classification](http://www.geo.mtu.edu/UPSeis/magnitude.html) into:
+We will divide our magnitude data into several groups based on [this classification](http://www.geo.mtu.edu/UPSeis/magnitude.html) into:
 
 - minor earthquake (<4)Mw
 - light earthquake (4-5)Mw
@@ -531,7 +532,7 @@ classification_histogram(magnitude_class_list,'magnitude',2 ,5)
     
 
 
-We can see from the depth histograms that every magnitude group has the same depth distribution pattern which means that our assumption still holds. From the magnitude histograms on the second row, at minor earthquake magnitude distribution, we can see that data are absent at a magnitude around 1 and 2. That is very suspicious and most probably due to incomplete data records. That is probably the reason why we have an unexpected normal distribution on our magnitude data. we can see from another group from light to great earthquake magnitude distribution that the distribution more resembles a power-law distribution. The apparent normal-like distribution that we see from our initial data is most probably due to missing a big chunk of data on the left side of our distribution.
+We can see from the depth histograms that every magnitude group has the same depth distribution pattern which means that our assumption still holds. From the magnitude histograms on the second row, at minor earthquake magnitude distribution, we can see that data are absent at a magnitude around 1 and 2. That is very suspicious and most probably due to incomplete data records. That is probably the reason why we have an unexpected normal distribution of our magnitude data. we can see from another group from light to great earthquake magnitude distribution that the distribution more resembles a power-law distribution. The apparent normal-like distribution that we see from our initial data is most probably due to missing a big chunk of data on the left side of our distribution.
 
-I think that is probably all for our today's playthrough with USGS earthquake data catalog. I believe it is a nice way to exercise python libraries while acquiring a nice insight into the nature of earthquakes. There are so much that we can still do to our data, a few ideas that I will try for the next few weeks are trying to split our dataset into more detailed categories with multiple gaussian fit, and calculating energy release in spatial and temporal perspective. And I am pretty sure that there is still so much to explore along the way. I'll make sure to post my notebook update next week!
+I think that is probably all for our today's playthrough with USGS earthquake data catalog. I believe it is a nice way to exercise Python libraries while acquiring a nice insight into the nature of earthquakes. There is so much that we can still do to our data, a few ideas that I will try for the next few weeks are trying to split our dataset into more detailed categories with multiple Gaussian fit, and calculating energy release in spatial and temporal perspective. And I am pretty sure that there is still so much to explore along the way. I'll make sure to post my notebook update next week!
              
