@@ -7,5 +7,5 @@ I'm planning to use this corner of the internet to put some of my side projects 
 
 ### I'm still learning for now so please be nice.
  
-## But I'll get better soon, stay tuned!
+## But I'll get better soon!
  
