@@ -239,10 +239,15 @@ plt.show()
 ```
 
 
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid path="/img/Earthquake_Playthrough_01_files/Earthquake_Playthrough_01_13_0.png" class="img-fluid rounded" %}
+    </div>
+</div>
+<div class="caption">
+    Image 2. Earthquake depth (km)
+</div>
     
-![png](/img/Earthquake_Playthrough_01_files/Earthquake_Playthrough_01_13_0.png)
-    
-
 
 It's interesting how the depth of the earthquake is increasing to the north. It's most probably related to the subducted oceanic crust depth which also must be increasing to the north. A section along the latitude would show the shape of the subducted oceanic crust, we will try to make it later. 
 
