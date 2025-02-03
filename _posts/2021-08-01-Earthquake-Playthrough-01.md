@@ -101,7 +101,7 @@ df.head()
       <td>15.0</td>
       <td>6.3</td>
       <td>NaN</td>
-      <td>https://earthquake.usgs.gov/earthquakes/eventp...</td>
+      <td>https://www.usgs.gov/programs/earthquake-hazards/earthquakes</td>
       <td>earthquake</td>
       <td>611</td>
     </tr>
@@ -116,7 +116,7 @@ df.head()
       <td>35.0</td>
       <td>7.1</td>
       <td>NaN</td>
-      <td>https://earthquake.usgs.gov/earthquakes/eventp...</td>
+      <td>https://www.usgs.gov/programs/earthquake-hazards/earthquakes</td>
       <td>earthquake</td>
       <td>776</td>
     </tr>
@@ -131,7 +131,7 @@ df.head()
       <td>60.0</td>
       <td>7.0</td>
       <td>NaN</td>
-      <td>https://earthquake.usgs.gov/earthquakes/eventp...</td>
+      <td>https://www.usgs.gov/programs/earthquake-hazards/earthquakes</td>
       <td>earthquake</td>
       <td>754</td>
     </tr>
@@ -146,7 +146,7 @@ df.head()
       <td>20.0</td>
       <td>6.4</td>
       <td>NaN</td>
-      <td>https://earthquake.usgs.gov/earthquakes/eventp...</td>
+      <td>https://www.usgs.gov/programs/earthquake-hazards/earthquakes</td>
       <td>earthquake</td>
       <td>630</td>
     </tr>
@@ -161,7 +161,7 @@ df.head()
       <td>60.0</td>
       <td>6.3</td>
       <td>NaN</td>
-      <td>https://earthquake.usgs.gov/earthquakes/eventp...</td>
+      <td>https://www.usgs.gov/programs/earthquake-hazards/earthquakes</td>
       <td>earthquake</td>
       <td>611</td>
     </tr>
