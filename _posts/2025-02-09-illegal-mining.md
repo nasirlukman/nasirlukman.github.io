@@ -156,6 +156,6 @@ I also think it would be interesting to combine this dataset with detailed censu
 </div>
 
 
-## Conlcussion
+## Conclussion
 
 Satellite imagery provides extensive spatial and temporal coverage, making it a valuable tool for large-scale monitoring of terrestrial activities, including illegal mining. Using satellite data alone, we can extract information such as mining boundaries over time, mining methods, commodities, and environmental impacts. In our small-scale test, we demonstrated how deep learning can automate the mining boundary delineation process with good accuracy. To assess the compliance status of mining activities, additional geospatial data layers are required. In this example, we used unofficial mining concession boundaries and environmentally restricted area boundaries as an example. This simple yet effective approach enables high-scale monitoring to identify trends in mining activities and their compliance with regulations.
