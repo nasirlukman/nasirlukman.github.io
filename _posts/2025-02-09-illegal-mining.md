@@ -124,11 +124,11 @@ The chart below visualize the categorization of the mining areas:
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/post_5_donut_chart.png" class="img-fluid rounded" %}
+        {% include figure.liquid path="assets/img/post_5_classification_diagram.png" class="img-fluid rounded" %}
     </div>
 </div>
 <div class="caption">
-    Image 6. Docnut chart of the mining are classified by its location relative to concession area and environmentally restricted area.
+    Image 6. Complience category based on overlay results
 </div>
 
 The result can also be visualized on province basis using pie chart map as shown below:
