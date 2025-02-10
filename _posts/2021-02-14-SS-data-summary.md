@@ -1,11 +1,12 @@
 ---
 layout: post
 title: Quick Soil Sampling Data Summary With Python
-subtitle: Using pandas, matplotlib, and numpy to create a quick and dirty plot that summarized your data. Just enough to make your job easier.
-tags: [python, geology, exploration, soil sampling, data, pandas, matplotlib, numpy]
+date: 2021-02-14 23:36:10
+description: Using pandas, matplotlib, and numpy to create a quick and dirty plot that summarized your data. Just enough to make your job easier.
+tags: 
 ---
 
-Geologists often use soil sampling methods in mineral exploration to gather information about elements anomaly in the soil of a certain area. The output of this activity is a database containing coordinates and various elements concentration from the sample taken at that point. Before diving deep into the data and doing any fancy analysis, it is always a good idea to familiarize ourselves with the data by looking into the summary statistics and the general and spatial relationship of the data as a whole. By using python we can write a simple code to get the summary statistics and some useful graphs to summarize the data in just a few minutes.
+Geologists often use soil sampling methods in mineral exploration to gather information about element anomalies in the soil of a certain area. The output of this activity is a database containing coordinates and various element concentrations from the sample taken at that point. Before diving deep into the data and doing any fancy analysis, it is always a good idea to familiarize ourselves with the data by looking into the summary statistics and the general and spatial relationship of the data as a whole. By using Python we can write a simple code to get the summary statistics and some useful graphs to summarize the data in just a few minutes.
 
 We will use `pandas`, `numpy`, and `matplotib` libraries for this code, so let's begin with importing our library
 
@@ -912,11 +913,17 @@ for element in data.iloc[:,2:].columns:
 plt.show()
 ```
 
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid path="/img/SS_data_summary_files/SS_data_summary_16_0.png" class="img-fluid rounded" %}
+    </div>
+</div>
+<div class="caption">
+    Image 1. Elements concentration (log ppm)
+</div>
 
-![png](/img/SS_data_summary_files/SS_data_summary_16_0.png)
 
-
-Code above can be separated into two sections. The first section of the code will define the figure and axis canvas for our plot. Since we are dealing with 35 variables we will divide our subplots into 7 rows and 5 columns. 
+The code above can be separated into two sections. The first section of the code will define the figure and axis canvas for our plot. Since we are dealing with 35 variables we will divide our subplots into 7 rows and 5 columns. 
 
 We can check the length of our variable with:
 
@@ -943,7 +950,7 @@ The second section of the code defines the loop behavior that will plot each his
 
 ## Correlation Matrix
 
-Our next figure will be a correlation matrix. This is a very useful and neat graph that will tell us the correlation coefficient of one variable with another variable within the dataset. Correlation matrix value ranges from -1 to 1, where:
+Our next figure will be a correlation matrix. This is a very useful and neat graph that will tell us the correlation coefficient of one variable with another variable within the dataset. The correlation matrix value ranges from -1 to 1, where:
 - -1 = perfect negative correlation 
 - 0 = no correlation
 - 1 = perfect positive correlation.
@@ -969,13 +976,20 @@ ax.set_yticklabels(grade.columns)
 plt.show()
 ```
 
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid path="/img/SS_data_summary_files/SS_data_summary_22_0.png" class="img-fluid rounded" %}
+    </div>
+</div>
+<div class="caption">
+    Image 2. Elements concentration correlation matrix
+</div>
 
-![png](/img/SS_data_summary_files/SS_data_summary_22_0.png)
 
 
 ## Map plots
 
-With the same concept as the histograms plot, we can make quick and dirty map plots of our points to get a glimpse of the spatial correlation of each element. For this purpose we use `scatter()` function with our UTM coordinates as its x and y value and denote the concentration value of each element to a color map using `cmap()`. We do this using `for` loop so it can loop to each *element* in our `grade` data.
+With the same concept as the histogram plot, we can make quick and dirty map plots of our points to get a glimpse of the spatial correlation of each element. For this purpose, we use `scatter()` function with our UTM coordinates as its x and y value and denote the concentration value of each element to a color map using `cmap()`. We do this using `for` loop so it can loop to each *element* in our `grade` data.
 
 
 ```python
@@ -1000,8 +1014,13 @@ ax[11,2].set_axis_off()
 plt.show()
 ```
 
-
-![png](/img/SS_data_summary_files/SS_data_summary_25_0.png)
-
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid path="/img/SS_data_summary_files/SS_data_summary_25_0.png" class="img-fluid rounded" %}
+    </div>
+</div>
+<div class="caption">
+    Image 3. Elements concentration map
+</div>
 
 And that's it. Your soil sampling data summary in just about a minute. You can download the full code on my [GitHub page](https://github.com/nasirlukman/project-dump/tree/main) and reuse it for your next project. Hope it can save you the trouble and you can be more focused on your real geologist work. Have fun exploring!

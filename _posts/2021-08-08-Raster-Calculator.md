@@ -1,61 +1,67 @@
 ---
 layout: post
 title: Using Raster Calculator in QGIS GUI and Python Console to Make SR Blocks
-subtitle: Raster Calculator is a very useful tool to have at our disposal. Let's try it to make SR blocks
-tags: [python, GIS, QGIS, Raster, RasterCalculator, PyQGIS, SR, geology]
+date: 2021-08-08 23:36:10
+description: Raster Calculator is a very useful tool to have at our disposal. Let's try it to make SR blocks
+tags: 
 ---
 
 
-Raster Calculator is a robust way to execute a map algebra operation on raster image(s) using a user-friendly calculator-like format. It is a commonly available feature on any GIS software such as ArcGIS and QGis. And raster itself is one of the commonly used data formats in GIS which stores data in cells or pixels and organized it into rows and columns (position) and each cell or pixel containing a value that represents certain information (visualized as colors). We can use raster calculator to exploit these array-like properties of raster data to run any map algebra operation to each pixel in a robust way.
+Raster Calculator is a robust way to execute a map algebra operation on raster image(s) using a user-friendly calculator-like format. It is a commonly available feature on any GIS software such as ArcGIS and QGis. Raster itself is one of the commonly used data formats in GIS which stores data in cells or pixels and organizes it into rows and columns (position) and each cell or pixel contains a value that represents certain information (visualized as colors). We can use a raster calculator to exploit these array-like properties of raster data to run any map algebra operation on each pixel in a robust way.
 
-The benefit of calculating SR in raster calculator, rather than in any build-up function that your software already provides, is the flexibility of the operation that you can run. Now today we will try to perform a calculation to generate raster data containing a stripping ratio value of each pixel area given the topographic elevation data, and roof and floor elevation of each seam (we will use two seams for this example, let's name it Seam A and Seam B).
+The benefit of calculating SR in a raster calculator, rather than in any build-up function that your software already provides, is the flexibility of the operation that you can run. Now today we will try to perform a calculation to generate raster data containing a stripping ratio value of each pixel area given the topographic elevation data, and roof and floor elevation of each seam (we will use two seams for this example, let's name it Seam A and Seam B).
 
 ## Raster Calculator with QGIS GUI
 
 ### Data Preparation
 
-Readily available raw elevation data is usually stored in a vector format of in [x,y,z] point text format; so first, we need to convert our data format. If our points data are already in a grid structure, we can perform conversion directly with vector to raster which in QGIS can be found in ***Raster>Conversion>Rasterized(Vector to Raster)***. If our data point is not neatly and densely structured then it becomes an interpolation problem. There are a lot of interpolation methods that we can pick, depends on our initial data and our desired products. For this purpose I will use IDW Interpolation that in QGIS can be found in ***Processing>Toolbox>Interpolation>IDW interpolation***. Bellow is the example of IDW interpolation from my topography data.
+Readily available raw elevation data is usually stored in a vector format of in [x,y,z] point text format; so first, we need to convert our data format. If our points data are already in a grid structure, we can perform conversion directly with vector to raster which in QGIS can be found in ***Raster>Conversion>Rasterized(Vector to Raster)***. If our data point is not neatly and densely structured then it becomes an interpolation problem. There are a lot of interpolation methods that we can pick, depending on our initial data and our desired products. For this purpose, I will use IDW Interpolation that in QGIS can be found in ***Processing>Toolbox>Interpolation>IDW Interpolation ***. Below is an example of IDW interpolation from my topography data.
 
 
 
 
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid path="/img/Raster_Calculator_files/Raster_Calculator_6_0.png" class="img-fluid rounded" %}
+    </div>
+</div>
+<div class="caption">
+    Image 1. IDW interpolation of topo data points.
+</div>         
 
 
 
-
-    
-![png](/img/Raster_Calculator_files/Raster_Calculator_6_0.png)
-    
+After all our data layers are ready in raster format, it is always a good idea to check the relationship of our datasets to get a better feel of what we are dealing with, for this example, we will try to make quick cross-sections. There is a very useful plugin in QGIS that I like to use to make a cross-section called [Profile Tool](https://plugins.qgis.org/plugins/profiletool/). You can install this plugin in ***Plugins>Manage and install plugins...*** and search for Profile Tool in the search bar. In our data example today, we can see that we have two seams with pretty simple geometry that have a northwest dip direction.
 
 
 
-After all our data layers are ready in raster format, it is always a good idea to check the relationship of our datasets to get a better feel of what we are dealing with, for this example we will try to make quick cross-sections. There is a very useful plugin in QGIS that I like to use to make a cross-section called [Profile Tool](https://plugins.qgis.org/plugins/profiletool/). You can install this plugin in ***Plugins>Manage and install plugins...*** and search for Profile Tool in the search bar. In our data example today, we can see that we have two seams with pretty simple geometry that have a North West dip direction.
-
-
-
-
-
-    
-![png](/img/Raster_Calculator_files/Raster_Calculator_8_0.png)
-    
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid path="/img/Raster_Calculator_files/Raster_Calculator_8_0.png" class="img-fluid rounded" %}
+    </div>
+</div>
+<div class="caption">
+    Image 2. Quick inspection of the cross section with QGIS Profile Tool.
+</div>  
 
 
 
 ### Using Raster Calculator
 
-After all of our data are ready in raster format, we can start to write our expression in raster calculator. First, open up raster calculator in ***Raster>Raster calculator...***. The GUI of raster calculator is pretty straightforward and easy to get used to. every operation, variables, fields, layers, etc are stored in the graphic interface so we can just write in using our mouse if we want. raster calculator syntax is based on [map algebra](https://desktop.arcgis.com/en/arcmap/latest/extensions/spatial-analyst/map-algebra/what-is-map-algebra.htm), which is basically an easier to read type of algebra.
+After all of our data are ready in raster format, we can start to write our expression in the raster calculator. First, open up the raster calculator in ***Raster>Raster calculator...***. The GUI of the raster calculator is pretty straightforward and easy to get used to. every operation, variables, field, layer, etc are stored in the graphic interface so we can just write in using our mouse if we want. raster calculator syntax is based on [map algebra](https://desktop.arcgis.com/en/arcmap/latest/extensions/spatial-analyst/map-algebra/what-is-map-algebra.htm), which is basically an easier-to-read type of algebra.
 
 
-now if we want to make SR blocks, first we got to figure out the expression to calculate it. The simplest definition of SR is just the ratio between overburden and coal or any other valuable material of interest, both on its respective cost unit. In this example, it is the ratio between overburden in bulk cubic meter (bcm) to coal in ton.
+now if we want to make SR blocks, first we have to figure out the expression to calculate it. The simplest definition of SR is just the ratio between overburden and coal or any other valuable material of interest, both on its respective cost units. In this example, it is the ratio between overburden in bulk cubic meters (bcm) to coal in ton.
 
 
-
-
-
-
-    
-![png](/img/Raster_Calculator_files/Raster_Calculator_12_0.png)
-    
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid path="/img/Raster_Calculator_files/Raster_Calculator_12_0.png" class="img-fluid rounded" %}
+    </div>
+</div>
+<div class="caption">
+    Image 3. A simple equation to compute SR blocks
+</div> 
 
 
 
@@ -63,45 +69,45 @@ We can specify the resolution of our output raster by filling the column and row
 - Column = (Xmax-Xmin)/desired resolution
 - Row = (Ymax-Ymin)/desired resolution
 
-There is a good text indicator at the bottom of the window that tells us wether the expression that we put are valid or invalid. If the expression is valid, then we can proceed and press OK, if it is invalid, then we need to check and fix our expression.
+There is a good text indicator at the bottom of the window that tells us whether the expressions that we put are valid or invalid. If the expression is valid, then we can proceed and press OK, if it is invalid, then we need to check and fix our expression.
 
-Below is the results of our calculation above after I adjust the Legends in layer properties.
+Below is the results of our calculation above after I adjusted the Legends in layer properties.
 
-
-
-
-
-
-    
-![png](/img/Raster_Calculator_files/Raster_Calculator_14_0.png)
-    
-
-
-
-After we are familiar with how raster calculator works, we can run any expression that we want, for our next example, We will try to calculate operating income blocks by subtracting operating cost from revenue.
-
-
-
-
-
-
-    
-![png](/img/Raster_Calculator_files/Raster_Calculator_16_0.png)
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid path="/img/Raster_Calculator_files/Raster_Calculator_14_0.png" class="img-fluid rounded" %}
+    </div>
+</div>
+<div class="caption">
+    Image 3. SR block results.
+</div> 
     
 
 
-
-And this is the result of that operation:
-
+After we are familiar with how the raster calculator works, we can run any expression that we want, for our next example, We will try to calculate operating income blocks by subtracting operating cost from revenue.
 
 
-
-
-
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid path="/img/Raster_Calculator_files/Raster_Calculator_16_0.png" class="img-fluid rounded" %}
+    </div>
+</div>
+<div class="caption">
+    Image 3. Estimating operating income blocks using price and cost assumptions.
+</div> 
     
-![png](/img/Raster_Calculator_files/Raster_Calculator_18_0.png)
-    
 
+This is the result of that operation:
+
+
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid path="/img/Raster_Calculator_files/Raster_Calculator_18_0.png" class="img-fluid rounded" %}
+    </div>
+</div>
+<div class="caption">
+    Image 3. Estimated operation income blocks (in USD).
+</div> 
 
 
 ## Using Raster Calculator in QGIS Python Console
@@ -156,7 +162,7 @@ for file in file_list:
         layer_dict[file_name] = [QgsRasterLayer(path+file), file_name+'@1']
 ```
 
-this code block will work to open up every raster (*.tif* extension) files in your working directory, so be sure to put all your needed raster files into one directory. After that, the loop will write those files into a  layer dictionary. The dictionary will contain the name of the file without its extension as a key and its `QgsRasterLayer` class and names (which is the file name + *'@1'*). This is the naming convention for a raster layer in which the number after *'@'* specifies the number of bands that the raster contains (in our case it is 1).
+this code block will work to open up every raster (*.tif* extension) file in your working directory, so be sure to put all your needed raster files into one directory. After that, the loop will write those files into a  layer dictionary. The dictionary will contain the name of the file without its extension as a key and its `QgsRasterLayer` class and names (which is the file name + *'@1'*). This is the naming convention for a raster layer in which the number after *'@'* specifies the number of bands that the raster contains (in our case it is 1).
 
 
 ```python
@@ -187,7 +193,7 @@ This is where the actual calculation occurs. `QgsRasterCalculator` takes the fol
 - expression: which can be any expression you like, written in string format
 - output file path also in string. Be sure to specify the extension behind the file name
 - output format which is also in string. The most commonly used file format is GTiff for *.tif* file
-- the extent from output file which is usually the same as the input extent, or any numbers depends on your needs
+- the extent from the output file which is usually the same as the input extent, or any numbers depending on your needs
 - nrows and ncols which define the total number of rows and columns on a given extent. For this example, since I want a 10-meter resolution raster as output and I have a 1-meter resolution for the input, I just divided my input height and width by ten
 - `entries` list
 
