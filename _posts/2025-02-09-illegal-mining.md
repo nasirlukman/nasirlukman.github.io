@@ -6,8 +6,6 @@ description: Using satellite imagery to monitor illegal mining
 tags: 
 ---
 
-# Illegal Mining From Space
-
 High-resolution satellite imagery provides us with global time-series data, which can be applied to various interesting applications. One such application is monitoring mining activities. There are literally thousands of mining sites across the globe, which are inherently dynamic (i.e., they undergo rapid changes over time) and often located in remote areas. This creates significant challenges for effective monitoring.
 
 Any serious attempt at a global-scale analysis of these activities requires the use of satellite imagery in some form. Information such as the extent of mining activity, the mining methods used, and the commodities being extracted can be interpreted from satellite data. Additionally, parameters like land-use changes, soil contamination, and surface water pollution can also be analyzed using satellite imagery.
