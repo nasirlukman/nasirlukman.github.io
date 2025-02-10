@@ -54,7 +54,7 @@ After the model get a good accuracy in the testing stage, the model are deployed
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/post_5_timeseries result.gif" class="img-fluid rounded" %}
+        {% include figure.liquid path="assets/img/post_5_timeseries_result.gif" class="img-fluid rounded" %}
     </div>
 </div>
 <div class="caption">
