@@ -40,7 +40,7 @@ The images below compare a standard cloudless mosaic with a bare earth mosaic de
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/post_6_agriculutre.png" class="img-fluid rounded" %}
+        {% include figure.liquid path="assets/img/post_6_agriculture.png" class="img-fluid rounded" %}
     </div>
 </div>
 <div class="caption">
