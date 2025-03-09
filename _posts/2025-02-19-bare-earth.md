@@ -27,7 +27,7 @@ This approach selects only the driest, non-vegetated pixels from the time-series
 
 2. Pixel Filtering: Using various spectral indices for vegetation, water, and soil to exclude unwanted pixels.
 
-2. Geometric Median Computation: Calculating the median of the remaining pixels to minimize noise and cloud contamination.
+2. Geometric Median Computation: Calculating the geometric median of the remaining pixels to minimize noise and cloud contamination.
 
 3. Final Masking: Removing residual built-up areas using LULC maps.
 
