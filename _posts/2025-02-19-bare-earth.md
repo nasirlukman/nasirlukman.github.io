@@ -82,5 +82,5 @@ This color composite highlight the potential of bare earth moscais for geologica
 
 The main challenge in generating a nationwide bare earth composite for Indonesia is scalability. My current approach exceeds Google Earth Engine’s computational limits when applied at scale. To overcome this, I need to optimize the process or split the computation into hundreds of smaller patches.
 
-This is an ongoing experiment, and I hope to refine the method further. If you have suggestions or insights, feel free to share.
+This is an ongoing experiment, and I hope to refine the method further. If you have suggestions or insights, please feel free to share!
 
