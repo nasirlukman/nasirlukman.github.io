@@ -5,7 +5,7 @@ date: 2025-02-19 23:36:10
 description: First trial to build Sentinel-2 bare earth mosaics for Indonesia in Earth Engine
 tags: 
 ---
-As a tropical country, Indonesia faces challenges in using optical remote sensing data for geological analysis due to extensive vegetation cover. According to the Indonesia Land Use/Land Cover (LULC) Map of 2019, only 1.8% of the land is classified as bare land. However, a significant portion of vegetated area (38.2%) consists of agricultural land. During land use changes, particularly in the early stages of agricultural development, land clearing exposes the bare soil. Additionally, many agricultural areas follow cultivation cycles, periodically revealing the soil beneath.
+As a tropical country, Indonesia faces challenges in using optical remote sensing data for soil and geological analysis due to extensive vegetation cover. According to the Indonesia Land Use/Land Cover (LULC) Map of 2019, only 1.8% of the land is classified as bare land. However, a significant portion of vegetated area (38.2%) consists of agricultural land. During land use changes, particularly in the early stages of agricultural development, land clearing exposes the bare soil. Additionally, many agricultural areas follow cultivation cycles, periodically revealing the soil beneath.
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
