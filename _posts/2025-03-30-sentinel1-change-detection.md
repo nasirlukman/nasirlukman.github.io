@@ -33,7 +33,7 @@ Below are examples of the results of this method compared to the Hansen layer fo
 </div>
 
 
-The main difference between the two results is the big patch of deforestation in the top-right layer, which was not recorded in the Hansen layer. The Hansen dataset I acquired from Earth Engine only goes up to 2023, and those deforestations are happening in 2024. The most important difference, of course, is the time frequency. My approach records monthly changes, so if we zoom into the top-left patch of the image, we can see the detail of the deforestation progression throughout the months of the year—much more detailed than Hansen's yearly data. This monthly information is useful for building an early warning system to monitor forests.
+The main difference between the two results is the big patch of deforestation in the top-right layer, which was not recorded in the Hansen layer. The Hansen dataset I acquired from Earth Engine only goes up to 2023, and those deforestations are happening in 2024. The most important difference, of course, is the time frequency. My approach records monthly changes, so if we zoom into the top-left patch of the image as an example, we can see the detail of the deforestation progression throughout the months of the year. This monthly information is useful for building an early warning system to monitor forest area throughout the globe.
 
 
 <div class="row mt-3">
@@ -46,4 +46,4 @@ The main difference between the two results is the big patch of deforestation in
 </div>
 
 
-Another potential issue (or maybe a potential feature) of this approach is that,  our measurement is essentially a proxy for forest density change. This means it is not only sensitive to deforestation but also to disturbance. Without ground truth, it is difficult to make sure whether these patches are indeed related to actual disturbance events or an artifact of sensor noise. If we want to exclude these small changese patches we can adjust the threshold, and some other post processing approach such as majority kernel. It is very difficult to find an optimum threshold for a very large area (i.e. the whole planet) so some trade-off decision need to be made.
+Another potential issue (or maybe a potential feature) of this approach is that,  our measurement is essentially a proxy for forest density change. This means it is not only sensitive to deforestation but also to disturbance. Unfortunately, without ground truth, it is difficult to make sure whether these patches are indeed related to actual disturbance events or an artifact of sensor noise. My best bet is that it is currently the combination of both. If we want to exclude these small changese patches we can adjust the threshold, and add aditional post-processing step such as majority kernel. It is very difficult to find an optimum threshold for a very large area (i.e. the whole planet) so some trade-off decision need to be made.
