@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Spatio-Temporal Analysis of Industrial and Artisinal Offshore Tin Mining Vessel Using Sentinel-1 Imagery
+title: Spatio-Temporal Analysis of Industrial and Artisinal Offshore Tin Mining Vessel
 date: 2025-4-5 23:36:10
 description: Object-based image classification of mining vessels using Sentinel-1 timeseries.
 tags: 
