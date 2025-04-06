@@ -121,5 +121,5 @@ One interesting observation is that mining vessels often operate in clusters. Th
 
 ## To Wrap Up
 
-Offshore tin mining around Bangka is a complex activity, spanning from industrial-scale operations to small artisanal efforts. Continuous monitoring of these activities coul helps bring transparency to an industry that often operates in remote and loosely regulated areas. Using freely available satellite data, especially Sentinel-1 SAR, offers a promising way to monitor these activities systematically over time. While there are still challenges such as distinguishing mining vessels from other ships or dealing with limited training data, the initial results shows a strong potential to reveal a meaningful patterns.
+Offshore tin mining around Bangka is a complex activity, spanning from industrial-scale operations to small artisanal efforts. Continuous monitoring of these activities could helps bring transparency to an industry that often operates in remote and loosely regulated areas. Using freely available satellite data, especially Sentinel-1 SAR, offers a promising way to monitor these activities systematically over time. While there are still challenges such as distinguishing mining vessels from other ships or dealing with limited training data, the initial results shows a strong potential to reveal a meaningful patterns.
 
