@@ -21,6 +21,8 @@ Generally, the steps are as follows:
 
 4. *Forest Mask* (ideally): We also need to incorporate a forest mask to remove any changes that are not related to the forest (which I didn’t include this time).
 
+5. *Change Detection*: Subtracting images in concecutive time periods and applying threshold value to filter out minor changes due to noises.
+
 Below are examples of the results of this method compared to the Hansen layer for some forest areas in Borneo, which have been converted into palm oil plantations.
 
 <div class="row mt-3">
