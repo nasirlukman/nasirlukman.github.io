@@ -24,7 +24,7 @@ To better understand how offshore mining activity changes over time, I’ve been
 
 For this study, I focused on the eastern part of Bangka Island.
 
-Before doing any detection, I needed data I could trust. That meant finding scenes where Sentinel-1 and Sentinel-2 images—or ideally very high-resolution optical images—were available on the same date. This allows for visual confirmation of vessel types and ensures that the training data is as accurate as possible.
+Before doing any detection, I needed a good quality 'ground truth' data. In this case that meant finding scenes where Sentinel-1 and Sentinel-2 images—or ideally very high-resolution optical images—were available on the same date. This allows for visual confirmation of vessel types and ensures that the training data is as accurate as possible.
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
