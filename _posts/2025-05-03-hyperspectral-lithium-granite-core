@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Hyperspectral Imaging Analysis of Lithium Bearing Granite
+title: Mapping Lithium Bearing Mineral in Granite with Hyperspectral Imaging
 date: 2025-05-03 12:36:10
 description: Using Minimum Wavelength Mapper and Decision Tree Classifier to analyze hyperspectral image of lithium bearing granite core sample.
 tags: 
@@ -25,7 +25,7 @@ Muscovite, which contains Al-OH bonds, shows an absorption feature near 2206 nm.
         {% include figure.liquid 
             path="assets/img/post_10_lepidolite_muscovite_spectra.png" 
             class="img-fluid rounded" 
-            alt="Difference between lepidolite and muscovite spectra. "
+            alt="Spectral signature comparison between lepidolite and muscovite from hyperspectral imaging of lithium-rich granite"
         %}
     </div>
 </div>
@@ -50,7 +50,7 @@ For this analysis I am using an open source software called [Hyppy](https://zeno
         {% include figure.liquid 
             path="assets/img/post_10_minimum_wavelength_mapper.png" 
             class="img-fluid rounded" 
-            alt="Minimum Wavelenth Map of the rock sample showing the gradual change from lepidolite to muscovite."
+            alt="Decision tree classifier result identifying 10 mineral groups in lithium-bearing granite using hyperspectral imaging data"
         %}
     </div>
 </div>
