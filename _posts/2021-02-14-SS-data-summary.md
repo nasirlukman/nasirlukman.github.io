@@ -915,7 +915,11 @@ plt.show()
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid path="/img/SS_data_summary_files/SS_data_summary_16_0.png" class="img-fluid rounded" %}
+        {% include figure.liquid 
+          path="/img/SS_data_summary_files/SS_data_summary_16_0.png" 
+          class="img-fluid rounded" 
+          alt="A data table showing the first five rows of a soil geochemical dataset with coordinates and elemental concentration values such as Mg, Al, Si, P, and others."
+        %}
     </div>
 </div>
 <div class="caption">
@@ -978,7 +982,11 @@ plt.show()
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid path="/img/SS_data_summary_files/SS_data_summary_22_0.png" class="img-fluid rounded" %}
+        {% include figure.liquid 
+          path="/img/SS_data_summary_files/SS_data_summary_22_0.png" 
+          class="img-fluid rounded" 
+          alt="Heatmap showing the correlation matrix between log-transformed elemental concentrations, where color intensity indicates the strength and direction of correlation between elements."
+        %}
     </div>
 </div>
 <div class="caption">
@@ -1016,7 +1024,11 @@ plt.show()
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid path="/img/SS_data_summary_files/SS_data_summary_25_0.png" class="img-fluid rounded" %}
+        {% include figure.liquid 
+          path="/img/SS_data_summary_files/SS_data_summary_25_0.png" 
+          class="img-fluid rounded"
+          alt="A set of spatial maps displaying the distribution of individual element concentrations across the survey area, with color gradients representing concentration levels."
+        %}
     </div>
 </div>
 <div class="caption">

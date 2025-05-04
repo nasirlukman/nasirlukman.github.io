@@ -22,7 +22,11 @@ Readily available raw elevation data is usually stored in a vector format of in 
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid path="/img/Raster_Calculator_files/Raster_Calculator_6_0.png" class="img-fluid rounded" %}
+        {% include figure.liquid 
+            path="/img/Raster_Calculator_files/Raster_Calculator_6_0.png" 
+            class="img-fluid rounded" 
+            alt="This image shows the result of performing IDW (Inverse Distance Weighting) interpolation on topographic elevation data points. The rasterization process converts the point data into a continuous grid representation of the terrain elevation."
+        %}
     </div>
 </div>
 <div class="caption">
@@ -37,7 +41,11 @@ After all our data layers are ready in raster format, it is always a good idea t
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid path="/img/Raster_Calculator_files/Raster_Calculator_8_0.png" class="img-fluid rounded" %}
+        {% include figure.liquid 
+            path="/img/Raster_Calculator_files/Raster_Calculator_8_0.png" 
+            class="img-fluid rounded" 
+            alt="This image demonstrates a quick inspection of the elevation data's cross-section using the Profile Tool in QGIS. It provides a visual profile of the terrain, which helps in understanding the spatial relationships of the data and the geometry of the seams."
+        %}
     </div>
 </div>
 <div class="caption">
@@ -56,7 +64,11 @@ now if we want to make SR blocks, first we have to figure out the expression to 
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid path="/img/Raster_Calculator_files/Raster_Calculator_12_0.png" class="img-fluid rounded" %}
+        {% include figure.liquid 
+            path="/img/Raster_Calculator_files/Raster_Calculator_12_0.png" 
+            class="img-fluid rounded" 
+            alt="This image presents the formula used in the Raster Calculator to compute the Stripping Ratio (SR). The SR is calculated as the ratio of overburden (bulk cubic meters) to coal (in tons), providing a valuable metric for mining operations."
+        %}
     </div>
 </div>
 <div class="caption">
@@ -75,11 +87,15 @@ Below is the results of our calculation above after I adjusted the Legends in la
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid path="/img/Raster_Calculator_files/Raster_Calculator_14_0.png" class="img-fluid rounded" %}
+        {% include figure.liquid 
+            path="/img/Raster_Calculator_files/Raster_Calculator_14_0.png" 
+            class="img-fluid rounded" 
+            alt="The results of the Stripping Ratio (SR) calculation are shown in this image. The output raster layer represents the calculated SR values for each pixel area, which can be visualized using appropriate color scales for easier interpretation."
+        %}
     </div>
 </div>
 <div class="caption">
-    Image 3. SR block results.
+    Image 4. SR block results.
 </div> 
     
 
@@ -89,11 +105,15 @@ After we are familiar with how the raster calculator works, we can run any expre
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid path="/img/Raster_Calculator_files/Raster_Calculator_16_0.png" class="img-fluid rounded" %}
+        {% include figure.liquid 
+            path="/img/Raster_Calculator_files/Raster_Calculator_16_0.png" 
+            class="img-fluid rounded" 
+            alt="This image illustrates the use of the Raster Calculator to estimate operating income blocks. The operation involves subtracting operating costs from revenues, calculated using raster layers representing these variables."
+        %}
     </div>
 </div>
 <div class="caption">
-    Image 3. Estimating operating income blocks using price and cost assumptions.
+    Image 5. Estimating operating income blocks using price and cost assumptions.
 </div> 
     
 
@@ -102,11 +122,15 @@ This is the result of that operation:
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid path="/img/Raster_Calculator_files/Raster_Calculator_18_0.png" class="img-fluid rounded" %}
+        {% include figure.liquid 
+            path="/img/Raster_Calculator_files/Raster_Calculator_18_0.png" 
+            class="img-fluid rounded" 
+            alt="This image shows the resulting raster layer after calculating the operating income blocks. The raster represents the estimated operating income, with values in USD, which helps in evaluating the financial feasibility of the mining operation."
+        %}
     </div>
 </div>
 <div class="caption">
-    Image 3. Estimated operation income blocks (in USD).
+    Image 6. Estimated operation income blocks (in USD).
 </div> 
 
 
