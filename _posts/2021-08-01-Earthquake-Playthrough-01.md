@@ -481,7 +481,7 @@ plt.show()
         {% include figure.liquid 
         path="/img/Earthquake_Playthrough_01_files/Earthquake_Playthrough_01_29_0.png" 
         class="img-fluid rounded" 
-        alt="A cross-sectional plot of earthquake events with points color-coded by time (e.g., year or decade). This reveals the temporal distribution of earthquakes along the subducting slab, helping identify long-term activity patterns or time gaps. The vertical axis is depth; the horizontal axis is distance along the section."
+        alt="Histograms of Depths and Magnitudes."
         %}
     </div>
 </div>
@@ -560,7 +560,7 @@ classification_histogram(depth_class_list,'depth',2 ,3)
         {% include figure.liquid 
             path="/img/Earthquake_Playthrough_01_files/Earthquake_Playthrough_01_36_0.png" 
             class="img-fluid rounded" 
-            alt="A time series scatter plot showing earthquake magnitude over time. The x-axis represents the date of each event, and the y-axis represents the earthquake magnitude. This plot visualizes the historical pattern of seismic activity in the region, showing variations in event frequency and intensity over decades."
+            alt="Histograms of different earthquake depth classification."
         %}
     </div>
 </div>
@@ -608,7 +608,7 @@ classification_histogram(magnitude_class_list,'magnitude',2 ,5)
         {% include figure.liquid 
             path="/img/Earthquake_Playthrough_01_files/Earthquake_Playthrough_01_40_0.png" 
             class="img-fluid rounded" 
-            alt="A histogram showing the frequency distribution of earthquakes binned by magnitude. The x-axis represents magnitude intervals, and the y-axis shows the number of events in each bin. This chart illustrates the power-law nature of earthquake occurrences — many small events and fewer large ones — consistent with the Gutenberg-Richter distribution."
+            alt="Histograms of different earthquake magnitude classification."
         %}
     </div>
 </div>
