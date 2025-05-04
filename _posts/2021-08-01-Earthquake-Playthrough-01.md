@@ -210,7 +210,7 @@ plt.show()
         {% include figure.liquid 
             path="/img/Earthquake_Playthrough_01_files/Earthquake_Playthrough_01_11_0.png" 
             class="img-fluid rounded" 
-            alt="A shaded relief map of Southeast Asia showing the defined study area for earthquake analysis. The map spans southern Indonesia including Java, Bali, Lombok, and parts of Sumatra and Nusa Tenggara. Coastlines are overlaid in gray, and the map is rendered in EPSG:4326 projection, highlighting the spatial bounds used for earthquake data extraction."
+            alt="Image of a shaded relief map of Southeast Asia showing the defined study area for earthquake analysis. The map spans southern Indonesia including Java, Bali, Lombok, and parts of Sumatra and Nusa Tenggara. Coastlines are overlaid in gray, and the map is rendered in EPSG:4326 projection, highlighting the spatial bounds used for earthquake data extraction."
         %}
     </div>
 </div>
@@ -255,7 +255,7 @@ plt.show()
         {% include figure.liquid 
             path="/img/Earthquake_Playthrough_01_files/Earthquake_Playthrough_01_13_0.png" 
             class="img-fluid rounded" 
-            alt="A scatterplot map overlaid on a shaded relief base map, showing earthquake epicenters across the study area. Each point represents an earthquake event, with color indicating depth (in kilometers) using a coolwarm colormap — shallow quakes are shown in blue and deeper ones in red. The size of each point reflects earthquake magnitude. There is an evident northward gradient in earthquake depth, consistent with a subducting slab."
+            alt="Image of a scatterplot map overlaid on a shaded relief base map, showing earthquake epicenters across the study area. Each point represents an earthquake event, with color indicating depth (in kilometers) using a coolwarm colormap — shallow quakes are shown in blue and deeper ones in red. The size of each point reflects earthquake magnitude. There is an evident northward gradient in earthquake depth, consistent with a subducting slab."
         %}
     </div>
 </div>
@@ -304,7 +304,7 @@ plt.show()
         {% include figure.liquid 
             path="/img/Earthquake_Playthrough_01_files/Earthquake_Playthrough_01_15_0.png" 
             class="img-fluid rounded" 
-            alt="A 2D histogram-based heatmap overlaid on a shaded relief map of the study area, representing the spatial density of earthquake events. The density is shown using semi-transparent colored bins with higher intensities indicating higher concentrations of earthquakes. The map reveals several zones of seismic clustering and apparent gaps along the subduction zone."
+            alt="Image of a 2D histogram-based heatmap overlaid on a shaded relief map of the study area, representing the spatial density of earthquake events. The density is shown using semi-transparent colored bins with higher intensities indicating higher concentrations of earthquakes. The map reveals several zones of seismic clustering and apparent gaps along the subduction zone."
         %}
     </div>
 </div>
@@ -356,7 +356,7 @@ plt.show()
         {% include figure.liquid 
             path="/img/Earthquake_Playthrough_01_files/Earthquake_Playthrough_01_18_1.png" 
             class="img-fluid rounded" 
-            alt="A smooth kernel density estimate (KDE) heatmap of earthquake occurrences overlaid on a shaded relief map. The map uses color intensity to indicate probability density of earthquake epicenters, creating a continuous surface. Seismic gaps are visible as regions with noticeably lower density, particularly south of Central Java, Bali, and Nusa Tenggara."
+            alt="Image of a smooth kernel density estimate (KDE) heatmap of earthquake occurrences overlaid on a shaded relief map. The map uses color intensity to indicate probability density of earthquake epicenters, creating a continuous surface. Seismic gaps are visible as regions with noticeably lower density, particularly south of Central Java, Bali, and Nusa Tenggara."
         %}
     </div>
 </div>
@@ -402,7 +402,7 @@ plt.show()
         {% include figure.liquid 
             path="/img/Earthquake_Playthrough_01_files/Earthquake_Playthrough_01_24_0.png" 
             class="img-fluid rounded" 
-            alt="A scatter plot of earthquake locations projected onto a vertical cross-section aligned along a specific latitudinal slice of the study area. The x-axis represents horizontal distance in kilometers (converted from geographic coordinates), and the y-axis represents depth below sea level. Earthquake points show subducting slab geometry, curving deeper as the section moves northward."
+            alt="Image of a scatter plot of earthquake locations projected onto a vertical cross-section aligned along a specific latitudinal slice of the study area. The x-axis represents horizontal distance in kilometers (converted from geographic coordinates), and the y-axis represents depth below sea level. Earthquake points show subducting slab geometry, curving deeper as the section moves northward."
         %}
     </div>
 </div>
@@ -434,7 +434,7 @@ plt.show()
         {% include figure.liquid 
             path="/img/Earthquake_Playthrough_01_files/Earthquake_Playthrough_01_26_0.png" 
             class="img-fluid rounded" 
-            alt="An enhanced cross-sectional scatter plot showing earthquake locations with colors representing magnitude. The x-axis shows distance along the section line, and the y-axis shows earthquake depth. Point size is also scaled by magnitude. This visualization highlights the distribution of earthquake sizes along the subduction interface."
+            alt=Image of an enhanced cross-sectional scatter plot showing earthquake locations with colors representing magnitude. The x-axis shows distance along the section line, and the y-axis shows earthquake depth. Point size is also scaled by magnitude. This visualization highlights the distribution of earthquake sizes along the subduction interface."
         %}
     </div>
 </div>
@@ -481,7 +481,7 @@ plt.show()
         {% include figure.liquid 
         path="/img/Earthquake_Playthrough_01_files/Earthquake_Playthrough_01_29_0.png" 
         class="img-fluid rounded" 
-        alt="Histograms of Depths and Magnitudes."
+        alt="Image of histograms of Depths and Magnitudes."
         %}
     </div>
 </div>
@@ -560,7 +560,7 @@ classification_histogram(depth_class_list,'depth',2 ,3)
         {% include figure.liquid 
             path="/img/Earthquake_Playthrough_01_files/Earthquake_Playthrough_01_36_0.png" 
             class="img-fluid rounded" 
-            alt="Histograms of different earthquake depth classification."
+            alt="Image of histograms of different earthquake depth classification."
         %}
     </div>
 </div>
@@ -608,7 +608,7 @@ classification_histogram(magnitude_class_list,'magnitude',2 ,5)
         {% include figure.liquid 
             path="/img/Earthquake_Playthrough_01_files/Earthquake_Playthrough_01_40_0.png" 
             class="img-fluid rounded" 
-            alt="Histograms of different earthquake magnitude classification."
+            alt="Image of histograms of different earthquake magnitude classification."
         %}
     </div>
 </div>

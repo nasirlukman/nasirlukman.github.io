@@ -91,7 +91,7 @@ In the Metropolis-Hastings algorithm, we iteratively draw samples from the poste
 For illustration, the animation below shows the random walk process for sampling abundance parameters in a mixture of three endmembers. The blue regions represent the true target distribution. Notice how the sampler, starting from a random point in the parameter space, gradually converges to the high-probability regions:
 
 <div style="display: flex; justify-content: center;">
-  <img src="/assets/img/post_2_random_walk.gif" alt="Random walk sampling process in Metropolis-Hastings algorithm. Blue regions represent the true target distribution, with the sampler gradually converging to high-probability regions.">
+  <img src="/assets/img/post_2_random_walk.gif" alt="Animation ilustrating random walk sampling process in Metropolis-Hastings algorithm. Blue regions represent the true target distribution, with the sampler gradually converging to high-probability regions.">
 </div>
 <div class="caption">
     Image 1. Random Walk Example on a known target distribution
@@ -108,7 +108,7 @@ For the endmembers, we consider three primary components of sandstone: quartz (g
         {% include figure.liquid 
             path="assets/img/post_2_data.png" 
             class="img-fluid rounded" 
-            alt="Endmember spectra for Carbonate, Quartz, and Clay minerals, alongside the observed mixed spectra from the sandstone rock sample"
+            alt="Image of endmember spectra for Carbonate, Quartz, and Clay minerals, alongside the observed mixed spectra from the sandstone rock sample"
         %}
     </div>
 </div>
@@ -124,7 +124,7 @@ Using our Metropolis-Hastings sampler, we draw four chains of $$ 10^5 $$ random 
         {% include figure.liquid 
             path="assets/img/post_2_trace_plot.png" 
             class="img-fluid rounded" 
-            alt="Trace plots and marginal posterior distributions for the abundance of each endmember (Carbonate, Quartz, and Clay). The mean and true values are displayed for comparison."
+            alt="Image of trace plots and marginal posterior distributions for the abundance of each endmember (Carbonate, Quartz, and Clay). The mean and true values are displayed for comparison."
         %}
     </div>
 </div>
@@ -140,7 +140,7 @@ There are some cool things that we can do with the posteriors. For instance, we 
         {% include figure.liquid 
             path="assets/img/post_2_corner_plot.png" 
             class="img-fluid rounded" 
-            alt="Corner plot visualizing the correlations between the abundances of Carbonate, Quartz, and Clay. Red and blue lines indicate the expected value (mean) and the true value, with a 90% confidence interval shown by the black dashed line."
+            alt="Image of corner plot visualizing the correlations between the abundances of Carbonate, Quartz, and Clay. Red and blue lines indicate the expected value (mean) and the true value, with a 90% confidence interval shown by the black dashed line."
         %}
     </div>
 </div>
@@ -156,7 +156,7 @@ Corner plots are a really useful visualization, especially for high-dimensional 
         {% include figure.liquid 
             path="assets/img/post_2_ternary.png" 
             class="img-fluid rounded" 
-            alt="Ternary plot showing the posterior distribution of the abundances of Carbonate, Quartz, and Clay. Red and blue dots represent the expected value (mean) and true value, respectively."
+            alt="Image of ternary plot showing the posterior distribution of the abundances of Carbonate, Quartz, and Clay. Red and blue dots represent the expected value (mean) and true value, respectively."
         %}
     </div>
 </div>
@@ -173,7 +173,7 @@ The corner and ternary plots reveal a strong correlation between carbonate and q
         {% include figure.liquid 
             path="assets/img/post_2_modeled_spectra.png" 
             class="img-fluid rounded" 
-            alt="Comparison of the observed spectra and the distribution of modeled spectra, represented by a 2D Normal distribution with percentiles visualized."
+            alt="This image shows a comparison of the observed spectra and the distribution of modeled spectra, represented by a 2D Normal distribution with percentiles visualized."
         %}
     </div>
 </div>
@@ -194,7 +194,7 @@ The same process applies to hyperspectral images on a pixel-by-pixel basis. Here
         {% include figure.liquid 
             path="assets/img/post_2_rock_sample.png" 
             class="img-fluid rounded" 
-            alt="Bayesian spectral unmixing results applied to a hyperspectral image of a sandstone drill core sample, showing expected abundance values for each endmember and their 90% confidence intervals."
+            alt="This image shows the bayesian spectral unmixing results applied to a hyperspectral image of a sandstone drill core sample, showing expected abundance values for each endmember and their 90% confidence intervals."
         %}
     </div>
 </div>

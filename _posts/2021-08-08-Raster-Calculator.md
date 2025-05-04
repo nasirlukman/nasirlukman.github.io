@@ -90,7 +90,7 @@ Below is the results of our calculation above after I adjusted the Legends in la
         {% include figure.liquid 
             path="/img/Raster_Calculator_files/Raster_Calculator_14_0.png" 
             class="img-fluid rounded" 
-            alt="The results of the Stripping Ratio (SR) calculation are shown in this image. The output raster layer represents the calculated SR values for each pixel area, which can be visualized using appropriate color scales for easier interpretation."
+            alt="Image showing the results of the Stripping Ratio (SR) calculation are shown in this image. The output raster layer represents the calculated SR values for each pixel area, which can be visualized using appropriate color scales for easier interpretation."
         %}
     </div>
 </div>
