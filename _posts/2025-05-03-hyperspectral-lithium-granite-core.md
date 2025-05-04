@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Mapping Lithium Bearing Mineral in Granite with Hyperspectral Imaging
+title: Mapping Lithium Bearing Mineral in Granite Core Sample with Hyperspectral Imaging
 date: 2025-05-03 23:36:10
 description: Using Minimum Wavelength Mapper and Decision Tree Classifier to analyze hyperspectral image of lithium bearing granite core sample.
 tags: 
