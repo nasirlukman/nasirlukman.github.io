@@ -19,7 +19,11 @@ A wealth of information related to mining activities can be obtained from very h
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/post_5_vhr_example.png" class="img-fluid rounded" %}
+        {% include figure.liquid 
+            path="assets/img/post_5_vhr_example.png" 
+            class="img-fluid rounded" 
+            alt="Satellite imagery from WorldView showing various mining activities in Indonesia, including distinct alluvial gold and tin mining operations that appear informal and lack structured infrastructure."
+        %}
     </div>
 </div>
 <div class="caption">
@@ -43,7 +47,11 @@ Below are the accuracy assessments from the validation images. The overall accur
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/post_5_unet_validation.png" class="img-fluid rounded" %}
+        {% include figure.liquid 
+            path="assets/img/post_5_unet_validation.png" 
+            class="img-fluid rounded" 
+            alt="Visual comparison between manually labeled validation data and the model’s predictions for artisanal/small-scale gold mining (ASGM) areas, highlighting the model's ability to differentiate between ASGM and other mining types like formal coal mining."
+        %}
     </div>
 </div>
 <div class="caption">
@@ -54,7 +62,11 @@ After the model get a good accuracy in the testing stage, the model are deployed
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/post_5_timeseries_result.gif" class="img-fluid rounded" %}
+        {% include figure.liquid 
+            path="assets/img/post_5_timeseries_result.gif" 
+            class="img-fluid rounded" 
+            alt="Time-series classification animation of artisanal/small-scale gold mining (ASGM) areas, roads, and huts, as delineated by the deep learning model, visualizing the development of mining activities over time."
+        %}
     </div>
 </div>
 <div class="caption">
@@ -69,7 +81,11 @@ As mentioned earlier, satellite imagery can also provide insights into various e
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/post_5_turbidity.gif" class="img-fluid rounded" %}
+        {% include figure.liquid 
+            path="assets/img/post_5_turbidity.gif" 
+            class="img-fluid rounded" 
+            alt="Turbidity levels animation in rivers downstream of alluvial gold mining sites, observed through Sentinel-2 imagery, showing a decrease in turbidity levels following a pause in mining activity during the COVID-19 pandemic."
+        %}
     </div>
 </div>
 <div class="caption">
@@ -85,7 +101,11 @@ Below is an example of the national level overlay results in Indonesia using dat
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/post_5_donut_chart.png" class="img-fluid rounded" %}
+        {% include figure.liquid 
+            path="assets/img/post_5_donut_chart.png" 
+            class="img-fluid rounded" 
+            alt="Donut chart displaying the percentage of mining areas located inside and outside of mining concession boundaries and environmentally restricted areas in Indonesia, based on data from 2019."
+        %}
     </div>
 </div>
 <div class="caption">
@@ -124,7 +144,11 @@ The chart below visualize the categorization of the mining areas:
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/post_5_classification_diagram.gif" class="img-fluid rounded" %}
+        {% include figure.liquid 
+            path="assets/img/post_5_classification_diagram.gif" 
+            class="img-fluid rounded" 
+            alt="Diagram illustrating the classification of mining areas into three compliance categories: High Compliance, Conditional Compliance, and Low Compliance, based on the overlay of mining areas with concession boundaries and environmental restrictions."
+        %}
     </div>
 </div>
 <div class="caption">
@@ -135,7 +159,11 @@ The result can also be visualized on province basis using pie chart map as shown
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/post_5_category_pie_chart.png" class="img-fluid rounded" %}
+        {% include figure.liquid 
+            path="assets/img/post_5_category_pie_chart.png" 
+            class="img-fluid rounded" 
+            alt="Pie chart showing the percentage of mining areas within each compliance category across different provinces, providing a visual representation of compliance levels."
+        %}
     </div>
 </div>
 <div class="caption">
@@ -148,7 +176,12 @@ I also think it would be interesting to combine this dataset with detailed censu
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/post_5_pop.png" class="img-fluid rounded" %}
+        {% include figure.liquid 
+            path="assets/img/post_5_pop.png" 
+            class="img-fluid rounded" 
+            alt="Map showing the total population living within a 10 km buffer zone around mining areas, using the WorldPop gridded population dataset to assess potential impacts on local communities.
+"
+        %}
     </div>
 </div>
 <div class="caption">

@@ -10,7 +10,11 @@ Most of the tin sold on the international market comes from a small island in In
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/post_8_vessel_example.png" class="img-fluid rounded" %}
+        {% include figure.liquid 
+            path="assets/img/post_8_vessel_example.png" 
+            class="img-fluid rounded" 
+            alt="Two types of offshore mining vessels: large dredger vessels (metal-bodied, 50-120 meters) and smaller artisanal vessels (wooden, under 10 meters)."
+        %}
     </div>
 </div>
 <div class="caption">
@@ -28,7 +32,11 @@ Before doing any detection, I needed a good quality 'ground truth' data. In this
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/post_8_small_vessel_example.png" class="img-fluid rounded" %}
+        {% include figure.liquid 
+            path="assets/img/post_8_small_vessel_example.png" 
+            class="img-fluid rounded" 
+            alt="Worldview, Sentinel-2, and Sentinel-1 imagery taken at the same location with only a few hours apart showing a small artisanal mining vessel"
+        %}
     </div>
 </div>
 <div class="caption">
@@ -39,7 +47,11 @@ After collecting a good number of examples, I started looking into how the SAR s
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/post_8_training_data_distribution.png" class="img-fluid rounded" %}
+        {% include figure.liquid 
+            path="assets/img/post_8_training_data_distribution.png" 
+            class="img-fluid rounded" 
+            alt="Sentinel-1 sensor responses of large (metal) and small (wooden) vessels in both VV and VH polarizations, showing distinct radar signatures."
+        %}
     </div>
 </div>
 <div class="caption">
@@ -57,7 +69,11 @@ I deployed the trained model across a time series of Sentinel-1 imagery, coverin
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/post_8_result_stacked.png" class="img-fluid rounded" %}
+        {% include figure.liquid 
+            path="assets/img/post_8_result_stacked.png" 
+            class="img-fluid rounded" 
+            alt="Object-based classification result showing the detection of large and small mining vessels in the study area."
+        %}
     </div>
 </div>
 <div class="caption">
@@ -68,7 +84,11 @@ To make sense of these results, I created a time series map animatioin showing t
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/post_8_vessel_density_timelapse.gif" class="img-fluid rounded" %}
+        {% include figure.liquid 
+            path="assets/img/post_8_vessel_density_timelapse.gif" 
+            class="img-fluid rounded" 
+            alt="Time series animation showing the density of large and small vessels over time, illustrating the changes in offshore mining activity."
+        %}
     </div>
 </div>
 <div class="caption">
@@ -80,7 +100,11 @@ And add a plot to tracks the number of vessels by type at each timestamp.
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/post_8_timeseries_plot.png" class="img-fluid rounded" %}
+        {% include figure.liquid 
+            path="assets/img/post_8_timeseries_plot.png" 
+            class="img-fluid rounded" 
+            alt="Timeseries plot showing the count of large and small vessels detected at each timestamp, indicating fluctuations in mining activity."
+        %}
     </div>
 </div>
 <div class="caption">
@@ -91,7 +115,11 @@ Since it is quite difficult to extract meaningful infomration from this plot alo
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/post_8_seasonal_decomposition.png" class="img-fluid rounded" %}
+        {% include figure.liquid 
+            path="assets/img/post_8_seasonal_decomposition.png" 
+            class="img-fluid rounded" 
+            alt="Seasonal decomposition of the time series result, separating long-term trends and seasonal cycles in mining vessel activity"
+        %}
     </div>
 </div>
 <div class="caption">
@@ -111,7 +139,11 @@ One interesting observation is that mining vessels often operate in clusters. Th
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/post_8_hot_spots.png" class="img-fluid rounded" %}
+        {% include figure.liquid 
+            path="assets/img/post_8_hot_spots.png" 
+            class="img-fluid rounded" 
+            alt="All ships detected in the study area, with green boxes highlighting hotspots where mining vessels typically operate in clusters."
+        %}
     </div>
 </div>
 <div class="caption">

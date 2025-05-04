@@ -27,7 +27,11 @@ Below are examples of the results of this method compared to the Hansen layer fo
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/post_7_result_comparison.png" class="img-fluid rounded" %}
+        {% include figure.liquid 
+            path="assets/img/post_7_result_comparison.png" 
+            class="img-fluid rounded" 
+            alt="Side-by-side comparison between the Hansen deforestation layer (annual) and the Sentinel-1 change detection layer (monthly) for a forest area in Borneo, showing a large deforestation patch in 2024 not recorded in the Hansen dataset."
+        %}
     </div>
 </div>
 <div class="caption">
@@ -40,7 +44,11 @@ The main difference between the two results is the big patch of deforestation in
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/post_7_zoomed_in.png" class="img-fluid rounded" %}
+        {% include figure.liquid 
+        path="assets/img/post_7_zoomed_in.png" 
+        class="img-fluid rounded" 
+        alt="Zoomed-in view of the top-left deforested area in the Sentinel-1 change detection result, highlighting the detailed progression of deforestation in a palm oil plantation from June 2018 to March 2020, with an expansion rate of 50 hectares per month."
+        %}
     </div>
 </div>
 <div class="caption">

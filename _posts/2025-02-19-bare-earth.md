@@ -9,7 +9,11 @@ As a tropical country, Indonesia faces challenges in using optical remote sensin
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/post_6_landuse_chart.png" class="img-fluid rounded" %}
+        {% include figure.liquid 
+            path="assets/img/post_6_landuse_chart.png" 
+            class="img-fluid rounded" 
+            alt="Donut chart showing the percentage of land use types in Indonesia, reclassified from the Indonesia Land Use/Land Cover (LULC) Map 2019, highlighting bare land, agriculture, forest, and other land cover categories."
+        %}
     </div>
 </div>
 <div class="caption">
@@ -40,7 +44,11 @@ The images below compare a standard cloudless mosaic with a bare earth mosaic de
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/post_6_agriculture.png" class="img-fluid rounded" %}
+        {% include figure.liquid 
+            path="assets/img/post_6_agriculture.png" 
+            class="img-fluid rounded" 
+            alt="Side-by-side comparison of a standard cloudless mosaic and a bare earth mosaic over agricultural land, showcasing how the bare earth mosaic better highlights exposed soil within agricultural areas."
+        %}
     </div>
 </div>
 <div class="caption">
@@ -51,7 +59,11 @@ This method also reveals earth surfaces in permanently forested areas, such as l
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/post_6_river_and_landslide.png" class="img-fluid rounded" %}
+        {% include figure.liquid 
+            path="assets/img/post_6_river_and_landslide.png" 
+            class="img-fluid rounded" 
+            alt="Side-by-side comparison of a cloudless mosaic and a bare earth mosaic, showing additional features like exposed riverbeds and soil in landslide areas, visible in the bare earth mosaic."
+        %}
     </div>
 </div>
 <div class="caption">
@@ -73,7 +85,11 @@ This color composite highlight the potential of bare earth moscais for geologica
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/post_6_false_color.png" class="img-fluid rounded" %}
+        {% include figure.liquid 
+            path="assets/img/post_6_false_color.png" 
+            class="img-fluid rounded" 
+            alt="Comparison of a cloudless mosaic, bare earth mosaic, and false color composite of the masked bare earth mosaic, with a focus on identifying soil composition variations, river sediment transport, and distinct material compositions within mining pits."
+        %}
     </div>
 </div>
 <div class="caption">
