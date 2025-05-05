@@ -434,7 +434,7 @@ plt.show()
         {% include figure.liquid 
             path="/img/Earthquake_Playthrough_01_files/Earthquake_Playthrough_01_26_0.png" 
             class="img-fluid rounded" 
-            alt=Image of an enhanced cross-sectional scatter plot showing earthquake locations with colors representing magnitude. The x-axis shows distance along the section line, and the y-axis shows earthquake depth. Point size is also scaled by magnitude. This visualization highlights the distribution of earthquake sizes along the subduction interface."
+            alt="Image of an enhanced cross-sectional scatter plot showing earthquake locations with colors representing magnitude. The x-axis shows distance along the section line, and the y-axis shows earthquake depth. Point size is also scaled by magnitude. This visualization highlights the distribution of earthquake sizes along the subduction interface."
         %}
     </div>
 </div>
