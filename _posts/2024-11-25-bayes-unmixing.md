@@ -3,7 +3,7 @@ layout: post
 title: Bayesian Spectral Unmixing
 date: 2024-11-24 12:36:10
 description: Bayesian approach on spectral unmixing with an example case using hyperspectral images of sandstone drill core sample.
-tags: 
+tags: spectral_geology, mineral, data_science, geology, hyperspectral, bayesian, core_scanning
 ---
 
 In the [previous post](https://nasirlukman.github.io/blog/2024/distance/) we discussed how spectral unmixing inherently suffers from uncertainty—stemming both from the data and the model. Traditional optimization approaches, like the one we used earlier, often assume that these uncertainties are either negligible or nonexistent. However, in practice, this is rarely the case.

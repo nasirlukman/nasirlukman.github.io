@@ -3,7 +3,7 @@ layout: post
 title: Sentinel 1 Change Detection for Forest Monitoring
 date: 2025-3-30 23:36:10
 description: Using Sentinel-1 data to detect monthly disturbance of forest canopy
-tags: 
+tags: remote_sensing, monitoring, data_science, radar, environment, forest
 ---
 
 

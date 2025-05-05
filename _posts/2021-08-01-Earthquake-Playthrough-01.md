@@ -3,7 +3,7 @@ layout: post
 title: Earthquake Playthrough 01
 date: 2021-08-01 23:36:10
 description: Practicing python with earthquake data from USGS libcomcat API
-tags: 
+tags: GIS, earthquake, geology
 ---
 USGS provides a very useful API to their earthquake catalog called `libcomcat` which I think stands for [*library comprehensive catalog*](https://github.com/usgs/libcomcat). In this post, we will try to use `libcomcat` to get the earthquake dataset and make some data visualization from it. Hopefully, we can exercise a few python libraries while also learning a few interesting facts about earthquakes.
 

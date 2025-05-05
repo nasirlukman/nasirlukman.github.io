@@ -3,7 +3,7 @@ layout: post
 title: Using Raster Calculator in QGIS GUI and Python Console to Make SR Blocks
 date: 2021-08-08 23:36:10
 description: Raster Calculator is a very useful tool to have at our disposal. Let's try it to make SR blocks
-tags: 
+tags: GIS, QGIS, raster, estimation, coal
 ---
 
 

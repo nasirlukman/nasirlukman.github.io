@@ -3,7 +3,7 @@ layout: post
 title: Illegal Mining From Space
 date: 2025-02-09 23:36:10
 description: Using satellite imagery to monitor illegal mining 
-tags: 
+tags: remote_sensing, monitoring, mining, security, data_science, machine_learning, deep_learning, multispectral, radar, GIS, environment
 ---
 
 High-resolution satellite imagery provides us with global time-series data, which can be applied to various interesting applications. One such application is monitoring mining activities. There are literally thousands of mining sites across the globe, which are inherently dynamic (i.e., they undergo rapid changes over time) and often located in remote areas. This creates significant challenges for effective monitoring.
