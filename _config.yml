@@ -273,7 +273,7 @@ jekyll-archives:
     category: "/blog/category/:name/"
 
 display_tags: true # these tags will be displayed on the front page of your blog
-display_categories: true # these categories will be displayed on the front page of your blog
+display_categories: false # these categories will be displayed on the front page of your blog
 
 # -----------------------------------------------------------------------------
 # Jekyll Scholar

@@ -4,7 +4,6 @@ title: Spatio-Temporal Analysis of Industrial and Artisinal Offshore Tin Mining 
 date: 2025-04-04 23:36:10
 description: Object-based image classification of mining vessels using Sentinel-1 timeseries.
 tags: remote_sensing, monitoring, mining, security, data_science, machine_learning, radar, GIS
-categories: remote sensing
 ---
 
 Most of the tin sold on the international market comes from a small island in Indonesia called Bangka. What’s less known is that a significant amount of that tin is mined offshore. There are two types of vessels commonly involved in this activity. Large dredger vessels, typically 50 to 120 meters in length, are operated by formal mining companies at industrial scale. At the same time, there are smaller artisanal boats—usually no more than 10 meters long—using simple suction pumps handled by divers and connected to traditional sluice boxes onboard. The later are typically related with illegal mining activities.
