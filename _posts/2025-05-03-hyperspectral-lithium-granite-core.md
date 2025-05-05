@@ -25,7 +25,7 @@ Muscovite, which contains Al-OH bonds, shows an absorption feature near 2206 nm.
         {% include figure.liquid 
             path="assets/img/post_10_lepidolite_muscovite_spectra.png" 
             class="img-fluid rounded" 
-            alt=Spectral signature comparison between lepidolite and muscovite in a lithium-rich granite sample. The plot highlights the subtle shift in the 2200 nm absorption feature, with lepidolite showing a feature near 2195 nm (shorter wavelength) and muscovite at 2206 nm (longer wavelength). This shift is key to differentiating lithium-bearing minerals from other white mica species using hyperspectral imaging.
+            alt="Spectral signature comparison between lepidolite and muscovite in a lithium-rich granite sample. The plot highlights the subtle shift in the 2200 nm absorption feature, with lepidolite showing a feature near 2195 nm (shorter wavelength) and muscovite at 2206 nm (longer wavelength). This shift is key to differentiating lithium-bearing minerals from other white mica species using hyperspectral imaging."
         %}
     </div>
 </div>
@@ -50,7 +50,7 @@ For this analysis I am using an open source software called [Hyppy](https://zeno
         {% include figure.liquid 
             path="assets/img/post_10_minimum_wavelength_mapper.png" 
             class="img-fluid rounded" 
-            alt=Minimum Wavelength Map of a lithium-bearing granite core sample showing the spatial distribution of the deepest absorption feature around 2200 nm. The image is color-coded to represent wavelength position, with blue indicating shorter wavelengths and purple for longer wavelengths. The brightness indicates absorption depth, with dark pixels showing absence of white mica minerals and lighter pixels representing areas where they are present. The map shows a transition from muscovite at the margins of the granite to lepidolite in the core.
+            alt="Minimum Wavelength Map of a lithium-bearing granite core sample showing the spatial distribution of the deepest absorption feature around 2200 nm. The image is color-coded to represent wavelength position, with blue indicating shorter wavelengths and purple for longer wavelengths. The brightness indicates absorption depth, with dark pixels showing absence of white mica minerals and lighter pixels representing areas where they are present. The map shows a transition from muscovite at the margins of the granite to lepidolite in the core."
         %}
     </div>
 </div>
