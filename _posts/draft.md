@@ -1,7 +1,0 @@
-Super resolution is generally reffering to a method increase spatial resolution of an image baased on coarser image as an input. Or in other words it is an attmept to decrease the pixel of an image and as a result increasing the sharpness and details in the image. I was always skeptical with such approach since the first time I heaard aabout it. even with the more traditional and conservative approach like pan-sharpening method, it is often result in spectral distortions, especially in the longer wavelength (NIR/SWIR). A few years ago when quite a lot of research published related to deep-learning based approach, I was really skeptical of the usefulness of the practicaal implication of forcing the computer to hallucinate an object otherwise invisible by the sensor. Probably becaasue my background is more in spectral geology, I am usually inclined in maintaining spectral integrity of my images and prefer my image to be as unaltered as possible for analysis.
-
-A new super resolution model is recently published called s2dr3  which I observe to have a positive respond from the remote sensing community. As in recent years I work more in less niche application remote sensing, I start to become less skeptical and more curious about what super-resolution can offer and I decide to give it a try.
-
-The model essentially blba lbal bla
-
-I spent times trying the model in various spots in Indonesia. The next few images are some of the result of the s2dr3 in various different locations. I will show also worldview image as visual comparison
