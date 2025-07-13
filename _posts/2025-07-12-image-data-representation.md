@@ -84,7 +84,7 @@ This approach is very powerful and currently forms the state of the art in image
 </div>
 
 
- # 2. Spatially Flattened Matrix
+# 2. Spatially Flattened Matrix
 
 SSome machine learning algorithms like [SVM](https://scikit-learn.org/stable/modules/svm.html), [Random Forest](https://scikit-learn.org/stable/modules/ensemble.html#forest), and [XGBoost](https://xgboost.readthedocs.io/en/stable/tutorials/model.html) do not take spatial patterns into account. They treat each pixel independently and classify them based only on their spectral signatures.
 
