@@ -156,7 +156,7 @@ In remote sensing, Object-Based Image Analysis (OBIA) is often used for tasks li
 
 I think OBIA could be more naturally implemented using a graph-based approach, where clustering and classification happen simultaneously in a unified framework. However, I haven’t explored this idea in depth myself.
 
-We can also define the graph purely in feature space, where nodes are pixels and edge weights are the Euclidean distance between spectral vectors. This structure makes it easy to apply unsupervised classification methods that group pixels based on spectral similarity—much like K-means.
+We can also define the graph purely in feature space, where nodes are pixels and edge weights are the Euclidean distance between spectral vectors. This structure makes it easy to apply unsupervised classification methods that group pixels based on spectral similarity, much like K-means.
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
