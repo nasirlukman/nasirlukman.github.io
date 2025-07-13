@@ -152,7 +152,7 @@ We have flexibility in how we define these graphs. In this example, I use the pi
 
 Even with this simple setup, we can already capture the spatial and spectral structure of the image. For example, superpixel clustering can be done by cutting edges based on weight thresholds. More complex methods like graph-based deep learning also become possible with this structure.
 
-In remote sensing, Object-Based Image Analysis (OBIA) is often used for tasks like land cover classification. OBIA captures both spatial and spectral patterns and is widely used because it’s less demanding than deep learning but still effective. Typically, clustering algorithms like SNIC (in Google Earth Engine) are used first, followed by supervised classification methods like Random Forest or SVM applied to each cluster.
+In remote sensing, Object-Based Image Analysis (OBIA) is often used for tasks like land cover classification. OBIA captures both spatial and spectral patterns and is widely used because it’s less demanding than deep learning but still effective. Typically, clustering algorithms like [SNIC](https://developers.google.com/earth-engine/apidocs/ee-algorithms-image-segmentation-snic) are used first, followed by supervised classification methods like Random Forest or SVM applied to each cluster.
 
 I think OBIA could be more naturally implemented using a graph-based approach, where clustering and classification happen simultaneously in a unified framework. However, I haven’t explored this idea in depth myself.
 
