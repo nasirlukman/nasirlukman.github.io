@@ -86,7 +86,7 @@ This approach is very powerful and currently forms the state of the art in image
 
 # 2. Spatially Flattened Matrix
 
-SSome machine learning algorithms like [SVM](https://scikit-learn.org/stable/modules/svm.html), [Random Forest](https://scikit-learn.org/stable/modules/ensemble.html#forest), and [XGBoost](https://xgboost.readthedocs.io/en/stable/tutorials/model.html) do not take spatial patterns into account. They treat each pixel independently and classify them based only on their spectral signatures.
+Some machine learning algorithms like [SVM](https://scikit-learn.org/stable/modules/svm.html), [Random Forest](https://scikit-learn.org/stable/modules/ensemble.html#forest), and [XGBoost](https://xgboost.readthedocs.io/en/stable/tutorials/model.html) do not take spatial patterns into account. They treat each pixel independently and classify them based only on their spectral signatures.
 
 If we’re using such methods, or any approach that works on a pixel-by-pixel basis, then maintaining the spatial relationship between pixels is unnecessary. Instead, we can restructure the image as a 2D array, where each column represents an individual pixel, and each row represents a spectral band.
 
