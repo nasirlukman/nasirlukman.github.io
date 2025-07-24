@@ -1,7 +1,7 @@
 ---
-layout: ///post
+layout: post
 title: Testing Sentinel-2 Super Resolution Using S2DR3
-date: ///2025-05-09 23:36:10
+date: 2025-05-09 23:36:10
 description: Quick look at spatial and spectral integrity of S2DR3 Model in mining, agricultur, and urban related scene
 tags: remote_sensing, monitoring, data_science, multispectral, environment, mining, urban
 ---
