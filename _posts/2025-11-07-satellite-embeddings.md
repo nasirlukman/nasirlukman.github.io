@@ -13,7 +13,7 @@ To be fair, the concept of embeddings isn’t new. Even in remote sensing, sever
 But what makes Google’s version stand out is its sheer scale and global coverage. It’s the first dataset (to my knowledge) that captures such a broad and consistent representation of the planet at once.
 
 There are already plenty of great technical explanations about how satellite embeddings are produced (their [white paper](https://arxiv.org/abs/2507.22291) is the main source of good information, of course), so I won’t repeat them here.
-To put it simply: I like to think of embeddings as “PCA on steroids.” They transform data into a new (usually lower-dimensional) space that preserves essential information while making it easier for machines to process. The tradeoff is that each dimension becomes more abstract. It is harder for us mortals to interpret, but far more powerful for computers to use. By the way, why does it sounds like we are (sacrificing knowledge for power)[https://bmiddleton1.substack.com/p/the-ouroboros-effect-how-ai-threatens]? 
+To put it simply: I like to think of embeddings as “PCA on steroids.” They transform data into a new (usually lower-dimensional) space that preserves essential information while making it easier for machines to process. The tradeoff is that each dimension becomes more abstract. It is harder for us mortals to interpret, but far more powerful for computers to use. By the way, why does it sounds like we are [sacrificing knowledge for power](https://bmiddleton1.substack.com/p/the-ouroboros-effect-how-ai-threatens)? 
 
 Anway, recently I’ve been working on a rather ambitious project which involves in building an annual, nationwide land use/land cover (LULC) model for Indonesia.
 The idea is simple: users can draw a boundary anywhere in Indonesia, and the system will automatically generate a land cover map for that area, historically (from 2017) up to the latest available year. Ready for further analysis.
@@ -43,7 +43,7 @@ Below is an example of my model in action, along with its accuracy metrics:
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid 
-            path="assets/img/post_14_classification_result.png" 
+            path="assets/img/post_14_accuracy_assesment.png" 
             class="img-fluid rounded" 
             alt="Tabel showing the accuracy metrics (preccision, recall, f1 score, and support for each class. the model have 0 )"
         %}
