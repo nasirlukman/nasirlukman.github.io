@@ -74,7 +74,7 @@ Selain analisis untuk mendeteksi bukaan tambang dan menghitung luasnya tiap tahu
         {% include figure.liquid 
             path="assets/img/post_15_pulau_malamala.gif" 
             class="img-fluid rounded" 
-            alt="Animasi citra satelit temporal LANDSAT di Pulau Malamala Maluku Utara yang menunjukkan perkembangan aktivitas pertambangan Nikel
+            alt="Animasi citra satelit temporal LANDSAT di Pulau Malamala Maluku Utara yang menunjukkan perkembangan aktivitas pertambangan Nikel"
         %}
     </div>
 </div>
@@ -87,7 +87,7 @@ Selain analisis untuk mendeteksi bukaan tambang dan menghitung luasnya tiap tahu
         {% include figure.liquid 
             path="assets/img/post_15_pulau_pakal.gif" 
             class="img-fluid rounded" 
-            alt="Animasi citra satelit temporal LANDSAT di Pulau Malamala Maluku Utara yang menunjukkan perkembangan aktivitas pertambangan Nikel
+            alt="Animasi citra satelit temporal LANDSAT di Pulau Malamala Maluku Utara yang menunjukkan perkembangan aktivitas pertambangan Nikel"
         %}
     </div>
 </div>
