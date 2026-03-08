@@ -22,7 +22,7 @@ Jika kita menghapus pulau > 2.000 km² dan pulau < 1 km² (karena kemungkinan ak
         {% include figure.liquid 
             path="assets/img/post_15_small_islands.png" 
             class="img-fluid rounded" 
-            alt="Pulau-pulau kecil di Indonesia yang ditampilan dengan latar google basemap"
+            alt="Pulau-pulau kecil di Indonesia yang ditampilan dengan latar google basemap."
         %}
     </div>
 </div>
