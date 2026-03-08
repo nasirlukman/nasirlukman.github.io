@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "Satellite Embeddings and Large Scale Model"
-date: 2025-11-07 23:36:10
-description: Brief note on my experience in upscaling my model using Google Satelite Embedings
-tags: remote_sensing, machine_learning, image_analysis
+title: "Pertambangan di Pulau-Pulau Kecil Indonesia"
+date: 2026-03-08 20:36:10
+description: Melacak aktivitas pertambangan di pulau kecil dengan analisa GIS dan citra satelit
+tags: remote_sensing, monitoring, mining, security, GIS, environment
 ---
 
 Beberapa bulan yang lalu, perbincangan publik ramai terkait aktivitas pertambangan nikel di Pulau Gag. Kasus ini mulai viral setelah aksi protes [Greenpeace Indonesia](https://www.greenpeace.org/indonesia/siaran-pers/63070/aktivis-greenpeace-aksi-di-konferensi-nikel-internasional/) di Konferensi Nikel Internasional di Jakarta pada Juni tahun lalu. Tentu, tudingan soal pelanggaran hukum dan kerusakan lingkungan membutuhkan investigasi mendalam dan data lapangan. da satu hal yang cukup mudah untuk diferivikasi: aktivitas pertambangan di pulau-pulau kecil.
