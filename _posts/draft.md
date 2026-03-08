@@ -6,41 +6,96 @@ description: Brief note on my experience in upscaling my model using Google Sate
 tags: remote_sensing, machine_learning, image_analysis
 ---
 
-Several months ago in Indoensia nickel mining activity in Gag Island becoming a [National headline](https://www.tempo.co/lingkungan/gimik-di-pulau-gag-2073920). THis time it was broguht to public attention through [Greenpeace Indonesia protest](https://www.greenpeace.org/indonesia/siaran-pers/63070/aktivis-greenpeace-aksi-di-konferensi-nikel-internasional/) in International Nickel Conference in Jakarta. Of course any accusation related with serious environemtal violation require further investagiation and hard data from the ground. But here is the easy one to verify: small island mining is inherently prohibited by law Thorugh UU PWP3K No. 1/2014. The prohibitative interpration also reinforced by the Constitutional Court Decision No. 35/PUU-XXI/2023 whish stated mining activity in small sialnd as abnormally dangerous activity [1](https://www.tempo.co/politik/begini-aturan-penambangan-di-pulau-pulau-kecil-1673629)[2](https://apakabar.co.id/news/putusan-mk-nomor-35-puu-xxi-2023-koral-gkp-keliru-menafsirkan/).
-This is something easily detectible and analyzed using remote sensing and good old GIS. in this post ill share some quick look to the state of small island mining in Indonesia as can be seen by quick analysis wiht Remote Sensning and GIS.
+Beberapa bulan yang lalu, perbincangan publik ramai terkait aktivitas pertambangan nikel di Pulau Gag. Kasus ini mulai viral setelah aksi protes [Greenpeace Indonesia](https://www.greenpeace.org/indonesia/siaran-pers/63070/aktivis-greenpeace-aksi-di-konferensi-nikel-internasional/) di Konferensi Nikel Internasional di Jakarta pada Juni tahun lalu. Tentu, tudingan soal pelanggaran hukum dan kerusakan lingkungan membutuhkan investigasi mendalam dan data lapangan. da satu hal yang cukup mudah untuk diferivikasi: aktivitas pertambangan di pulau-pulau kecil.
 
+Kegiatan pertambangan di pulau kecil memiliki potensi besar melanggar UU PWP3K No. 27/2007 juncto UU PWP3K No. 1/2014. Putusan MK No. 35/PUU-XXI/2023 mempertegas bahwa pertambangan di pulau kecil termasuk kegiatan berbahaya luar biasa *abnormally dangerous activity*, karena pulau-pulau kecil memiliki daya dukung terbatas, dan aktivitas tambang di sana dapat menimbulkan kerusakan permanen [1](https://www.tempo.co/politik/begini-aturan-penambangan-di-pulau-pulau-kecil-1673629)[2](https://apakabar.co.id/news/putusan-mk-nomor-35-puu-xxi-2023-koral-gkp-keliru-menafsirkan/).
 
-# Small Islands
-First, what is a small island? Based on UU PWP3K No. 1/2014, a small island have area lower than or equal to 2,000 km2. Indonesia is an archipelago with thousands of island where most of it are small islands. Using the 2023 Indonesia Provincial BOundary Layer from [BIG](https://geoportal.big.go.id/#/) we can see 19,249 island total in Indonesia. If we take all the island that is below 2,000 km2 we still left with tens of thousands of island. But most are very small(< 1km2), and quite unlikely that there are any mining activity in island that small. if we also ignore the very small one, we are left with 1,622 island with size between 1km2 to 200km2. I think this is a good start to look further with remote sensing about mining activities in these islands.
-
-[Image]
-
-# Small Islands Mining
-Now we have the boundary of the small island, we can use satellite imaggery to spot mining activities in those islands. Almost all of small island mining in Indonesia are realted witih Nickel mining in Sualwesi Tenggara, Maluku Utara, and Papua Barat Daya, and Bauxite in Kepulauan Riau. There are also several other commodities such tin, coal, and iron (Image 2)
-
-[Image 2]
-
-Massive Bauxite mine in Kepulauan Riau can be observed to already occur since the 90s. Bauxite already been explotid in the islands as far as the Colonial era, and consnidered as one of the largest province thath produced bauxite in Indonesia. However, the entire Province of Kepulauan Riau are consist of small island according to UU PWP3K No. 1/2014. in some instances the footprint of  mining activities are so extreme it covers more than 90%  of the island (Image 2). Mining activitites in the Island have
-
-Beberapa bulan yang lalu perckapan publik sempat dipenuhi dengan diskusi dan protes tentang aktivitas pertambangan nikel di Pulau Gag. Kalau tidak salah, kasus ini mulai viral setelah dipicu oleh aksi protes Greenpeace Indonesia di Konferensi Nikel  Internasional yang diselanggarakan di Jakarta di Bulan Juni tahun lalu. Tentu saja, segala tudingan tentang pelanggaran hukum dan perusakan lingkungan membutuhkan investigasi yang serius dan dukungan data yang dikumpulkan langsung di lokasi sekeitar tatmbang. tapi ada satu hal yang cukup mudah untuk diferivikasi: Aktivitas Pertambangan di Pulau-Pulau Kecil.
-Kegiatan pertambangan di pulau-pulau kecil dapat dianggap berpotensi kuat melanggar peraturan Undang-Undang. Tepatnya UU PWP3K No. 1/2014, yang kemudian diperkuat dengan putusan MK No. 35/PUU-XXI/2023 yang mempertegas bahwa kegiatan pertamtbangan di pulau kecil dinyatakan sebagai abnormally dangerous activity karena pulau-pulau kecil dianggap memiliki daya dukung yang terbatas dan aktivitas tambang di kawasan tersebut dapat menimbulkan kerusakan yang tidak dapat diperbaiki.
-
-Tambang di pulau kecil merupakan sesuatu yang seharusnya dapat dideteksi dengan cukup baik dan cepat menggunakan citra penginderaan jauh dan analisa GIS. Pada post kali ini saya akan menuliskan sedikit hasil riset tipis-tipis tentang topik ini yang saya lakukan dengan menggunakan analisa citra satelit dan GIS
+Kegiatan pertambangan di pulau kecil seharusnya dapat terdeteksi dengan cukup akurat dan mudah dengan menggunakan citra penginderaan jauh dan analisis GIS. Di post kali ini, saya ingin membagikan sedikit hasil riset tipis-tipis saya mengenai topik ini.
 
 # Pulau Kecil
-Pertama kita butuh definisi tentang pulau kecil. Berdasarkan UU PWP3K No. 1/2014, pulau kecil merupakan pulau dengan luas lebih kecil atau sama dengan 2,000 km2. Indonesia, yang merupakan negara kepulauan memiliki ribuan pulau yang banyak diantaranya tergolong kedalam pulau kecil. Berdasarkan data batas provinsi Indonesia yang dikeularkan oleh Badan Informasi Geospasial (BIG), tepatnya terdapat 19,249 pulau di indonesia yang dapat diperoleh dengan menghitung jumlah poligon yang tidak saling bersinggungan. Jika kita menghitungang luasan masing-masing pulau kemudian menghapus semua pulau dengan luasan diatas 2,000 km2, maka kita masih tersisa dengan puluhan ribu pulau.  Namun kebanyak dari pulau-pulau ini adalah pulau yang sangat kecil dengan luasan dibawah 1 km2, dan tampaknya kemunbgkinan untuk adanya aktivitas pertambangan di pulau sekecil itu cukup kecil (walaupun tidak mustahil!). Untuk mempermudah proses analisa, kita juga akan mengabaikan pulau dengan luasan dibawah 1 km2, sehingga hanya tersisa sebanya 1,622 pulau kecil (Gambar 1). Jumlah yang masih cukup banyak, namun awal yang cukup untuk melihat dengan lebih detail dengan citra penginderaan jauh.
+Pertama kita butuh definisi tentang pulau kecil. Berdasarkan UU PWP3K No. 1/2014, pulau kecil merupakan pulau dengan luas ≤ 2,000 km². Indonesia, sebagai salah satu negara kepulauan terbesar di dunia, memiliki ribuan pulau. Berdasarkan data batas provinsi dari Badan Informasi Geospasial [(BIG)](https://geoportal.big.go.id/#/), terdapat setidaknya 19.249 pulau di Indonesia.
 
-(Gambar1)
+Jika kita menghapus pulau > 2.000 km² dan pulau < 1 km² (karena kemungkinan aktivitas tambang di pulau sangat kecil relatif rendah), tersisa 1.622 pulau kecil (Gambar 1). Jumlah ini masih cukup banyak, tetapi memungkinkan seabgai titik awal untuk analisis citra satelit lebih mendetail.
+
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid 
+            path="assets/img/post_15_small_islands.png" 
+            class="img-fluid rounded" 
+            alt="Pulau-pulau kecil di Indonesia yang ditampilan dengan latar google basemap"
+        %}
+    </div>
+</div>
+<div class="caption">
+    Gambar 1. Pulau-pulau kecil ditandai dengan warna oranye. Peta dasar menggunakan Google Basemap.
+</div>
 
 # Aktivitas Pertambangan di Pulau-Pulau Kecil
-Setelah batas-batas pulau kecil ditentukan dengan analisa GIS, analisa citra satelit historis dapat dilakukan untuk mendeteksi keberadaan tambang di pulau-pulau tersebut dan menghitung total area tambang di pulau kecil dari tahun ke tahun (Gambar 2). Pada tahun 2020 diestimasikan terdapat sekitar 16,800 hektar bukaan tambang di pulau kecil di Indonesia. sebagian dari bukaan tambang ini bisa jadi merupakan tambagn non-aktif yang sudah ditinggalkan tanpa dilakukan reklamasi atau pemulihan area pasca tambang, bisa juga merupakan area yang masih aktif di tambang. sebagian pun bisa jadi mengantongni zizin resmi dari pemerintah, dan sebagaian tergolong kedalam pertambagnan tanpa izin. Pada analisis ini tidak dilakukan pmeisahan terhadap statsu tambang-tambang yan gterdeteksi.
+Setelah batas pulau kecil ditentukan, citra satelit [LANDSAT](https://science.nasa.gov/mission/landsat/) dapat dianalisis untuk mendeteksi keberadaan tambang dan menghitung total area tambang dari tahun ke tahun (Gambar 2). Pada 2020, diperkirakan terdapat sekitar 16.800 hektar bukaan tambang di pulau kecil. Beberapa tambang masih aktif, sementara sebagian lain sudah tidak beroperasi dan tidak direklamasi. Status perizinan tambang juga bervariasi, ada yang resmi dan ada yang tanpa izin. Dalam analisis ini, perbedaan status tersebut tidak dibedakan dan semuanya dihitung sebagai bukaan tambang.
 
-Sebagian besar kegiatan pertambangan di pulau kecil di Indonesia berkaitan dengan komoditas nikel di Sulawesi Tenggara, Maluku Utrana, dan Papua Barat Daya, serta komoditas Bauksit di Kepulauan Riau. Selai dua komoditas utama tersebut, terdapat juga komoditas lain seperti timah di Kepulauan Bangka Belitung, batubara di Kalimantan Utara, dan bijih besi di Kalimantan Selatan (Gambar 3).
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid 
+            path="assets/img/post_15_total_area_per_year.png" 
+            class="img-fluid rounded" 
+            alt="Grafik yang menujukkan trend luasan bukaan tambang di pulau-pulau kecil di Indonesia selama 30 tahun. sejak tahun 1990 sampai 2020."
+        %}
+    </div>
+</div>
+<div class="caption">
+    Gambar 2. Grafik yang menunjukkan total luas bukaan tambang di pulau-pulau kecil di Indonesia dari tahun 1990 hingga 2020.
+</div>
 
-Dari Gambar 3 kita dapat melihat seberapa parahnya imbas pertambangan di Pulau kecil di Indonesia, terutama bisa kita lihat di Pulau Kas sebagai contoh dimana lebih dari 90% bagian dari Pulau sudah berubah menjadi bukaan tambang. EKgiatan tambang di pulau ini diperkirakan telah berhenti sejak tahun 2014, namun tidak terlihat terdapat kegaitan pasca tambang apapun yang dilakukan setlah operasi pertambangan selesai. Lebih parahnya status lahan Pulau tersebut sebelumnya merupakan fungsi hutan, dan juga [Ombudsman](https://ombudsman.go.id/perwakilan/news/r/pwkmedia--ombudsman-curigai-dana-pemulihan-lingkungan-hilang-tambang-bauksit-tinggalkan-luka-di-karimun) mednuga dana pemulihan lingkungan yang seharusnya diberikan perusahaan ke pemerintah hilang.
+Sebagian besar pertambangan di pulau kecil berkaitan dengan nikel, terutama di Sulawesi Tenggara, Maluku Utara, dan Papua Barat Daya, serta bauksit di Kepulauan Riau. Selain itu, terdapat pertambangan timah di Bangka Belitung, batubara di Kalimantan Utara, dan bijih besi di Kalimantan Selatan (Gambar 3).
 
-KEgaitan pertambangan bauksit di Kepulau Riau secara umum sudah berlnagsung setidaknya sejak tahun 90an. Kepulauan Riau sendiri cukup unik karena sebagai provinsi seluruh wilayah darat Kepulauan Riau termasuk kedalam pulau kecil, sedangan pulau ini sejak dulu terkenal sebagai salah satu penghasil bauksit, timah, dan granit di Indonesia. Sehingga sekitar 40% dari total luas bukaan tambang di pulau kecil di Indonesia berada di Kepulauan Riau. Seedangkan pertambagnan Nikel di pulau kecil di Sulawesi Tenggara dan Maluku Utara tergolong masih baru. Meskipun semenjak awal tahun 2000an sudah muncul tambang-tambang yang operasional, angka pertambangan nikel di pulau kecil baru mulai melesat tinggi di Sulawesi Tenggara sejak 2018, dan di MAluku Utara sejak 2020.
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid 
+            path="assets/img/post_15_example_per_commodity.png" 
+            class="img-fluid rounded" 
+            alt="Beberapa contoh citra satelit resolusi tinggi untuk pertambangan di pulau kecil. COntoh dari beberapa komoditas tambang yang berbeda seperti: bauksit, nikel, timah, batubara, bijih besi"
+        %}
+    </div>
+</div>
+<div class="caption">
+    Gambar 3. Contoh citra satelit resolusi tinggi (Google Basemap Mosaic) yang menampilkan bukaan tambang di beberapa pulau kecil dengan berbagai komoditas: (1) Nikel – Pulau Gei, (2) Batubara – Pulau Bunyu, (3) Bijih Besi – Pulau Sebuku, (4) Timah – Pulau Lepar, (5) Bauksit – Pulau Kei.
+</div>
 
-Dengan melihat citra satelit historis dari Satelit LANDSAT, kita dapat mengamati perubahan bentang alam di pulau-pulau kecil ini dari tahun ke tahun sejak tahun 1990an sampai sekarang. Gambar 3 dan 4 menunjukkan perubahan bentan alam Pulau X dan Pulau Y dari tahun ke tahun semenjak 1995 sampai 2025 yang menunjukkan sebagaimana cepatnya tambagn dapat merubah sebagian besar bentang alam pulau kecil.
+Gambar 3 menunjukkan betapa parahnya imbas kegiatan pertambangan di beberapa pulau kecil di Indonesia. COntoh paling mencolok terlihat di Pulau Kas, di mana lebih dari 90% wilayah pulau telah menjadi bukaan tambang. Aktivitas pertambangan diperkirakan berhenti sejak 2014, namun tidak ada kegiatan reklamasi atau pemulihan pasca-tambang. Padahal sebelumnya, pulau ini merupakan kawasan hutan. [Ombudsman](https://ombudsman.go.id/perwakilan/news/r/pwkmedia--ombudsman-curigai-dana-pemulihan-lingkungan-hilang-tambang-bauksit-tinggalkan-luka-di-karimun) juga menduga dana pemulihan lingkungan yang seharusnya diberikan perusahaan kepada pemerintah hilang
 
-#
+Pertambangan bauksit di Kepulauan Riau secara umum telah berlangsung setidaknya sejak 1990-an. Provinsi ini unik karena seluruh daratannya termasuk pulau kecil, dan sejak lama dikenal sebagai penghasil bauksit, timah, dan granit. Sekitar 40% total bukaan tambang di pulau kecil Indonesia berada di wilayah ini. Artinya, sejak tahun 2007 seharusnya sudah dilakukan kajian khusus terkait aktivitas pertambangan di provinsi ini. Namun kenyataannya, luasan bukaan tambang di pulau-pulau kecil terus bertambah setidaknya hingga 2020.
+
+Sementara itu, pertambangan nikel di pulau kecil Sulawesi Tenggara dan Maluku Utara relatif baru. Meski sudah ada tambang sejak awal 2000-an, ekspansi signifikan baru terjadi mulai 2018 di Sulawesi Tenggara dan 2020 di Maluku Utara.
+
+Selain analisis untuk mendeteksi bukaan tambang dan menghitung luasnya tiap tahun, animasi perubahan bentang alam per tahun juga dapat dibuat menggunakan data LANDSAT. Ini membantu memahami bagaimana aktivitas tambang mengubah lanskap pulau-pulau kecil sejak 1990-an hingga saat ini. Gambar 4 dan 5 menunjukkan perubahan bentang alam Pulau Mala-Mala dan Pulau Pakal di Maluku Utara dari tahun 1995 hingga 2025, memperlihatkan seberapa cepat tambang dapat mengubah sebagian besar bentang alam pulau kecil.
+
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid 
+            path="assets/img/post_15_pulau_malamala.gif" 
+            class="img-fluid rounded" 
+            alt="Animasi citra satelit temporal LANDSAT di Pulau Malamala Maluku Utara yang menunjukkan perkembangan aktivitas pertambangan Nikel
+        %}
+    </div>
+</div>
+<div class="caption">
+    Gambar 4. Animasi perubahan bentang alam Pulau Malamala dari tahun 1995 hingga 2025.
+</div>
+
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid 
+            path="assets/img/post_15_pulau_pakal.gif" 
+            class="img-fluid rounded" 
+            alt="Animasi citra satelit temporal LANDSAT di Pulau Malamala Maluku Utara yang menunjukkan perkembangan aktivitas pertambangan Nikel
+        %}
+    </div>
+</div>
+<div class="caption">
+    Gambar 4. Animasi perubahan bentang alam Pulau Pakal dari tahun 1995 hingga 2025.
+</div>
+
+# Penutup
+Setelah keributan di dunia maya terkait aktivitas penambangan di Pulau Gag, pemerintah mencabut izin beberapa perusahaan, namun PT. GAG dikecualikan dengan dalil yang kurang [jelas](https://www.tempo.co/politik/mengapa-pemerintah-tak-cabut-izin-pt-gag-nikel-di-raja-ampat--1673941). Di daerah lain, bisa jadi ada pengecualian serupa untuk meloloskan beberapa perusahaan tambang. Namun, pengecualian seperti ini tidak boleh menjadi norma. Sebagaimana dinyatakan Mahkamah Konstitusi, aktivitas pertambangan di pulau kecil termasuk abnormally dangerous activity. Pulau Kas menjadi contoh ekstrim, di mana lebih dari 90% luas pulau telah rusak akibat pertambangan dan bentang alamnya sudah sangat sulit untuk dikembalikan ke kondisi awal.
+
+Analisis sederhana ini menunjukkan tren penting: luas bukaan tambang di pulau-pulau kecil terus meningkat, meski UU PWP3K 2007 melarang aktivitas tersebut, dan sebagian tambang yang ditinggalkan tidak direklamasi. Kecolongan di masa lalu karena sulitnya pengawasan pulau kecil yang luas dan terpencil seharusnya tidak lagi menjadi alasan. Dengan citra satelit yang semakin banyak dan mudah diakses, sistem pemantauan near-real-time seharusnya bisa diwujudkan. Yang terpenting kini adalah political will untuk menegakkan undang-undang dan memastikan pengelolaan pulau kecil berlangsung lebih bertanggung jawab.
