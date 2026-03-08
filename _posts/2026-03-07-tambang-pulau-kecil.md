@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Pertambangan di Pulau-Pulau Kecil Indonesia"
-date: 2026-03-08 20:36:10
+date: 2026-03-07 20:36:10
 description: Melacak aktivitas pertambangan di pulau kecil dengan analisa GIS dan citra satelit
 tags: remote_sensing, monitoring, mining, security, GIS, environment
 ---
