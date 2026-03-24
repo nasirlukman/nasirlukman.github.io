@@ -16,7 +16,7 @@ In this post, I’ll show a case study using hyperspectral imaging on a small se
 
 ## Spectral Signatures
 
-distinguish between different white mica species, as only lepidolite contains lithium. White micas exhibit absorption features near 1400 nm, 1900 nm, and especially around 2200 nm due to OH vibrational overtones. Differentiating between species requires detecting subtle shifts in the ~2200 nm feature.
+The granite sample we are working with contain multiple white mica species. The ain goal is to distinguish between different white mica species, as only lepidolite contains lithium. White micas exhibit absorption features near 1400 nm, 1900 nm, and especially around 2200 nm due to OH vibrational overtones. Differentiating between species requires detecting subtle shifts in the ~2200 nm feature.
 
 Muscovite, which contains Al-OH bonds, shows an absorption feature near 2206 nm. When Al is substituted by other cations like Fe, Mg, or Li, the position of this feature shifts. Specifically, Fe- and Mg-rich white micas such as phengite shift the feature to longer wavelengths (~2230 nm), while Li-rich micas like lepidolite shift it to shorter wavelengths (~2195 nm). In this rock sample, we observe this feature ranging from ~2195 nm to ~2208 nm, indicating a compositional transition from lepidolite to muscovite.
 
