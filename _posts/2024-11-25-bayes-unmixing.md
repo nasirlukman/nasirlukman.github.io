@@ -101,7 +101,7 @@ For illustration, the animation below shows the random walk process for sampling
 
 In this example, we will analyze a sandstone rock sample. Rock samples are ideal for testing this method since they represent natural surfaces and still allow us to conduct other detailed analytical measurements with laboratory instruments to produce high-quality 'ground truth' data for comparison with our results.
 
-For the endmembers, we consider three primary components of sandstone: quartz (grains), clay (matrix), and carbonates (cement). The endmember spectra for these minerals are assumed to be known, either from direct laboratory measurements, spectral libraries, or endmember extraction algorithms for hyperspectral imagery. We begin with a single mixed spectrum, as shown in the image below:
+For the endmembers, we consider three primary components of sandstone: quartz (grains), clay (matrix), and carbonates (cement). The endmember spectra for these minerals are assumed to be known, either from direct laboratory measurements, spectral libraries, or [endmember extraction algorithms](https://nasirlukman.github.io/blog/2024/nfindr/) for hyperspectral imagery. We begin with a single mixed spectrum, as shown in the image below:
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
