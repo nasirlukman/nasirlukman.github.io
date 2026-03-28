@@ -31,7 +31,7 @@ Jika kita menghapus pulau > 2.000 km² dan pulau < 1 km² (karena kemungkinan ak
 </div>
 
 # Aktivitas Pertambangan di Pulau-Pulau Kecil
-Setelah batas pulau kecil ditentukan, citra satelit dapat dianalisis untuk mendeteksi keberadaan tambang dan menghitung total area tambang dari tahun ke tahun (Gambar 2). Pada 2020, diperkirakan terdapat sekitar 25,000 hektar bukaan tambang di pulau kecil. Beberapa tambang masih aktif, sementara sebagian lain sudah tidak beroperasi dan tidak direklamasi. Status perizinan tambang juga bervariasi, ada yang resmi dan ada yang tanpa izin. Dalam analisis ini, perbedaan status tersebut tidak dibedakan dan semuanya dihitung sebagai bukaan tambang.
+Setelah batas pulau kecil ditentukan, citra satelit dapat dianalisis untuk mendeteksi keberadaan tambang dan menghitung total area tambang dari tahun ke tahun (Gambar 2). Pada tahun 2020, diperkirakan terdapat sekitar 25,000 hektar bukaan tambang di pulau kecil. Beberapa tambang masih aktif, sementara sebagian lain sudah tidak beroperasi dan tidak direklamasi. Status perizinan tambang juga bervariasi, ada yang resmi dan ada yang tanpa izin. Dalam analisis ini, perbedaan status tersebut tidak dibedakan dan semuanya dihitung sebagai bukaan tambang.
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
