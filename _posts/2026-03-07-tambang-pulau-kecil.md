@@ -43,7 +43,7 @@ Setelah batas pulau kecil ditentukan, citra satelit dapat dianalisis untuk mende
     </div>
 </div>
 <div class="caption">
-    Gambar 2. Grafik yang menunjukkan total luas bukaan tambang di pulau-pulau kecil di Indonesia dari tahun 1990 hingga 2020.
+    Gambar 2. Grafik yang menunjukkan total luas bukaan tambang di pulau-pulau kecil di Indonesia dari tahun 1990 hingga 2020. Hasil estimasi luasan bersifat indikatif berdasarkan analisis data digital dan belum diverifikasi secara manual.
 </div>
 
 Sebagian besar pertambangan di pulau kecil berkaitan dengan nikel, terutama di Sulawesi Tenggara, Maluku Utara, dan Papua Barat Daya, serta bauksit di Kepulauan Riau. Selain itu, terdapat pertambangan timah di Bangka Belitung, batubara di Kalimantan Utara, dan bijih besi di Kalimantan Selatan (Gambar 3).
