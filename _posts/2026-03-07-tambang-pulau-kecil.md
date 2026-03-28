@@ -31,7 +31,7 @@ Jika kita menghapus pulau > 2.000 km² dan pulau < 1 km² (karena kemungkinan ak
 </div>
 
 # Aktivitas Pertambangan di Pulau-Pulau Kecil
-Setelah batas pulau kecil ditentukan, citra satelit [LANDSAT](https://science.nasa.gov/mission/landsat/) dapat dianalisis untuk mendeteksi keberadaan tambang dan menghitung total area tambang dari tahun ke tahun (Gambar 2). Pada 2020, diperkirakan terdapat sekitar 25,000 hektar bukaan tambang di pulau kecil. Beberapa tambang masih aktif, sementara sebagian lain sudah tidak beroperasi dan tidak direklamasi. Status perizinan tambang juga bervariasi, ada yang resmi dan ada yang tanpa izin. Dalam analisis ini, perbedaan status tersebut tidak dibedakan dan semuanya dihitung sebagai bukaan tambang.
+Setelah batas pulau kecil ditentukan, citra satelit dapat dianalisis untuk mendeteksi keberadaan tambang dan menghitung total area tambang dari tahun ke tahun (Gambar 2). Pada 2020, diperkirakan terdapat sekitar 25,000 hektar bukaan tambang di pulau kecil. Beberapa tambang masih aktif, sementara sebagian lain sudah tidak beroperasi dan tidak direklamasi. Status perizinan tambang juga bervariasi, ada yang resmi dan ada yang tanpa izin. Dalam analisis ini, perbedaan status tersebut tidak dibedakan dan semuanya dihitung sebagai bukaan tambang.
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
@@ -67,7 +67,7 @@ Pertambangan bauksit di Kepulauan Riau secara umum telah berlangsung setidaknya 
 
 Sementara itu, pertambangan nikel di pulau kecil di Sulawesi Tenggara dan Maluku Utara bisa dibilang relatif baru. Meski sudah ada tambang sejak awal 2000-an, ekspansi signifikan baru terjadi mulai 2018 di Sulawesi Tenggara dan 2020 di Maluku Utara.
 
-Selain analisis untuk mendeteksi bukaan tambang dan menghitung luasnya tiap tahun, animasi perubahan bentang alam per tahun juga dapat dibuat menggunakan data LANDSAT. Ini membantu memahami bagaimana aktivitas tambang mengubah lanskap pulau-pulau kecil sejak 1990-an hingga saat ini. Gambar 4 dan 5 menunjukkan perubahan bentang alam Pulau Mala-Mala dan Pulau Pakal di Maluku Utara dari tahun 1995 hingga 2025, memperlihatkan seberapa cepat tambang dapat mengubah sebagian besar bentang alam pulau kecil.
+Selain analisis untuk mendeteksi bukaan tambang dan menghitung luasnya tiap tahun, animasi perubahan bentang alam per tahun juga dapat dibuat menggunakan data [LANDSAT](https://science.nasa.gov/mission/landsat/). Ini membantu memahami bagaimana aktivitas tambang mengubah lanskap pulau-pulau kecil sejak 1990-an hingga saat ini. Gambar 4 dan 5 menunjukkan perubahan bentang alam Pulau Mala-Mala dan Pulau Pakal di Maluku Utara dari tahun 1995 hingga 2025, memperlihatkan seberapa cepat tambang dapat mengubah sebagian besar bentang alam pulau kecil.
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
