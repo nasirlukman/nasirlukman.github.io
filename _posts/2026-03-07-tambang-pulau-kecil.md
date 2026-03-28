@@ -65,7 +65,7 @@ Gambar 3 menunjukkan betapa parahnya imbas kegiatan pertambangan di beberapa pul
 
 Pertambangan bauksit di Kepulauan Riau secara umum telah berlangsung setidaknya sejak 1990-an. Provinsi ini unik karena seluruh daratannya termasuk pulau kecil, dan sejak lama dikenal sebagai penghasil bauksit, timah, dan granit. Sekitar 40% total bukaan tambang di pulau kecil Indonesia berada di wilayah ini. Artinya, sejak tahun 2007 seharusnya sudah dilakukan kajian khusus terkait aktivitas pertambangan di provinsi ini. Namun kenyataannya, luasan bukaan tambang di pulau-pulau kecil terus bertambah setidaknya hingga 2020.
 
-Sementara itu, pertambangan nikel di pulau kecil Sulawesi Tenggara dan Maluku Utara relatif baru. Meski sudah ada tambang sejak awal 2000-an, ekspansi signifikan baru terjadi mulai 2018 di Sulawesi Tenggara dan 2020 di Maluku Utara.
+Sementara itu, pertambangan nikel di pulau kecil di Sulawesi Tenggara dan Maluku Utara relatif baru. Meski sudah ada tambang sejak awal 2000-an, ekspansi signifikan baru terjadi mulai 2018 di Sulawesi Tenggara dan 2020 di Maluku Utara.
 
 Selain analisis untuk mendeteksi bukaan tambang dan menghitung luasnya tiap tahun, animasi perubahan bentang alam per tahun juga dapat dibuat menggunakan data LANDSAT. Ini membantu memahami bagaimana aktivitas tambang mengubah lanskap pulau-pulau kecil sejak 1990-an hingga saat ini. Gambar 4 dan 5 menunjukkan perubahan bentang alam Pulau Mala-Mala dan Pulau Pakal di Maluku Utara dari tahun 1995 hingga 2025, memperlihatkan seberapa cepat tambang dapat mengubah sebagian besar bentang alam pulau kecil.
 
