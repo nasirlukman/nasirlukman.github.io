@@ -21,7 +21,7 @@ I work as a geospatial data scientist and remote sensing analyst focused on Eart
 </p>
 
 <p>
-Satellite observation data is one of the most information rich sources available, yet it remains underutilized. In this blog, I explore how to use that data through projects, notes, and experiments focused on practical use cases and analysis. The goal is to push how this data is used, making it less opaque, more accessible, and more useful for solving complex global challenges.
+Satellite observation data is one of the most information rich data sources available, yet it remains underutilized. In this blog, I explore how to use that data through projects, notes, and experiments focused on practical use cases and analysis. The goal is to push how this data is used, making it less opaque, more accessible, and more useful for solving complex global challenges.
 </p>
 
 
