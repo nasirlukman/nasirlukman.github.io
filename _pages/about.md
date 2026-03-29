@@ -16,7 +16,11 @@ social: false # includes social icons at the bottom of the page
 ---
 <div style="text-align: justify">
 
-I'm a geospatial data scientist and remote sensing analyst with expertise in spectral geology, earth systems, environmental monitoring, and advance image analysis. This blog will feature snapshots of my projects, study notes, ideas, and insights, mostly related to remote sensing and earth science. My goal is to make geospatial data science and remote sensing methods more accessible, so they can be applied by a wider stakeholders to tackle complex, real-world problems and enable more informed decision-making.
+I work as a geospatial data scientist and remote sensing analyst focused on environmental monitoring and Earth systems. I use satellite data, spectroscopy, and machine learning to understand patterns on the Earth’s surface and turn them into actionable information.
+
+Satellite observation data is one of the most information rich sources available, yet it remains underutilized. In this blog, I explore how to use that data through projects, notes, and experiments focused on practical use cases and analysis.
+
+The aim is to push how this data is used, making it less opaque, more accessible, and more useful for solving complex global challenges.
 
 
 </div>
