@@ -16,10 +16,13 @@ social: false # includes social icons at the bottom of the page
 ---
 <div style="text-align: justify">
 
+<p>
 I work as a geospatial data scientist and remote sensing analyst focused on environmental monitoring and Earth systems. I use satellite data, spectroscopy, and machine learning to understand patterns on the Earth’s surface and turn them into actionable information.
+</p>
 
-
+<p>
 Satellite observation data is one of the most information rich sources available, yet it remains underutilized. In this blog, I explore how to use that data through projects, notes, and experiments focused on practical use cases and analysis. The goal is to push how this data is used, making it less opaque, more accessible, and more useful for solving complex global challenges.
+</p>
 
 
 </div>
