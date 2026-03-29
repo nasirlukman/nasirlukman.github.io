@@ -46,14 +46,14 @@ Setelah batas pulau kecil ditentukan, citra satelit dapat dianalisis untuk mende
     Gambar 2. Grafik yang menunjukkan total luas bukaan tambang di pulau-pulau kecil di Indonesia dari tahun 1990 hingga 2020. Hasil estimasi luasan bersifat indikatif berdasarkan analisis data digital dan belum diverifikasi secara manual.
 </div>
 
-Sebagian besar pertambangan di pulau kecil berkaitan dengan nikel, terutama di Sulawesi Tenggara, Maluku Utara, dan Papua Barat Daya, serta bauksit di Kepulauan Riau. Selain itu, terdapat pertambangan timah di Bangka Belitung, batubara di Kalimantan Utara, dan bijih besi di Kalimantan Selatan (Gambar 3).
+Sebagian besar pertambangan di pulau kecil berkaitan dengan nikel, terutama di Sulawesi Tenggara, Maluku Utara, dan Papua Barat Daya, serta bauksit di Kepulauan Riau. Selain dua komoditas tersebut, terdapat pula beberapa komoditas lain dengan jumlah luas bukaan yang relatif lebih kecil, yaoitu:  timah di Bangka Belitung, batubara di Kalimantan Utara, dan bijih besi di Kalimantan Selatan (Gambar 3).
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid 
             path="assets/img/post_15_example_per_commodity.png" 
             class="img-fluid rounded" 
-            alt="Beberapa contoh citra satelit resolusi tinggi untuk pertambangan di pulau kecil. COntoh dari beberapa komoditas tambang yang berbeda seperti: bauksit, nikel, timah, batubara, bijih besi"
+            alt="Beberapa contoh citra satelit resolusi tinggi untuk pertambangan di pulau kecil. Contoh dari beberapa komoditas tambang yang berbeda seperti: bauksit, nikel, timah, batubara, bijih besi"
         %}
     </div>
 </div>
@@ -61,7 +61,7 @@ Sebagian besar pertambangan di pulau kecil berkaitan dengan nikel, terutama di S
     Gambar 3. Contoh citra satelit resolusi tinggi (Google Basemap Mosaic) yang menampilkan bukaan tambang di beberapa pulau kecil dengan berbagai komoditas: (1) Nikel – Pulau Gei, (2) Batubara – Pulau Bunyu, (3) Bijih Besi – Pulau Sebuku, (4) Timah – Pulau Lepar, (5) Bauksit – Pulau Kas.
 </div>
 
-Gambar 3 menunjukkan betapa parahnya imbas kegiatan pertambangan di beberapa pulau kecil di Indonesia. Contoh paling mencolok terlihat di Pulau Kas, di mana lebih dari 90% wilayah pulau telah menjadi bukaan tambang. Aktivitas pertambangan diperkirakan berhenti sejak 2014, namun tidak ada kegiatan reklamasi atau pemulihan pasca-tambang. Padahal sebelumnya, pulau ini merupakan kawasan hutan. [Ombudsman](https://ombudsman.go.id/perwakilan/news/r/pwkmedia--ombudsman-curigai-dana-pemulihan-lingkungan-hilang-tambang-bauksit-tinggalkan-luka-di-karimun) juga menduga dana pemulihan lingkungan yang seharusnya diberikan perusahaan kepada pemerintah hilang
+Gambar 3 menunjukkan betapa parahnya imbas kegiatan pertambangan di beberapa pulau kecil di Indonesia. Contoh paling mencolok terlihat di Pulau Kas, di mana lebih dari 90% wilayah pulau telah menjadi bukaan tambang bauksit. Aktivitas pertambangan diperkirakan berhenti sejak 2014, namun tidak ada kegiatan reklamasi atau pemulihan pasca-tambang. Padahal sebelumnya, pulau ini merupakan kawasan hutan. [Ombudsman](https://ombudsman.go.id/perwakilan/news/r/pwkmedia--ombudsman-curigai-dana-pemulihan-lingkungan-hilang-tambang-bauksit-tinggalkan-luka-di-karimun) juga menduga dana pemulihan lingkungan yang seharusnya diberikan perusahaan kepada pemerintah menghilang entah kemana.
 
 Pertambangan bauksit di Kepulauan Riau secara umum telah berlangsung setidaknya sejak 1990-an. Provinsi ini unik karena seluruh daratannya termasuk pulau kecil, dan sejak lama dikenal sebagai penghasil berbagai komoditas tambang strategis seperti bauksit, timah, dan granit. Sekitar 40% total bukaan tambang di pulau kecil Indonesia berada di wilayah ini. Artinya, sejak tahun 2007 seharusnya sudah dilakukan kajian khusus terkait aktivitas pertambangan di provinsi ini sebagai tindak laanjut dari terbitnya UU PWP3K No. 27/2007. Namun kenyataannya, luasan bukaan tambang di pulau-pulau kecil terus bertambah setidaknya hingga 2020.
 
