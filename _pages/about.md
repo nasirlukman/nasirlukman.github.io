@@ -17,7 +17,7 @@ social: false # includes social icons at the bottom of the page
 <div style="text-align: justify">
 
 <p>
-I work as a geospatial data scientist and remote sensing analyst focused on environmental monitoring and Earth systems. I use satellite data, spectroscopy, and machine learning to understand patterns on the Earth’s surface and turn them into actionable information.
+I work as a geospatial data scientist and remote sensing analyst focused on Earth systems, environmental monitoring, and illicit activity monitoring. I analyze satellite data using spectroscopy, backscatter analysis, and machine learning to understand patterns on the Earth’s surface and turn them into actionable information.
 </p>
 
 <p>
