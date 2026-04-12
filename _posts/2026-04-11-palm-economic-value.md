@@ -9,7 +9,7 @@ tags: remote_sensing, monitoring, mining, security, data_science, machine_learni
 ## Humble Beginnings
 **Elaeis guineensis**, also known locally as *Kelapa Sawit* is arguably the most successful immigrant in Indonesian history. Native to West Africa, it arrived in the Dutch East Indies in the mid-19th century as four seedlings planted in the [Bogor Botanical Gardens](https://lovelybogor.com/blog/2018/09/22/palm-oil-monument-in-bogor-botanical-gardens/) for scientific study.
 
-From those four ancestors, a biological and economic empire was born. Cultivation spread from the estates of Sumatra to the vast reaches of Papua, forming a unique symbiosis with human ambition. At the entrance of my office building is a quote by the poet [Robert Hass](https://grist.org/article/hass/): *"All lands dream of becoming a forest."* It is a beautiful sentiment, but ironic when contrasted with the dream of many landowners in Indonesia's lowlands: to turn their land into a palm plantation.
+From those four ancestors, palm oil cultivation spread until it defined the Indonesian landscape. Cultivation spread from the estates of Sumatra to the vast reaches of Papua, forming a unique symbiosis with human ambition. At the entrance of my office building is a quote by the poet [Robert Hass](https://grist.org/article/hass/): *"All lands dream of becoming a forest."* It is a beautiful sentiment, but ironic when contrasted with the dream of many landowners in Indonesia's lowlands: to turn their land into a palm plantation.
 
 If you drive through the lowlands of Sumatra or Kalimantan, the horizon is rarely anything else but palm oil plantations. Today, Indonesian palm oil plantations already cover millions of hectares. An area that is larger than many European nations!
 
@@ -34,7 +34,7 @@ To put that in perspective: considering standard plantation spacing, there are m
 But this dominance is not without [consequence](https://theicct.org/publication/ecological-impacts-of-palm-oil-expansion-in-indonesia/?gad_campaignid=22639629046). The expansion of oil palm has been closely linked to large-scale deforestation, particularly in Sumatra and Kalimantan, where lowland forests have been systematically converted into monoculture landscapes. In many cases, this transformation involves peatland drainage, releasing significant amounts of stored carbon and increasing vulnerability to fire. What emerges is a system that is highly efficient economically, but one that comes at the cost of ecological complexity, biodiversity, and long-term landscape resilience.
 
 ## Estimating Annual Gross Production Value of Crude Palm Oil (CPO)
-Beyond the green canopy visible from satellite imagery lies a massive economic engine. I wanted to estimate the actual Gross Production Value (GPV) of this landscape at a national level. Because we are dealing with a country as large as Indonesia, we cannot be exact. Instead, we use a Probabilistic Model. We admit what we do not know for sure, such as the specific yields or the 2026 price, and define them as ranges based on our best estimates. These are our priors. By running thousands of simulations, we account for the full spectrum of possible outcomes.
+We can map palm oil from space quite well. What we don’t see directly is its economic value. I wanted to estimate the actual Gross Production Value (GPV) of this landscape at a national level. Because we are dealing with a country as large as Indonesia, we cannot be exact. Instead, we use a Probabilistic Model. We admit what we do not know for sure some paramters, such as the specific yields or the 2026 price, and define them as ranges based on our best estimates. These are our priors. By running thousands of simulations, we account for the full spectrum of possible outcomes.
 
 ### The Bayesian Formulation
 
@@ -46,7 +46,7 @@ To do this, we can't consider all of palm plantation in Indonesia to be identica
 
 3. Industrial Estates: The high-efficiency, high-yield engines of the industry.
 
-To calculate the total value, we don't just sum up the numbers; we treat every component as a random variable. The national Gross Production Value ($$V$$) is the sum of the production from each management tier ($$i$$$), multiplied by the global price ($$P$$).Mathematically, the relationship for each tier is:
+To estimate the total value, each component is treated as uncertain rather than fixed. The national Gross Production Value ($$V$$) is the sum of the production from each management tier ($$i$$$), multiplied by the global price ($$P$$).Mathematically, the relationship for each tier is:
 
 $$GPV_{i} = A \cdot s_{i} \cdot Y_{i} \cdot ER_{i} \cdot f_{i} \cdot P$$
 
@@ -94,7 +94,7 @@ Figure 2 below visualize the priors for our model parameters. The tight distribu
 
 ### Result
 
-When we aggregate these hectares across the entire 15 million hectare footprint, we get the big picture. The model estimates a National Gross Production Value for 2026 with a mean of approximately $55 Billion USD (Figure 3). However, the "truth" is a range. The 95% Confidence Interval suggests that even under conservative estimates, the value is unlikely to drop below $35 Billion, while a "perfect storm" of high yields and prices could push it toward $80 Billion. This is the economic weight of those ~2 billion trees.
+When we aggregate these hectares across the entire 15 million hectare footprint, we get the big picture. The model estimates a National Gross Production Value for 2026 with a mean of approximately $55 Billion USD (Figure 3). The 95% Confidence Interval suggests that even under conservative estimates, the value is unlikely to drop below $35 Billion, while a high yields and prices could push it toward $80 Billion. This is the economic weight of those ~2 billion trees.
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
