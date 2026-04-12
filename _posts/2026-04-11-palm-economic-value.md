@@ -7,14 +7,16 @@ tags: remote_sensing, monitoring, mining, security, data_science, machine_learni
 ---
 
 ## Humble Beginnings
-**Elaeis guineensis**, also known locally as *Kelapa Sawit* is arguably the most successful immigrant in Indonesian history. Native to West Africa, it arrived in the Dutch East Indies in the mid-19th century as four seedlings planted in the Bogor Botanical Gardens for scientific study.
+**Elaeis guineensis**, also known locally as *Kelapa Sawit* is arguably the most successful immigrant in Indonesian history. Native to West Africa, it arrived in the Dutch East Indies in the mid-19th century as four seedlings planted in the [Bogor Botanical Gardens](https://lovelybogor.com/blog/2018/09/22/palm-oil-monument-in-bogor-botanical-gardens/) for scientific study.
 
-From those four ancestors, a biological and economic empire was born. Cultivation spread from the estates of Sumatra to the vast reaches of Papua, forming a unique symbiosis with human ambition. At the entrance of my office building is a quote by the poet Robert Hass: *"All lands dream of becoming a forest."* It is a beautiful sentiment, but ironic when contrasted with the dream of many landowners in Indonesia's lowlands: to turn their land into a palm plantation.
+From those four ancestors, a biological and economic empire was born. Cultivation spread from the estates of Sumatra to the vast reaches of Papua, forming a unique symbiosis with human ambition. At the entrance of my office building is a quote by the poet [Robert Hass](https://grist.org/article/hass/): *"All lands dream of becoming a forest."* It is a beautiful sentiment, but ironic when contrasted with the dream of many landowners in Indonesia's lowlands: to turn their land into a palm plantation.
 
 If you drive through the lowlands of Sumatra or Kalimantan, the horizon is rarely anything else but palm oil plantations. Today, Indonesian palm oil plantations already cover millions of hectares. An area that is larger than many European nations!
 
 ## Conquering the Nation
 My remote sensing model estimates approximately **15 million hectares** of palm oil plantations in Indonesia (Figure 1). While some official estimates lean toward 16-17 million, my model is intentionally conservative; it specifically captures mature, healthy stands across both industrial estates and smallholder plots, filtering out areas of high uncertainty or early-stage growth that do not yet contribute to the national Gross Production Value.
+
+To put that in perspective: considering standard plantation spacing, there are more than **2 billion palm oil trees** alive in Indonesia right now. They vastly outnumber the human population. They are probably the most prevalent large organism in the country. Essentialy, they are the winner in the game of life.
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
@@ -29,7 +31,7 @@ My remote sensing model estimates approximately **15 million hectares** of palm 
     Figure 1. Productive oil palm plantation in Indonesia for the year 2025
 </div>
 
-To put that in perspective: considering standard plantation spacing, there are more than **2 billion palm oil trees** alive in Indonesia right now. They vastly outnumber the human population. They are probably the most prevalent large organism in the country. Essentialy, they are the winner in the game of life.
+But this dominance is not without [consequence](https://theicct.org/publication/ecological-impacts-of-palm-oil-expansion-in-indonesia/?gad_campaignid=22639629046). The expansion of oil palm has been closely linked to large-scale deforestation, particularly in Sumatra and Kalimantan, where lowland forests have been systematically converted into monoculture landscapes. In many cases, this transformation involves peatland drainage, releasing significant amounts of stored carbon and increasing vulnerability to fire. What emerges is a system that is highly efficient economically, but one that comes at the cost of ecological complexity, biodiversity, and long-term landscape resilience.
 
 ## Estimating Annual Gross Production Value of Crude Palm Oil (CPO)
 Beyond the green canopy visible from satellite imagery lies a massive economic engine. I wanted to estimate the actual Gross Production Value (GPV) of this landscape at a national level. Because we are dealing with a country as large as Indonesia, we cannot be exact. Instead, we use a Probabilistic Model. We admit what we do not know for sure, such as the specific yields or the 2026 price, and define them as ranges based on our best estimates. These are our priors. By running thousands of simulations, we account for the full spectrum of possible outcomes.
@@ -61,7 +63,7 @@ By defining each of these as a probability distribution (e.g., $$Y_{i} \sim \tex
 
 ### Parameters and Assumptions
 
-The table below outlines the specific priors used in the 2026 simulation. These values are derived from a combination of BPS (Statistics Indonesia) historical data, industry benchmarks, and 2025 market trends.
+The table below outlines the specific priors used in the 2025 simulation. These values are derived from a combination of BPS (Statistics Indonesia) historical data, industry benchmarks, and market trends.
 
 | Parameter | Management Tier | Prior Distribution / Range | Assumption Logic |
 | :--- | :--- | :--- | :--- |
@@ -75,7 +77,7 @@ The table below outlines the specific priors used in the 2026 simulation. These 
 | **Price ($$P$$)** | Global | $$\text{Lognormal}(\ln(950), 0.15)$$ | Reflects CPO price volatility for 2025. |
 
 
-Figure 2 below visualize the priors for our model parameters. The tight distribution for Industrial Estates reflects a highly standardized, high-input machine designed for maximum output. Conversely, the wide spread of the Independent Smallholder prior captures the reality of a frontier economy—where factors like seed quality, infrastructure access, and local management create a massive range of performance. By defining these ranges, we trying to reduce bias by acknowledging the sturctural diversity of how different plam oil plantation is utilized.
+Figure 2 below visualize the priors for our model parameters. The tight distribution for Industrial Estates reflects a highly standardized, high-input machine designed for maximum output. Conversely, the wide spread of the Independent Smallholder prior captures the reality of a frontier economy, where factors like seed quality, infrastructure access, and local management create a massive range of performance. By defining these ranges, we trying to reduce bias by acknowledging the sturctural diversity of how different plam oil plantation is utilized.
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
@@ -107,9 +109,7 @@ When we aggregate these hectares across the entire 15 million hectare footprint,
     Figure 3. Annual CPO GPV Estimate for Indonesia in 2025
 </div>
 
-Breaking the results down per hectare reveals three distinct economic profiles. As shown in Figure 4, independent smallholders generate around $2,200/ha/year, plasma $3,458, and industrial estates $5,315.
-
-These numbers give us a baseline. Not a moral argument, not a policy stance. Just a constraint. Any alternative land use competing with palm oil has to match, or justify falling short of, this level of economic output.
+Breaking the results down per hectare reveals three distinct economic profiles. As shown in Figure 4, independent smallholders generate around $2,200/ha/year, plasma $3,458, and industrial estates $5,315. These values serve as practical benchmarks when comparing the economic performance of oil palm against alternative land-use systems.
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
@@ -126,12 +126,10 @@ These numbers give us a baseline. Not a moral argument, not a policy stance. Jus
 
 
 
-## Closing: The Paradox of Success
-A ~$55 billion system is not easy to replace. That is the uncomfortable reality.
+## Closing: The $55 Billion Baseline
+A system generating ~$55 billion a year is not easily replaced.
 
-By mapping these values, we now know exactly what we gain by sacrificing our biodiversity and optimizing a unique, complex and diverse landscape for a single species at scale.
+By mapping these values, we now understands what we gain by sacrificing our biodiversity and optimizing a unique, complex and diverse landscape for a single species at scale. Any alternative land use competing with palm oil must either match this level of economic output, or clearly justify why it falls short.
 
-With this baseline in hand, we can finally begin the real work: comparing this model against alternative land-use schemes to see if a more sustainable, less exploitative path can truly compete under current market mechanisms.
-
-
+With this baseline in place, the real work begins: testing whether more sustainable, less extractive land-use systems can compete under current market conditions.
 
