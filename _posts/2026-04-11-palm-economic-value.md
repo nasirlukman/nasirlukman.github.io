@@ -3,7 +3,7 @@ layout: post
 title: The Economic Footprint of Indonesian Palm Oil
 date: 2026-04-11 20:36:10
 description: Quantifying Gross Returns as a Hurdle Rate for Alternative Land-Use Schemes
-tags: remote_sensing, monitoring, mining, security, data_science, machine_learning, deep_learning, multispectral, radar, GIS, environment
+tags: remote_sensing, agriculture, palm_plantation, bayesian, 
 ---
 
 ## Humble Beginnings
@@ -126,7 +126,7 @@ Breaking the results down per hectare reveals three distinct economic profiles. 
 
 
 
-## Closing: The $55 Billion Baseline
+## Closing: A Plausible Alternative
 A system generating ~$55 billion a year is not easily replaced.
 
 By mapping these values, we now understands what we gain by sacrificing our biodiversity and optimizing a unique, complex and diverse landscape for a single species at scale. Any alternative land use competing with palm oil must either match this level of economic output, or clearly justify why it falls short.
