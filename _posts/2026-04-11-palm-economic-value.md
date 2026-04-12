@@ -65,17 +65,17 @@ The table below outlines the specific priors used in the 2026 simulation. These 
 
 | Parameter | Management Tier | Prior Distribution / Range | Assumption Logic |
 | :--- | :--- | :--- | :--- |
-| **Yield ($Y$)** | Independent | $$\text{Normal}(13, 4)$$ | High variance due to varied seed quality. |
+| **Yield ($$Y$$)** | Independent | $$\text{Normal}(13, 4)$$ | High variance due to varied seed quality. |
 | | Plasma | $$\text{Normal}(17, 3)$$ | Improved yields through company support. |
 | | Industrial | $$\text{Normal}(23, 2)$$ | High-input, consistent industrial management. |
-| **Extraction ($ER$)** | Independent | $$\text{Uniform}(0.18, 0.22)$$ | Lower efficiency in smallholder milling links. |
+| **Extraction ($$ER$$)** | Independent | $$\text{Uniform}(0.18, 0.22)$$ | Lower efficiency in smallholder milling links. |
 | | Plasma | $$\text{Normal}(0.23, 0.01)$$ | Standardized mill processing. |
 | | Industrial | $$\text{Normal}(0.245, 0.01)$$ | Optimized industrial-scale extraction. |
-| **Adjustment ($f$)** | All Tiers | $$\text{TruncatedNormal}$$ | Corrects for non-productive/young trees. |
-| **Price ($P$)** | Global | $$\text{Lognormal}(\ln(950), 0.15)$$ | Reflects CPO price volatility for 2026. |
+| **Adjustment ($$f$$)** | All Tiers | $$\text{TruncatedNormal}$$ | Corrects for non-productive/young trees. |
+| **Price ($$P$$)** | Global | $$\text{Lognormal}(\ln(950), 0.15)$$ | Reflects CPO price volatility for 2025. |
 
 
-Figure 2 below visualize the priors for our model parameters. he tight distribution for Industrial Estates reflects a highly standardized, high-input machine designed for maximum output. Conversely, the wide spread of the Independent Smallholder prior captures the reality of a frontier economy—where factors like seed quality, infrastructure access, and local management create a massive range of performance. By defining these ranges, we trying to reduce bias by acknowledging the sturctural diversity of how different plam oil plantation is utilized.
+Figure 2 below visualize the priors for our model parameters. The tight distribution for Industrial Estates reflects a highly standardized, high-input machine designed for maximum output. Conversely, the wide spread of the Independent Smallholder prior captures the reality of a frontier economy—where factors like seed quality, infrastructure access, and local management create a massive range of performance. By defining these ranges, we trying to reduce bias by acknowledging the sturctural diversity of how different plam oil plantation is utilized.
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
