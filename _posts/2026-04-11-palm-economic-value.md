@@ -127,9 +127,7 @@ Breaking the results down per hectare reveals three distinct economic profiles. 
 
 
 ## Closing: A Plausible Alternative
-A system generating ~$55 billion a year is not easily replaced.
-
-By mapping these values, we now understands what we gain by sacrificing our biodiversity and optimizing a unique, complex and diverse landscape for a single species at scale. Any alternative land use competing with palm oil must either match this level of economic output, or clearly justify why it falls short.
+A system generating ~$55 billion a year is not easily replaced. By mapping these values, we now understands what we gain by sacrificing our biodiversity and optimizing a unique, complex and diverse landscape for a single species at scale. Any alternative land use competing with palm oil must either match this level of economic output, or clearly justify why it falls short.
 
 With this baseline in place, the real work begins: testing whether more sustainable, less extractive land-use systems can compete under current market conditions.
 
