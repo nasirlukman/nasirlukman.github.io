@@ -71,7 +71,7 @@ The table below outlines the specific priors used in the 2026 simulation. These 
 | **Extraction ($$ER$$)** | Independent | $$\text{Uniform}(0.18, 0.22)$$ | Lower efficiency in smallholder milling links. |
 | | Plasma | $$\text{Normal}(0.23, 0.01)$$ | Standardized mill processing. |
 | | Industrial | $$\text{Normal}(0.245, 0.01)$$ | Optimized industrial-scale extraction. |
-| **Adjustment ($$f$$)** | All Tiers | $$\text{TruncatedNormal}$$ | Corrects for non-productive/young trees. |
+| **Adjustment ($$f$$)** | All Tiers | $$\text{TruncatedNormal}$$ | Corrects for non-productive/young trees. Derived empirically from the actual distribution of LANDSAT's NDVI of palm oil plantations at national scale |
 | **Price ($$P$$)** | Global | $$\text{Lognormal}(\ln(950), 0.15)$$ | Reflects CPO price volatility for 2025. |
 
 
