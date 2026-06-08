@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Satellites, Stats, and SEZs: Did the Mandalika MotoGP Circuit Transform Southern Lombok?"
-date: 2026-06-08 16:36:10
+date: 2026-06-06 16:36:10
 description: Using a decade of satellite imagery, demographic data, and spatial analysis to assess how the Mandalika MotoGP Circuit reshaped economic activity, infrastructure, and local development in Southern Lombok.
 tags: remote_sensing, socicoeconomic, image_analysis, night_light
 ---
