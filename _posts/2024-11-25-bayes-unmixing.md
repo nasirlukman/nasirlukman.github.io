@@ -84,7 +84,7 @@ $$
 \beta \sim \mathcal{U}(0, 10^{-4}) 
 $$
 
-As you might guess, this formulation of the posterior distribution cannot be solved analytically. Instead, we use [*Markov Chain Monte Caelo (MCMC)*](https://en.wikipedia.org/wiki/Markov_chain_Monte_Carlo) to sample and estimate the posterior. For educational purposes, I’ve implemented a custom sampler based on the [*Metropolis-Hastings Random Walk*](https://en.wikipedia.org/wiki/Metropolis%E2%80%93Hastings_algorithm) in Python. In practice, however, modern samplers like *NUTS (No-U-Turn Sampler)* in an established library such as [PyMC](https://www.pymc.io/welcome.html) are often preferable. They offer a more efficient and streamlined sampling process, sparing users the burden of directly managing the nasty mathematics behind these algorithms.
+This formulation of the posterior distribution cannot be solved analytically. Instead, we use [*Markov Chain Monte Caelo (MCMC)*](https://en.wikipedia.org/wiki/Markov_chain_Monte_Carlo) to sample and estimate the posterior. For educational purposes, I’ve implemented a custom sampler based on the [*Metropolis-Hastings Random Walk*](https://en.wikipedia.org/wiki/Metropolis%E2%80%93Hastings_algorithm) in Python. In practice, however, modern samplers like *NUTS (No-U-Turn Sampler)* in an established library such as [PyMC](https://www.pymc.io/welcome.html) are often preferable. They offer a more efficient and streamlined sampling process, sparing users the burden of directly managing the nasty mathematics behind these algorithms.
 
 In the Metropolis-Hastings algorithm, we iteratively draw samples from the posterior. For each new sample, we evaluate its probability relative to the previous sample. The sample is either accepted or rejected based on this evaluation. Over many iterations, the density of accepted samples approximates the true posterior distribution.
 
@@ -101,7 +101,7 @@ For illustration, the animation below shows the random walk process for sampling
 
 In this example, we will analyze a sandstone rock sample. Rock samples are ideal for testing this method since they represent natural surfaces and still allow us to conduct other detailed analytical measurements with laboratory instruments to produce high-quality 'ground truth' data for comparison with our results.
 
-For the endmembers, we consider three primary components of sandstone: quartz (grains), clay (matrix), and carbonates (cement). The endmember spectra for these minerals are assumed to be known, either from direct laboratory measurements, spectral libraries, or endmember extraction algorithms for hyperspectral imagery. We begin with a single mixed spectrum, as shown in the image below:
+For the endmembers, we consider three primary components of sandstone: quartz (grains), clay (matrix), and carbonates (cement). The endmember spectra for these minerals are assumed to be known, either from direct laboratory measurements, spectral libraries, or [endmember extraction algorithms](https://nasirlukman.github.io/blog/2024/nfindr/) for hyperspectral imagery. We begin with a single mixed spectrum, as shown in the image below:
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
