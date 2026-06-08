@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Satellites, Stats, and SEZs: Did the Mandalika MotoGP Circuit Transform Southern Lombok?"
-date: 2026-06-08 16:36:10
+date: 2026-06-06 16:36:10
 description: Using a decade of satellite imagery, demographic data, and spatial analysis to assess how the Mandalika MotoGP Circuit reshaped economic activity, infrastructure, and local development in Southern Lombok.
 tags: remote_sensing, socicoeconomic, image_analysis, night_light
 ---
@@ -19,9 +19,7 @@ With several years now having passed since the first race, an important question
 This article examines that question using a decade of open geospatial and socio-economic data. By combining satellite observations, crowdsourced geographic information, and official demographic statistics, we can assess whether the Mandalika project generated detectable changes in economic activity, infrastructure growth, commercial development, and population dynamics across southern Lombok.
 
 # Data and Proxies: Measuring Development from Space
-Measuring regional development is surprisingly difficult.
-
-Traditional socio-economic indicators often suffer from two major limitations. First, official statistics are typically published with significant delays, making it difficult to assess recent changes. Second, many economic activities in developing regions occur outside formal reporting systems. Small family businesses, roadside vendors, local warungs, and informal service providers often form a substantial part of the local economy but remain largely invisible in government records.
+Measuring regional development is surprisingly difficult. Traditional socio-economic indicators often suffer from two major limitations. First, official statistics are typically published with significant delays, making it difficult to assess recent changes. Second, many economic activities in developing regions occur outside formal reporting systems. Small family businesses, roadside vendors, local warungs, and informal service providers often form a substantial part of the local economy but remain largely invisible in government records.
 
 To overcome these limitations, this analysis combines multiple open geospatial and demographic datasets spanning 2015–2025. Each dataset captures a different dimension of development, allowing us to observe economic activity, physical expansion, commercial growth, and demographic change from complementary perspectives.
 
@@ -221,6 +219,7 @@ The result suggests that Mandalika operates through two distinct development cha
 </div>
 <div class="caption">
     Image 8. Growth of tourism accommodations and commercial shops across three distance bands from the Mandalika Circuit: the Epicenter (0–5 km), Transit Corridor (5–12 km), and Rural Periphery (12+ km). Hotel development remains concentrated near the circuit, while retail activity expands more broadly into surrounding communities, suggesting stronger local economic spillovers.
+
 
 Where Did Growth Actually Occur? The distance-band analysis provides a more intuitive view of these patterns. Hotel development is overwhelmingly concentrated within the 0–5 km epicenter surrounding the circuit. By 2025, this zone contains more than seventy registered accommodations, while the transit corridor and rural periphery remain largely unchanged.
 
