@@ -8,9 +8,9 @@ tags: remote_sensing, socicoeconomic, image_analysis, night_light
 
 # The Promise of Mega-Infrastructure
 
-When governments invest in mega-infrastructure projects, they are making a bet: that strategic physical interventions can accelerate regional economic growth. By directing large amounts of capital into transportation networks, utilities, and public facilities, policymakers aim to transform underdeveloped regions into engines of investment, employment, and productivity.
+When governments invest in mega-infrastructure projects, they are making a bet that strategic physical interventions can accelerate regional economic growth. By directing large amounts of capital into transportation networks, utilities, and public facilities, policymakers aim to transform underdeveloped regions into engines of investment, employment, and productivity.
 
-In southern Lombok, this vision materialized through the development of the Mandalika tourism area and the Mandalika MotoGP Circuit. Plans to develop southern Lombok as a priority tourism destination had been under discussion since at least 2010. The effort gained momentum in 2016 with the formal establishment of the Mandalika Special Economic Zone (SEZ), an initiative designed to transform a largely agricultural and relatively isolated coastal region into an internationally recognized tourism hub.
+In southern Lombok, this vision realized through the development of the Mandalika tourism area and the Mandalika MotoGP Circuit. Plans to develop southern Lombok as a priority tourism destination had been under discussion since at least 2010. The effort gained momentum in 2016 with the formal establishment of the Mandalika Special Economic Zone (SEZ), an initiative designed to transform a largely agricultural and relatively isolated coastal region into an internationally recognized tourism hub.
 
 A year later, the government announced that the SEZ would host Indonesia's first MotoGP circuit. Construction soon began, culminating in the completion of the Mandalika International Street Circuit in 2021. The track hosted its first MotoGP race in 2022, placing southern Lombok on the global motorsport stage.
 
@@ -200,7 +200,7 @@ To answer this, we moved from the subdistrict scale to the village scale. For ea
 </div>
 <div class="caption">
     Image 7. Spatial decay coefficients showing how development indicators change with increasing distance from the Mandalika International Street Circuit. Hotels and restaurants exhibit the strongest distance effects, indicating a highly localized tourism economy, while built-up area, population, retail activity, and nighttime lights display broader regional spillover patterns.
-
+</div>
 
 Tourism-oriented businesses display the strongest distance effect. Restaurant and café density declines by approximately 16.5% for every kilometer away from the circuit, while hotel density declines by 14.6% per kilometer. These are by far the steepest coefficients observed in the dataset.
 
@@ -219,7 +219,7 @@ The result suggests that Mandalika operates through two distinct development cha
 </div>
 <div class="caption">
     Image 8. Growth of tourism accommodations and commercial shops across three distance bands from the Mandalika Circuit: the Epicenter (0–5 km), Transit Corridor (5–12 km), and Rural Periphery (12+ km). Hotel development remains concentrated near the circuit, while retail activity expands more broadly into surrounding communities, suggesting stronger local economic spillovers.
-
+</div>
 
 Where Did Growth Actually Occur? The distance-band analysis provides a more intuitive view of these patterns. Hotel development is overwhelmingly concentrated within the 0–5 km epicenter surrounding the circuit. By 2025, this zone contains more than seventy registered accommodations, while the transit corridor and rural periphery remain largely unchanged.
 
