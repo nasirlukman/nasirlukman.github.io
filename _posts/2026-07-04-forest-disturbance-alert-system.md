@@ -15,12 +15,12 @@ A deforestation alert system focuses on detecting abrupt and substantial changes
 
 A forest disturbance alert system, on the other hand, also aims to detect more subtle changes in forest structure. These disturbances may result from selective logging, small-scale clearing, small road deevelopmenet, early stages of deforestation, etc. Because the goal is to detect changes as early as possible, disturbance monitoring typically requires higher detection sensitivity. The trade-off is that it is also more susceptible to noise and false positives, making careful filtering and validation essential.
 
-Optical satellites such as (Sentinel-2)[https://www.esa.int/Applications/Observing_the_Earth/Copernicus/Sentinel-2] and (LANDSAT)[https://science.nasa.gov/mission/landsat/] have become the standard for forest monitoring, but they suffer from one major limitation in tropical regions: cloud cover. Radar satellites, particularly (Sentinel-1)[https://www.esa.int/Applications/Observing_the_Earth/Copernicus/Sentinel-1], overcome this problem by providing observations regardless of weather or daylight, making them ideal for operational near real-time monitoring.
+Optical satellites such as [Sentinel-2](https://www.esa.int/Applications/Observing_the_Earth/Copernicus/Sentinel-2) and [LANDSAT](https://science.nasa.gov/mission/landsat/) have become the standard for forest monitoring, but they suffer from one major limitation in tropical regions: cloud cover. Radar satellites, particularly [Sentinel-1](https://www.esa.int/Applications/Observing_the_Earth/Copernicus/Sentinel-1), overcome this problem by providing observations regardless of weather or daylight, making them ideal for operational near real-time monitoring.
 
 
 ## Why build another alert system?
 
-Several excellent (global deforestation alert)[https://data.globalforestwatch.org/datasets/gfw::integrated-deforestation-alerts/about] products already exist. One of the most notable is the Radar for Detecting Deforestation ((RADD))[https://www.wur.nl/en/research/products-services/radd-forest-disturbance-alert] alert system, which provides global near real-time disturbance alerts based on Sentinel-1 data. So why develop another system?
+Several excellent [global deforestation alert](https://data.globalforestwatch.org/datasets/gfw::integrated-deforestation-alerts/about) products already exist. One of the most notable is the Radar for Detecting Deforestation [(RADD)](https://www.wur.nl/en/research/products-services/radd-forest-disturbance-alert) alert system, which provides global near real-time disturbance alerts based on Sentinel-1 data. So why develop another system?
 
 Global products are designed to work reasonably well everywhere. Local systems, however, can be optimized for a specific region and integrated with local datasets that are unavailable to global products. This allows:
 
@@ -35,7 +35,7 @@ The goal is not to replace global alerts, but to build a system that is better s
 
 # My previous approach
 
-I previously developed a (Sentinel-1 forest disturbance monitoring workflow)[https://nasirlukman.github.io/blog/2025/sentinel1-change-detection/] based on long radar time series.
+I previously developed a [Sentinel-1 forest disturbance monitoring workflow](https://nasirlukman.github.io/blog/2025/sentinel1-change-detection/) based on long radar time series.
 
 That approach relied on extensive preprocessing for every satellite overpass, including speckle reduction and corrections for seasonal variation before detecting anomalies.
 
@@ -49,7 +49,7 @@ This motivated me to explore a lighter and more operational approach.
 
 # Current methodology
 
-The current system follows the general framework of the (RADD algorithm)[https://iopscience.iop.org/article/10.1088/1748-9326/abd0a8]. Instead of modeling the entire radar time series, it uses a (Bayesian)[https://en.wikipedia.org/wiki/Bayesian_inference] approach that updates the probability of forest disturbance as new Sentinel-1 observations become available. This greatly reduces computational cost while remaining suitable for continuous monitoring over large areas.
+The current system follows the general framework of the [RADD algorithm](https://iopscience.iop.org/article/10.1088/1748-9326/abd0a8). Instead of modeling the entire radar time series, it uses a [Bayesian](https://en.wikipedia.org/wiki/Bayesian_inference) approach that updates the probability of forest disturbance as new Sentinel-1 observations become available. This greatly reduces computational cost while remaining suitable for continuous monitoring over large areas.
 
 Since my focus is regional rather than global monitoring, I introduced several modifications.
 
@@ -87,7 +87,7 @@ Areas with higher baseline risk therefore require less evidence before being fla
 
 ## 3. Dynamic land cover masking
 
-The alert system is also integrated with (annual national land cover model)[https://nasirlukman.github.io/blog/2025/satellite-embeddings/] {Image 2}.
+The alert system is also integrated with [annual national land cover model](https://nasirlukman.github.io/blog/2025/satellite-embeddings/) {Image 2}.
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
