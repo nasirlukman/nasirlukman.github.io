@@ -23,9 +23,9 @@ The idea is simple: draw a polygon anywhere in the country, choose a year, and t
 
 The model aims for detailed classification, covering major agricultural commodities such as oil palm, acacia, coffee, and rubber, along with several forest types and other land cover classes.
 
-Before satellite embeddings were available, I built earlier versions of this model using harmonized Landsat and Sentinel-2 imagery, combined with additional feature engineering such as spectral indices and other derived features. These models worked reasonably well, but building them required significant effort in feature design and tuning.
+Before sateleite embeddings were available, I build my [landcover model](https://nasirlukman.github.io/blog/2025/OBIA-LULC/) using combination of multispeectral and radar dataset, combined with additioinal feature eneginering including spectral and textural feature extraction, followed by dimensionality reduction, image segmentation, then supervised classification. This appraoch works reasonably well, but it requires a lot of effort and start to become prohibitiveely expensive when the area is very large (i.e. national/regional scale).
 
-After replacing the input imagery with Google Satellite Embeddings, the results improved noticeably. The model gained more than 5% overall accuracy, and the resulting maps look substantially cleaner and more consistent, especially for vegetation classes.
+Using Google Satellite EMbeddings I can skip most of the steps and training and infeerence in a large area start to become feaesible over very large areas. The model also produceed maps with high overall accuracy, with reaesonably clean class boundariese and consistent performance overtime.
 
 This suggests that the embeddings already capture much of the spectral, spatial, and temporal information that we normally try to engineer manually, allowing relatively simple pixel-based machine learning models to perform much better.
 
