@@ -51,7 +51,7 @@ Image 2 shows an example of a GEDI waveform. The vertical axis represents height
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid 
-            path="assets/img/post_18_example_gedi_full_waveform_profile" 
+            path="assets/img/post_18_example_gedi_full_waveform_profile.png" 
             class="img-fluid rounded" 
             alt="Example of GEDI full waveform profile representing the forest structure."
         %}
@@ -59,6 +59,7 @@ Image 2 shows an example of a GEDI waveform. The vertical axis represents height
 </div>
 <div class="caption">
     Image 2. Example of a GEDI L1B full waveform profile capturing forest vertical structure within a ~25-meter circular ground footprint. The y-axis represents relative distance (meters) from the instrument's recording window, and the x-axis represents the return signal amplitude (ADC counts).
+</div>
 
 From this waveform, GEDI derives several structural metrics. One of the most commonly used is RH95, which represents the height at which 95% of the cumulative returned laser energy has been reached, measured relative to the ground return. Because RH95 is usually very close to the top of the canopy, it is widely used as a proxy for canopy height and serves as the target variable in this study.
 
@@ -75,7 +76,7 @@ The measurements are remarkably accurate, but they come with one important limit
 </div>
 <div class="caption">
     Image 3. Example of a GEDI footprints on the study area with land cover map as basemap.
-
+</div>
 
 # Models and Datasets
 
@@ -114,6 +115,7 @@ Across every machine learning model, the AlphaEarth Embeddings consistently outp
 </div>
 <div class="caption">
     Table 1. Quantitative performance metrics for canopy height (RH95) validation. Models are evaluated using Spatial Cross-Validation RMSE (CV RMSE), Test RMSE, Test MAE, and Test R² across two distinct input feature sets: AlphaEarth Embeddings and a multi-sensor combination (Sentinel-1 + Sentinel-2 + ALOS PALSAR). Bold values indicate the optimal performance metrics achieved for each dataset tier.
+</div>
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
@@ -126,6 +128,7 @@ Across every machine learning model, the AlphaEarth Embeddings consistently outp
 </div>
 <div class="caption">
     Figure 4. Scatter plots comparing observed versus predicted forest canopy height (RH95) across five machine learning architectures: Linear Regression, Support Vector Regression (SVR), Random Forest (RF), XGBoost, and Artificial Neural Networks (ANN). The top row displays performance using AlphaEarth Embeddings, while the bottom row displays performance using a conventional multi-sensor baseline (Sentinel-1 + Sentinel-2 + ALOS PALSAR). The red dashed line indicates the 1:1 line of perfect agreement, with individual test set RMSE and R² values noted in each panel.   
+</div>
 
 The best result was achieved using XGBoost with AlphaEarth Embeddings, producing the lowest RMSE and the highest R² among all tested models.
 
@@ -142,6 +145,7 @@ Using this best-performing model, I generated a continuous canopy height map for
 </div>
 <div class="caption">
     Figure 5. Canopy height model (CHM) of the study area. Cross-referencing this model with the land cover classification from Image 2 indicates that palm plantations exhibit the lowest canopy heights due to their relative youth, followed closely by shrublands. In contrast, the mature Acacia plantations reach heights of nearly 20 meters, while the isolated forest patch in the center exhibits the highest canopy values, topping out at approximately 20 meters.
+</div>
 
 
 # Discussion
