@@ -68,7 +68,7 @@ The measurements are remarkably accurate, but they come with one important limit
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid 
-            path="assets/img/post_18_LC" 
+            path="assets/img/post_18_LC.png" 
             class="img-fluid rounded" 
             alt="Example of a GEDI footprints on the study area with land cover map as basemap."
         %}
@@ -107,7 +107,7 @@ Across every machine learning model, the AlphaEarth Embeddings consistently outp
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid 
-            path="assets/img/post_18_accuracy table" 
+            path="assets/img/post_18_accuracy_table.png" 
             class="img-fluid rounded" 
             alt="Table showing RMSE comparison between varous different machine learning method."
         %}
@@ -120,7 +120,7 @@ Across every machine learning model, the AlphaEarth Embeddings consistently outp
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid 
-            path="assets/img/post_18_rmse plot" 
+            path="assets/img/post_18_rmse_plot.png" 
             class="img-fluid rounded" 
             alt="Scatter plots comparing observed versus predicted forest canopy height (RH95) across five machine learning architectures: Linear Regression, Support Vector Regression (SVR), Random Forest (RF), XGBoost, and Artificial Neural Networks (ANN). The top row displays performance using AlphaEarth Embeddings, while the bottom row displays performance using a conventional multi-sensor baseline (Sentinel-1 + Sentinel-2 + ALOS PALSAR). The red dashed line indicates the 1:1 line of perfect agreement, with individual test set RMSE and R² values noted in each panel."
         %}
@@ -137,7 +137,7 @@ Using this best-performing model, I generated a continuous canopy height map for
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid 
-            path="assets/img/post_18_tree_height" 
+            path="assets/img/post_18_tree_height.png" 
             class="img-fluid rounded" 
             alt="Resulting tree height model in the study area"
         %}
