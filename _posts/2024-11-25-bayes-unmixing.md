@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Bayesian Spectral Unmixing
+title: Bayesian Spectral Unmixing for Mineral Quantification
 date: 2024-11-24 12:36:10
 description: Bayesian approach on spectral unmixing with an example case using hyperspectral images of sandstone drill core sample.
 tags: spectral_geology, mineral, data_science, geology, hyperspectral, bayesian, core_scanning
