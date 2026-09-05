@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Comparing Tanager-1 and EnMAP for Mineral Mapping"
-date: 2026-09-05 16:36:10
+date: 2026-09-04 21:36:10
 description: A preliminary comparison of Tanager-1 and EnMAP hyperspectral imagery for mineral mapping, focusing on spectral similarity, spectral roughness, absorption feature depth, and subtle wavelength shifts.
 tags: remote_sensing, hyperspectral, mineral_mapping, spectroscopy, tanager, enmap
 ---
