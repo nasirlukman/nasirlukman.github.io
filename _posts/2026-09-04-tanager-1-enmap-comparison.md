@@ -133,7 +133,7 @@ The first derivative emphasizes rapid changes between adjacent wavelengths. Ther
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid 
-            path="assets/img/post_19_spectra_in_disposal_area.png" 
+            path="assets/img/post_19_spectra_roughness_table.png" 
             class="img-fluid rounded" 
             alt="Table of Spectra roughness in lower, middle, and upper range of the spectrum represented by variance of the first derivative as a proxy of noise
 "
