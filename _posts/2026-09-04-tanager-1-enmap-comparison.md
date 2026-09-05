@@ -5,7 +5,6 @@ date: 2026-09-04 21:36:10
 description: A preliminary comparison of Tanager-1 and EnMAP hyperspectral imagery for mineral mapping, focusing on spectral similarity, spectral roughness, absorption feature depth, and subtle wavelength shifts.
 tags: remote_sensing, hyperspectral, mineral_mapping, spectroscopy, tanager, enmap
 ---
-THis post is part of 
 Hyperspectral satellites are becoming increasingly available for geological and mineralogical applications. With more sensors providing imagery across the VNIR and SWIR regions, we now have more opportunities to observe the same geological targets using different instruments.
 
 Because hyperspectral sensors differ in their spectral resolution, spectral sampling, signal-to-noise characteristics, spatial resolution, and acquisition conditions, it is interesting to examine how these differences affect the information that can be extracted from the same geological target. These differences may have limited impact when looking at broad spectral patterns, but can become important when trying to detect relatively small absorption features or subtle differences in their wavelength positions.
