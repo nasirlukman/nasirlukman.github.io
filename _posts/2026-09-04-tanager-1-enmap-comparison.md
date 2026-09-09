@@ -9,7 +9,7 @@ Hyperspectral satellites are becoming increasingly available for geological and 
 
 Because hyperspectral sensors differ in their spectral resolution, spectral sampling, signal-to-noise characteristics, spatial resolution, and acquisition conditions, it is interesting to examine how these differences affect the information that can be extracted from the same geological target. These differences may have limited impact when looking at broad spectral patterns, but can become important when trying to detect relatively small absorption features or subtle differences in their wavelength positions.
 
-Recently, as part of my participation of (Tanger Open Data Competition)[https://learn.planet.com/2026-Tanager-Open-Data-Competition.html], I started working with Tanager-1 data and decided to compare it with EnMAP over the same geological target. The objective is not to perform a controlled sensor calibration or validation, but rather to explore how the two sensors represent the same mineralogical target and whether differences in their characteristics become apparent during spectral analysis and mineral mapping.
+Recently, as part of my participation of [Tanger Open Data Competition](https://learn.planet.com/2026-Tanager-Open-Data-Competition.html), I started working with Tanager-1 data and decided to compare it with EnMAP over the same geological target. The objective is not to perform a controlled sensor calibration or validation, but rather to explore how the two sensors represent the same mineralogical target and whether differences in their characteristics become apparent during spectral analysis and mineral mapping.
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
@@ -21,7 +21,7 @@ Recently, as part of my participation of (Tanger Open Data Competition)[https://
     </div>
 </div>
 <div class="caption">
-    Figure 1. Tanager-1 and EnMap Satellite
+    Figure 1. Tanager-1 and EnMAP Satellite
 </div>
 
 To make the comparison as reasonable as possible, I first needed to identify areas where open-access observations from both satellites overlap. I then further screened the candidate overlaps based on factors that could influence the measurements, including spatial overlap, temporal separation, solar elevation, viewing geometry, and cloud conditions. These filters cannot completely remove the effects of different acquisition conditions, but they help reduce some of the external factors that could otherwise complicate the comparison.
@@ -76,7 +76,7 @@ Both datasets were processed to surface reflectance and subjected to basic quali
         {% include figure.liquid 
             path="assets/img/post_19_overlalp_coverage.png" 
             class="img-fluid rounded" 
-            alt="Overlap between Tanager-1 and EnMAP coverage in western  part of Salt Lake City, utah, USA"
+            alt="Overlap between Tanager-1 and EnMAP coverage in western  part of Salt Lake City, Utah, USA"
         %}
     </div>
 </div>
@@ -90,19 +90,19 @@ Both datasets were processed to surface reflectance and subjected to basic quali
 
 Rather than trying to compare hundreds of bands at once, I first compared individual spectra from corresponding pixels within the overlapping area of Tanager-1 and EnMAP.
 
-The easiest way to start comparing hyperspectral images is to look at the spectra directly. For this initial exploration, I developed a simple Python workflow in a Jupyter Notebook using ipyleaflet to interactively explore the imagery. By clicking on the map, the corresponding spectra from both sensors are extracted and plotted together. This provides a simple way to inspect the general spectral shape across the study area and identify any obvious differences between the two datasets. Figure 4 shows several example spectra sampled from the study area.
+The easiest way to start comparing hyperspectral images is to look at the spectra directly. For this initial exploration, I developed a simple Python workflow in a Jupyter Notebook using *ipyleaflet* to interactively explore the imagery. By clicking on the map, the corresponding spectra from both sensors are extracted and plotted together. This provides a simple way to inspect the general spectral shape across the study area and identify any obvious differences between the two datasets. Figure 4 shows several example spectra sampled from the study area.
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid 
             path="assets/img/post_19_spectra_sample.png" 
             class="img-fluid rounded" 
-            alt="Ten selected spectra sample comapriosn between Tanager-1 and EnMap"
+            alt="Ten selected spectra sample comapriosn between Tanager-1 and EnMAP"
         %}
     </div>
 </div>
 <div class="caption">
-    Figure 4. Ten selected sample location and its sepctra comparison.
+    Figure 4. Ten selected sample location and its spectra comparison.
 </div>
 
 
@@ -192,7 +192,7 @@ However, the Salt Lake study area is a mining stockpile with highly mixed and di
 
 The overlapping Cuprite scene had already been identified during the initial dataset query but was excluded by the geometric filtering because of a substantial difference in solar zenith angle between the two acquisitions. The Tanager-1 and EnMAP observations were acquired approximately six months apart, resulting in different seasonal and illumination conditions. These differences make the scene less suitable for the detailed pixel-level comparison performed at Salt Lake, but it remains useful for testing whether both sensors can capture and map subtle absorption wavelength variations.
 
-The MWM analysis was performed using the open-source HypPy software suite rather than within the Jupyter Notebook workflow. MWM isolates a specified absorption region and uses a second-order polynomial fitted to the three deepest spectral points to estimate the minimum of the absorption feature. This allows the position of an absorption feature to be estimated at a sub-band level, rather than being restricted to the center wavelength of an individual sensor band.
+The MWM analysis was performed using the open-source [*HypPy*](https://github.com/wimhbakker/hyppy) software suite rather than within the Jupyter Notebook workflow. MWM isolates a specified absorption region and uses a second-order polynomial fitted to the three deepest spectral points to estimate the minimum of the absorption feature. This allows the position of an absorption feature to be estimated at a sub-band level, rather than being restricted to the center wavelength of an individual sensor band.
 
 I applied MWM to the 2150–2220 nm range to investigate subtle variations in the Al-OH absorption feature and to the 800–1000 nm range to examine variations in the Fe-related absorption feature. The resulting wavelength maps from Tanager-1 and EnMAP are presented in Figure 8.
 
@@ -214,7 +214,7 @@ In the SWIR, Tanager-1 demonstrates a higher sensitivity to subtle sub-band shif
 
 The contrast between the two sensors is even more pronounced in the VNIR (800–1000 nm). The EnMAP result does not show a coherent spatial pattern and is instead highly speckled, which is likely related to the strong spectral noise observed in this wavelength region. In contrast, Tanager-1 resolves a distinct spatial pattern, with shorter absorption wavelengths in the northeast (yellow, ~925 nm) transitioning toward longer wavelengths in the southeast (red, ~950 nm). Although the pattern appears relatively subdued, this is expected given the shallow and broad nature of the iron-oxide absorption feature.
 
-The observed wavelength variation may reflect changes in the iron-oxide mineral assemblage, potentially indicating a transition between goethite- and hematite-dominated materials. However, this interpretation should be treated as indicative rather than definitive, as wavelength position alone is insufficient to distinguish these minerals reliably. A more detailed mineralogical interpretation would require comparison with reference spectra and, ideally, field or laboratory measurements.
+The observed wavelength variation may reflect changes in the iron-oxide mineral assemblage, potentially indicating a transition between goethite and hematite dominated materials. However, this interpretation should be treated as indicative rather than definitive, as wavelength position alone is insufficient to distinguish these minerals reliably. A more detailed mineralogical interpretation would require comparison with reference spectra and, ideally, field or laboratory measurements.
 
 Overall, these results suggest that Tanager-1 is better able to resolve subtle absorption-wavelength variations in this dataset. Its finer spectral sampling and comparatively lower spectral roughness appear to provide greater sensitivity to sub-band shifts, particularly in the VNIR where the EnMAP data are strongly affected by spectral noise. This demonstrates a potential advantage of Tanager-1 for mineral mapping applications where subtle variations in absorption position are important.
 
