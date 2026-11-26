@@ -1,0 +1,53 @@
+// Site-specific styles (kept separate from the al-folio base styles)
+
+// Author box at the end of posts
+.author-box {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin: 3rem 0 1rem;
+  padding: 1.25rem 1.5rem;
+  border: 1px solid var(--global-divider-color);
+  border-radius: 8px;
+
+  .author-box-photo {
+    width: 80px;
+    height: 80px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  .author-box-name {
+    font-weight: 700;
+    font-size: 1.05rem;
+
+    a {
+      color: var(--global-text-color);
+    }
+  }
+
+  .author-box-bio {
+    margin: 0.25rem 0 0.5rem;
+    color: var(--global-text-color-light);
+    font-size: 0.95rem;
+  }
+
+  .author-box-links a {
+    margin-right: 1rem;
+    font-size: 0.95rem;
+  }
+
+  @media (max-width: 576px) {
+    flex-direction: column;
+    text-align: center;
+
+    .author-box-links a {
+      margin: 0 0.5rem;
+    }
+  }
+}

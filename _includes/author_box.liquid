@@ -1,0 +1,28 @@
+{% comment %} Author box shown at the end of every post (edit the text here). {% endcomment %}
+<aside class="author-box" aria-label="About the author">
+  <img
+    class="author-box-photo"
+    src="{{ '/assets/img/author_avatar.webp' | relative_url }}"
+    alt="{{ site.first_name }} {{ site.middle_name }} {{ site.last_name }}"
+    width="80"
+    height="80"
+    loading="lazy"
+  >
+  <div class="author-box-text">
+    <p class="author-box-name">
+      <a href="{{ '/' | relative_url }}">{{ site.first_name }} {{ site.middle_name }} {{ site.last_name }}</a>
+    </p>
+    <p class="author-box-bio">
+      Geospatial data scientist working on remote sensing for mining, environmental monitoring and law enforcement. Always happy to talk about Earth
+      observation work, collaborations and new opportunities.
+    </p>
+    <p class="author-box-links">
+      {% if site.email %}
+        <a href="mailto:{{ site.email }}"><i class="fa-solid fa-envelope"></i> Email</a>
+      {% endif %}
+      {% if site.linkedin_username %}
+        <a href="https://www.linkedin.com/in/{{ site.linkedin_username }}"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+      {% endif %}
+    </p>
+  </div>
+</aside>
