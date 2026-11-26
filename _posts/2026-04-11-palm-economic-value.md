@@ -2,7 +2,7 @@
 layout: post
 title: The Economic Footprint of Indonesian Palm Oil
 date: 2026-04-11 20:36:10
-description: "Mapping Indonesia's oil palm with remote sensing and a Bayesian model to estimate the gross production value of palm oil as a benchmark for alternative land use."
+description: "Mapping Indonesia's oil palm with remote sensing and a Bayesian model to estimate palm oil's gross production value as a benchmark for alternative land use."
 tags: [palm-oil, land-use, bayesian, indonesia]
 categories: ["Environment"]
 og_image: /assets/img/og/post_16_palm_plantation.jpg

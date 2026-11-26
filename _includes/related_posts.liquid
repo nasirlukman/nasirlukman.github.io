@@ -1,18 +1,40 @@
-{% assign have_related_posts = false %}
-{% for post in site.related_posts | limit: site.related_blog_posts.max_related %}
-  {% unless have_related_posts %}
-    {% assign have_related_posts = true %}
-    <br>
-    <hr>
-    <br>
-    <ul class="list-disc pl-8"></ul>
-
-    <!-- Adds related posts to the end of an article -->
-    <h2 class="text-3xl font-semibold mb-4 mt-12">Enjoy Reading This Article?</h2>
-    <p class="mb-2">Here are some more articles you might like to read next:</p>
-  {% endunless %}
-
-  <li class="my-2">
-    <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
-  </li>
+{% comment %}
+  Related posts: ranked by shared tags (2 points each) and shared categories (1 point each),
+  newest first on ties. No plugin needed.
+{% endcomment %}
+{% assign max_related = site.related_blog_posts.max_related | default: 3 %}
+{% assign scored = '' | split: '' %}
+{% for p in site.posts %}
+  {% if p.url == page.url %}{% continue %}{% endif %}
+  {% assign score = 0 %}
+  {% for t in p.tags %}
+    {% if page.tags contains t %}{% assign score = score | plus: 2 %}{% endif %}
+  {% endfor %}
+  {% for c in p.categories %}
+    {% if page.categories contains c %}{% assign score = score | plus: 1 %}{% endif %}
+  {% endfor %}
+  {% if score > 0 %}
+    {% assign padded_score = score | prepend: '000' | slice: -3, 3 %}
+    {% capture entry %}{{ padded_score }}|{{ p.date | date: '%Y%m%d%H%M' }}|{{ forloop.index0 }}{% endcapture %}
+    {% assign scored = scored | push: entry %}
+  {% endif %}
 {% endfor %}
+
+{% if scored.size > 0 %}
+  {% assign scored = scored | sort | reverse %}
+  <br>
+  <hr>
+  <br>
+  <h2 class="text-3xl font-semibold mb-4 mt-12">Enjoy Reading This Article?</h2>
+  <p class="mb-2">Here are some more articles you might like to read next:</p>
+  <ul>
+    {% for entry in scored limit: max_related %}
+      {% assign parts = entry | split: '|' %}
+      {% assign idx = parts[2] | plus: 0 %}
+      {% assign rp = site.posts[idx] %}
+      <li class="my-2">
+        <a class="font-weight-bold" href="{{ rp.url | relative_url }}">{{ rp.title }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+{% endif %}
