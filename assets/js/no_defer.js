@@ -1,1 +1,7 @@
-$(document).ready(function(){$("table").each(function(){"dark"==document.documentElement.getAttribute("data-theme")?$(this).addClass("table-dark"):$(this).removeClass("table-dark"),0==$(this).parents('[class*="news"]').length&&0==$(this).parents('[class*="card"]').length&&0==$(this).parents("code").length&&($(this).attr("data-toggle","table"),$(this).addClass("table-hover"))})});
+// Give content tables a clean Bootstrap style.
+$(document).ready(function () {
+  $("article table").each(function () {
+    if ($(this).parents("pre, code").length) return;
+    $(this).addClass("table table-sm table-hover");
+  });
+});
