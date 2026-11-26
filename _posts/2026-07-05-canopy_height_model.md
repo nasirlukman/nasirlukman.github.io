@@ -2,8 +2,10 @@
 layout: post
 title: From GEDI Footprints to Wall-to-Wall Canopy Height Maps
 date: 2026-07-05 16:36:10
-description: Comparing traditional remote sensing features and Google AlphaEarth Embeddings for canopy height modeling using GEDI.
-tags: remote_sensing, lidar, gedi, canopy_height, machine_learning, foundation_models
+description: "Comparing traditional Sentinel-1, Sentinel-2, and ALOS PALSAR features with Google AlphaEarth Embeddings for canopy height modeling using GEDI LiDAR."
+tags: [canopy-height, forest-monitoring, gedi, lidar, foundation-models, machine-learning]
+categories: ["Environment"]
+og_image: /assets/img/og/post_18_tree_height.jpg
 ---
 
 
@@ -11,19 +13,19 @@ tags: remote_sensing, lidar, gedi, canopy_height, machine_learning, foundation_m
 
 One of the biggest challenges in forest monitoring is measuring canopy height over large areas. Airborne LiDAR provides highly accurate measurements, but acquiring LiDAR data is expensive, time-consuming, and difficult to scale over large regions.
 
-To overcome this limitation, NASA launched the [Global Ecosystem Dynamics Investigation (GEDI)]() mission in 2018. Unlike most Earth observation missions, GEDI is not mounted on a satellite. Instead, it is attached to the [International Space Station (ISS)](https://www.eoportal.org/satellite-missions/iss-gedi#eop-quick-facts-section) (Image 1), allowing it to collect LiDAR measurements of forests around the world.
+To overcome this limitation, NASA launched the [Global Ecosystem Dynamics Investigation (GEDI)](https://gedi.umd.edu/) mission in 2018. Unlike most Earth observation missions, GEDI is not mounted on a satellite. Instead, it is attached to the [International Space Station (ISS)](https://www.eoportal.org/satellite-missions/iss-gedi#eop-quick-facts-section) (Figure 1), allowing it to collect LiDAR measurements of forests around the world.
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid 
             path="assets/img/post_18_GEDI_on_ISS.jpeg" 
             class="img-fluid rounded" 
-            alt="GEDI instrument mounted on International Space Station"
+            alt="GEDI LiDAR instrument mounted on the International Space Station."
         %}
     </div>
 </div>
 <div class="caption">
-    Image 1. GEDI instrument mounted on International Space Station
+    Figure 1. GEDI instrument mounted on the International Space Station
 </div>
 
 GEDI is a full-waveform LiDAR, meaning it records the entire returned laser signal rather than just a few discrete returns. This allows it to measure the vertical structure of forests with remarkable accuracy.
@@ -46,36 +48,36 @@ Before using GEDI as training data, it's worth taking a moment to understand how
 
 When a laser pulse reaches a forest, the first reflections come from the top of the canopy. Some of the remaining energy continues downward, interacting with branches, understory vegetation, and eventually the ground. Rather than recording only a single return, GEDI records the entire returned waveform, capturing how much energy is reflected at different heights within the forest.
 
-Image 2 shows an example of a GEDI waveform. The vertical axis represents height relative to the ground, while the horizontal axis shows the strength of the returned signal. Each peak corresponds to a large amount of reflected laser energy. In this example, the upper peak represents reflections from the forest canopy, while the lower peak corresponds to the ground return. The shaded area between these peaks contains information about the vertical distribution of vegetation, including leaves, branches, and understory.
+Figure 2 shows an example of a GEDI waveform. The vertical axis represents height relative to the ground, while the horizontal axis shows the strength of the returned signal. Each peak corresponds to a large amount of reflected laser energy. In this example, the upper peak represents reflections from the forest canopy, while the lower peak corresponds to the ground return. The shaded area between these peaks contains information about the vertical distribution of vegetation, including leaves, branches, and understory.
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid 
-            path="assets/img/post_18_example_gedi_full_waveform_profile.png" 
+            path="assets/img/post_18_example_gedi_full_waveform_profile.webp" 
             class="img-fluid rounded" 
             alt="Example of GEDI full waveform profile representing the forest structure."
         %}
     </div>
 </div>
 <div class="caption">
-    Image 2. Example of a GEDI L1B full waveform profile capturing forest vertical structure within a ~25-meter circular ground footprint. The y-axis represents relative distance (meters) from the instrument's recording window, and the x-axis represents the return signal amplitude (ADC counts).
+    Figure 2. Example of a GEDI L1B full waveform profile capturing forest vertical structure within a ~25-meter circular ground footprint. The y-axis represents relative distance (meters) from the instrument's recording window, and the x-axis represents the return signal amplitude (ADC counts).
 </div>
 
 From this waveform, GEDI derives several structural metrics. One of the most commonly used is RH95, which represents the height at which 95% of the cumulative returned laser energy has been reached, measured relative to the ground return. Because RH95 is usually very close to the top of the canopy, it is widely used as a proxy for canopy height and serves as the target variable in this study.
 
-The measurements are remarkably accurate, but they come with one important limitation. Since GEDI is mounted on the International Space Station, it only samples the Earth's surface along the ISS orbital tracks. Instead of producing a continuous canopy height map, GEDI provides millions of individual footprints separated by large gaps (Image 3). This is where machine learning becomes useful: by learning the relationship between GEDI measurements and satellite imagery, we can estimate canopy height for the areas between the footprints.
+The measurements are remarkably accurate, but they come with one important limitation. Since GEDI is mounted on the International Space Station, it only samples the Earth's surface along the ISS orbital tracks. Instead of producing a continuous canopy height map, GEDI provides millions of individual footprints separated by large gaps (Figure 3). This is where machine learning becomes useful: by learning the relationship between GEDI measurements and satellite imagery, we can estimate canopy height for the areas between the footprints.
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid 
-            path="assets/img/post_18_LC.png" 
+            path="assets/img/post_18_LC.webp" 
             class="img-fluid rounded" 
-            alt="Example of a GEDI footprints on the study area with land cover map as basemap."
+            alt="Example of GEDI footprints over the study area with a land cover map as the basemap."
         %}
     </div>
 </div>
 <div class="caption">
-    Image 3. Example of a GEDI footprints on the study area with land cover map as basemap.
+    Figure 3. Example of GEDI footprints over the study area with a land cover map as the basemap.
 </div>
 
 # Models and Datasets
@@ -101,15 +103,15 @@ To ensure a fair comparison, every model used exactly the same training and test
 This setup provides a fair comparison between traditional remote sensing features and foundation model embeddings.
 
 
-# Result
-Across every machine learning model, the AlphaEarth Embeddings consistently outperformed the traditional satellite features (Table 1, Image 4).
+# Results
+Across every machine learning model, the AlphaEarth Embeddings consistently outperformed the traditional satellite features (Table 1, Figure 4).
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid 
-            path="assets/img/post_18_accuracy_table.png" 
+            path="assets/img/post_18_accuracy_table.webp" 
             class="img-fluid rounded" 
-            alt="Table showing RMSE comparison between varous different machine learning method."
+            alt="Table comparing RMSE, MAE, and R² of five machine learning methods for canopy height estimation using AlphaEarth Embeddings and Sentinel-1, Sentinel-2, and ALOS PALSAR features."
         %}
     </div>
 </div>
@@ -120,31 +122,31 @@ Across every machine learning model, the AlphaEarth Embeddings consistently outp
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid 
-            path="assets/img/post_18_rmse_plot.png" 
+            path="assets/img/post_18_rmse_plot.webp" 
             class="img-fluid rounded" 
             alt="Scatter plots comparing observed versus predicted forest canopy height (RH95) across five machine learning architectures: Linear Regression, Support Vector Regression (SVR), Random Forest (RF), XGBoost, and Artificial Neural Networks (ANN). The top row displays performance using AlphaEarth Embeddings, while the bottom row displays performance using a conventional multi-sensor baseline (Sentinel-1 + Sentinel-2 + ALOS PALSAR). The red dashed line indicates the 1:1 line of perfect agreement, with individual test set RMSE and R² values noted in each panel."
         %}
     </div>
 </div>
 <div class="caption">
-    Figure 4. Scatter plots comparing observed versus predicted forest canopy height (RH95) across five machine learning architectures: Linear Regression, Support Vector Regression (SVR), Random Forest (RF), XGBoost, and Artificial Neural Networks (ANN). The top row displays performance using AlphaEarth Embeddings, while the bottom row displays performance using a conventional multi-sensor baseline (Sentinel-1 + Sentinel-2 + ALOS PALSAR). The red dashed line indicates the 1:1 line of perfect agreement, with individual test set RMSE and R² values noted in each panel.   
+    Figure 4. Scatter plots comparing observed versus predicted forest canopy height (RH95) across five machine learning architectures: Linear Regression, Support Vector Regression (SVR), Random Forest (RF), XGBoost, and Artificial Neural Networks (ANN). The top row displays performance using AlphaEarth Embeddings, while the bottom row displays performance using a conventional multi-sensor baseline (Sentinel-1 + Sentinel-2 + ALOS PALSAR). The red dashed line indicates the 1:1 line of perfect agreement, with individual test set RMSE and R² values noted in each panel.
 </div>
 
 The best result was achieved using XGBoost with AlphaEarth Embeddings, producing the lowest RMSE and the highest R² among all tested models.
 
-Using this best-performing model, I generated a continuous canopy height map for the study area (Image 5).
+Using this best-performing model, I generated a continuous canopy height map for the study area (Figure 5).
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid 
-            path="assets/img/post_18_tree_height.png" 
+            path="assets/img/post_18_tree_height.webp" 
             class="img-fluid rounded" 
-            alt="Resulting tree height model in the study area"
+            alt="Canopy height map of the study area generated with XGBoost and AlphaEarth Embeddings."
         %}
     </div>
 </div>
 <div class="caption">
-    Figure 5. Canopy height model (CHM) of the study area. Cross-referencing this model with the land cover classification from Image 2 indicates that palm plantations exhibit the lowest canopy heights due to their relative youth, followed closely by shrublands. In contrast, the mature Acacia plantations reach heights of nearly 20 meters, while the isolated forest patch in the center exhibits the highest canopy values, topping out at approximately 20 meters.
+    Figure 5. Canopy height model (CHM) of the study area. Cross-referencing this model with the land cover map in Figure 3 indicates that palm plantations exhibit the lowest canopy heights due to their relative youth, followed closely by shrublands. In contrast, the mature acacia plantations reach heights of nearly 20 meters, while the isolated forest patch in the center exhibits the highest canopy values, topping out at approximately 20 meters.
 </div>
 
 
@@ -161,7 +163,7 @@ The strong performance of XGBoost is also not particularly surprising. Tree-base
 
 One topic that often comes up when using AlphaEarth Embeddings for canopy height estimation is the possibility of data leakage.
 
-The concern stems from the fact that the AlphaEarth Foundation model was pretrained using multiple Earth observation datasets, including GEDI RH metrics. If the downstream task also uses GEDI footprints as the training and validation labels, it raises an important question: is the model being evaluated on information it has already seen during pretraining?
+The concern stems from the fact that the AlphaEarth Foundations model was pretrained using multiple Earth observation datasets, including GEDI RH metrics. If the downstream task also uses GEDI footprints as the training and validation labels, it raises an important question: is the model being evaluated on information it has already seen during pretraining?
 
 Unfortunately, Google DeepMind does not disclose exactly which GEDI observations were used during pretraining. Because of this lack of information, it is difficult to determine whether there is any overlap between the GEDI footprints used in this study and those used to train the foundation model. As a result, I think it is more conservative to assume that some degree of overlap may exist rather than assuming there is none.
 

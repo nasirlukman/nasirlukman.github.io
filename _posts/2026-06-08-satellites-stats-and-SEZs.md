@@ -2,15 +2,17 @@
 layout: post
 title: "Satellites, Stats, and SEZs: Did the Mandalika MotoGP Circuit Transform Southern Lombok?"
 date: 2026-06-06 16:36:10
-description: Using a decade of satellite imagery, demographic data, and spatial analysis to assess how the Mandalika MotoGP Circuit reshaped economic activity, infrastructure, and local development in Southern Lombok.
-tags: remote_sensing, socicoeconomic, image_analysis, night_light
+description: "Using a decade of nighttime lights, built-up maps, OpenStreetMap, and census data to assess how the Mandalika MotoGP Circuit reshaped southern Lombok."
+tags: [socioeconomics, night-lights, openstreetmap, causal-inference, indonesia]
+categories: ["Other"]
+og_image: /assets/img/og/post_15_distance_decay.jpg
 ---
 
 # The Promise of Mega-Infrastructure
 
 When governments invest in mega-infrastructure projects, they are making a bet that strategic physical interventions can accelerate regional economic growth. By directing large amounts of capital into transportation networks, utilities, and public facilities, policymakers aim to transform underdeveloped regions into engines of investment, employment, and productivity.
 
-In southern Lombok, this vision realized through the development of the Mandalika tourism area and the Mandalika MotoGP Circuit. Plans to develop southern Lombok as a priority tourism destination had been under discussion since at least 2010. The effort gained momentum in 2016 with the formal establishment of the Mandalika Special Economic Zone (SEZ), an initiative designed to transform a largely agricultural and relatively isolated coastal region into an internationally recognized tourism hub.
+In southern Lombok, this vision was realized through the development of the Mandalika tourism area and the Mandalika MotoGP Circuit. Plans to develop southern Lombok as a priority tourism destination had been under discussion since at least 2010. The effort gained momentum in 2016 with the formal establishment of the Mandalika Special Economic Zone (SEZ), an initiative designed to transform a largely agricultural and relatively isolated coastal region into an internationally recognized tourism hub.
 
 A year later, the government announced that the SEZ would host Indonesia's first MotoGP circuit. Construction soon began, culminating in the completion of the Mandalika International Street Circuit in 2021. The track hosted its first MotoGP race in 2022, placing southern Lombok on the global motorsport stage.
 
@@ -28,21 +30,21 @@ The analysis is conducted across multiple spatial scales. First, we compare Puju
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid 
-            path="assets/img/post_15_administrative.png" 
+            path="assets/img/post_15_administrative.webp" 
             class="img-fluid rounded" 
-            alt="Subdistrict and Village level administrative map of the study area"
+            alt="Subdistrict- and village-level administrative map of the Mandalika study area in Central Lombok."
         %}
     </div>
 </div>
 <div class="caption">
-    Image 1. Administrative boundaries at the subdistrict and village levels in the study area.
+    Figure 1. Administrative boundaries at the subdistrict and village levels in the study area.
 </div>
 
 ## VIIRS Nighttime Lights: A Proxy for Economic Activity
 
 Nighttime light intensity has become one of the most widely used remote sensing indicators for measuring economic activity.
 
-The data originates from the Visible Infrared Imaging Radiometer Suite (VIIRS), carried aboard the Suomi-NPP and NOAA satellite missions. Its Day/Night Band (DNB) sensor is capable of detecting extremely low levels of illumination, ranging from urban lighting networks to isolated infrastructure developments.
+The data originates from the Visible Infrared Imaging Radiometer Suite (VIIRS), carried aboard the Suomi NPP and NOAA satellite missions. Its Day/Night Band (DNB) sensor is capable of detecting extremely low levels of illumination, ranging from urban lighting networks to isolated infrastructure developments.
 
 Raw nighttime observations are affected by clouds, moonlight, atmospheric conditions, and temporary light sources such as fires. To reduce these effects, this study uses annual VIIRS Nighttime Lights composites produced by the Earth Observation Group (EOG). These products aggregate observations throughout the year while filtering transient sources and background noise, leaving only stable human-generated illumination.
 
@@ -51,14 +53,14 @@ Because lighting intensity is closely linked to electrification, energy consumpt
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid 
-            path="assets/img/post_15_viirs_night_light.png" 
+            path="assets/img/post_15_viirs_night_light.webp" 
             class="img-fluid rounded" 
-            alt="Comparison of 2015 adn 2025 VIIRS Night Light data in kecataman Pujut"
+            alt="Comparison of 2015 and 2025 VIIRS nighttime light data in Pujut Subdistrict."
         %}
     </div>
 </div>
 <div class="caption">
-    Image 2. VIIRS night light intensity of Pujut Subdistrict from 2015 to 2025. The red star indicates the year of the first MotoGP race at the Mandalika International Street Circuit.
+    Figure 2. VIIRS nighttime light intensity of Pujut Subdistrict from 2015 to 2025. The red star indicates the year of the first MotoGP race at the Mandalika International Street Circuit.
 </div>
 
 ## Built-Up Area Mapping: A Proxy for Physical Development
@@ -78,14 +80,14 @@ While built-up area does not directly measure economic output, it provides a use
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid 
-            path="assets/img/post_15_build_up.png" 
+            path="assets/img/post_15_build_up.webp" 
             class="img-fluid rounded" 
-            alt="Comparison of 2015 and 2025 Build up area extent"
+            alt="Comparison of 2015 and 2025 built-up area extent in Pujut Subdistrict."
         %}
     </div>
 </div>
 <div class="caption">
-    Image 3. Build up area extent of Pujut Subdistrict from 2015 to 2025. The red star indicates the year of the first MotoGP race at the Mandalika International Street Circuit.
+    Figure 3. Built-up area extent of Pujut Subdistrict from 2015 to 2025. The red star indicates the year of the first MotoGP race at the Mandalika International Street Circuit.
 </div>
 
 ## OpenStreetMap History: Tracking Commercial Expansion
@@ -107,21 +109,21 @@ One important limitation should be noted: OpenStreetMap reflects both real-world
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid 
-            path="assets/img/post_15_commercial_building.png" 
+            path="assets/img/post_15_commercial_building.webp" 
             class="img-fluid rounded" 
-            alt="Comparison of 2015 and 2025 total commercial building from OpenStreetMap"
+            alt="Comparison of 2015 and 2025 total commercial buildings in Pujut Subdistrict from OpenStreetMap."
         %}
     </div>
 </div>
 <div class="caption">
-    Image 4. Total commercial building (hotels, restaurants, cafés, and retail shops) of Pujut Subdistrict from 2015 to 2025. The red star indicates the year of the first MotoGP race at the Mandalika International Street Circuit.
+    Figure 4. Total commercial buildings (hotels, restaurants, cafés, and retail shops) in Pujut Subdistrict from 2015 to 2025. The red star indicates the year of the first MotoGP race at the Mandalika International Street Circuit.
 </div>
 
 ## BPS Demographic Data: The Human Baseline
 
 Satellite imagery can reveal changes in infrastructure and economic activity, but development ultimately affects people.
 
-To capture demographic trends, this study incorporates population statistics from Badan Pusat Statistik (BPS), Indonesia's national statistical agency. These data provide official population estimates at the sub-district level throughout the study period.
+To capture demographic trends, this study incorporates population statistics from Badan Pusat Statistik (BPS), Indonesia's national statistical agency. These data provide official population estimates at the subdistrict level throughout the study period.
 
 Population data serves as an important baseline for interpreting observed changes. If infrastructure expansion and economic growth are occurring simultaneously with population increases, the evidence for broader regional transformation becomes stronger. Conversely, substantial physical investment without corresponding demographic change may suggest a more limited local impact.
 
@@ -130,33 +132,33 @@ Together, these four datasets provide complementary perspectives on development,
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid 
-            path="assets/img/post_15_population.png" 
+            path="assets/img/post_15_population.webp" 
             class="img-fluid rounded" 
-            alt="Comparison of 2015 and 2025 total population from Indonesia Statistical Agency"
+            alt="Comparison of 2015 and 2025 total population of Pujut Subdistrict from Statistics Indonesia (BPS)."
         %}
     </div>
 </div>
 <div class="caption">
-    Image 5. Total population of Pujut Subdistrict from 2015 to 2025. The red star indicates the year of the first MotoGP race at the Mandalika International Street Circuit.
+    Figure 5. Total population of Pujut Subdistrict from 2015 to 2025. The red star indicates the year of the first MotoGP race at the Mandalika International Street Circuit.
 </div>
 
 # The Macro View: Subdistrict Divergence
 
-Our first analytical checkpoint examines development at the subdistrict level. To assess whether the Mandalika project altered the trajectory of regional growth, we isolated Pujut Subdistrict (hwere Mandalika is located) and compared it against the combined average of all other subdistricts in Central Lombok Regency.
+Our first analytical checkpoint examines development at the subdistrict level. To assess whether the Mandalika project altered the trajectory of regional growth, we isolated Pujut Subdistrict (where Mandalika is located) and compared it against the combined average of all other subdistricts in Central Lombok Regency.
 
 To quantify this effect, we applied a Difference-in-Differences (DiD) regression framework using two indicators: VIIRS nighttime lights as a proxy for economic activity and built-up area as a measure of physical development.
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid 
-            path="assets/img/post_15_subdistrict_control.png" 
+            path="assets/img/post_15_subdistrict_control.webp" 
             class="img-fluid rounded" 
-            alt="Comparison of Night Light and Buildup data in Pujut and other subdistrict "
+            alt="Comparison of nighttime light and built-up area trends in Pujut and other subdistricts of Central Lombok."
         %}
     </div>
 </div>
 <div class="caption">
-    Image 6. Ten-year comparison (2015–2025) of economic activity and physical development trends between Pujut Subdistrict and other subdistricts in Central Lombok, measured using VIIRS nighttime lights and satellite-derived built-up area estimates.
+    Figure 6. Ten-year comparison (2015–2025) of economic activity and physical development trends between Pujut Subdistrict and other subdistricts in Central Lombok, measured using VIIRS nighttime lights and satellite-derived built-up area estimates.
 
 </div>
 
@@ -171,11 +173,13 @@ _Built-Up Area_
 
 - For built-up area, Pujut also maintained significantly higher levels of physical development than the rest of Central Lombok throughout the study period. The estimated difference is 4.22 units and is highly statistically significant (p < 0.001).
 - The additional increase in Pujut after 2021, relative to other subdistricts, is estimated at 0.25 units, but this effect is not statistically significant (p = 0.581), indicating no strong evidence of a distinct post-2021 boost in development.
-Interpretation
+
+_Interpretation_
+
 
 At first glance, the time-series trends appear to suggest that the opening of the Mandalika circuit in 2021 triggered a sharp divergence between Pujut and the rest of Central Lombok. However, the regression results tell a more nuanced story.
 
-The interaction term (the component that measures whether Pujut experienced an additional growth acceleration after 2021) is statistically insignificant for both nighttime lights and built-up area. In other words, the data does not provide strong evidence that the completion of the circuit itself created a distinct post-2021 jump relative to neighboring subdistricts.
+The interaction term (the component that measures whether Pujut experienced an additional growth acceleration after 2021) is statistically insignificant for both nighttime lights and built-up area. In other words, the data do not provide strong evidence that the completion of the circuit itself created a distinct post-2021 jump relative to neighboring subdistricts.
 
 By contrast, the standalone Pujut coefficient is strongly positive and highly significant across both indicators. This suggests that Pujut had already established a substantially different development trajectory long before the first MotoGP race was held.
 
@@ -192,14 +196,14 @@ To answer this, we moved from the subdistrict scale to the village scale. For ea
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid 
-            path="assets/img/post_15_distance_decay.png" 
+            path="assets/img/post_15_distance_decay.webp" 
             class="img-fluid rounded" 
             alt="Spatial decay coefficients showing how development indicators change with increasing distance from the Mandalika International Street Circuit"
         %}
     </div>
 </div>
 <div class="caption">
-    Image 7. Spatial decay coefficients showing how development indicators change with increasing distance from the Mandalika International Street Circuit. Hotels and restaurants exhibit the strongest distance effects, indicating a highly localized tourism economy, while built-up area, population, retail activity, and nighttime lights display broader regional spillover patterns.
+    Figure 7. Spatial decay coefficients showing how development indicators change with increasing distance from the Mandalika International Street Circuit. Hotels and restaurants exhibit the strongest distance effects, indicating a highly localized tourism economy, while built-up area, population, retail activity, and nighttime lights display broader regional spillover patterns.
 </div>
 
 Tourism-oriented businesses display the strongest distance effect. Restaurant and café density declines by approximately 16.5% for every kilometer away from the circuit, while hotel density declines by 14.6% per kilometer. These are by far the steepest coefficients observed in the dataset.
@@ -211,23 +215,23 @@ The result suggests that Mandalika operates through two distinct development cha
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid 
-            path="assets/img/post_15_buildings.png" 
+            path="assets/img/post_15_buildings.webp" 
             class="img-fluid rounded" 
             alt="Growth of tourism accommodations and commercial shops across three distance bands from the Mandalika Circuit"
         %}
     </div>
 </div>
 <div class="caption">
-    Image 8. Growth of tourism accommodations and commercial shops across three distance bands from the Mandalika Circuit: the Epicenter (0–5 km), Transit Corridor (5–12 km), and Rural Periphery (12+ km). Hotel development remains concentrated near the circuit, while retail activity expands more broadly into surrounding communities, suggesting stronger local economic spillovers.
+    Figure 8. Growth of tourism accommodations and commercial shops across three distance bands from the Mandalika Circuit: the Epicenter (0–5 km), Transit Corridor (5–12 km), and Rural Periphery (12+ km). Hotel development remains concentrated near the circuit, while retail activity expands more broadly into surrounding communities, suggesting stronger local economic spillovers.
 </div>
 
-Where Did Growth Actually Occur? The distance-band analysis provides a more intuitive view of these patterns. Hotel development is overwhelmingly concentrated within the 0–5 km epicenter surrounding the circuit. By 2025, this zone contains more than seventy registered accommodations, while the transit corridor and rural periphery remain largely unchanged.
+**Where did growth actually occur?** The distance-band analysis provides a more intuitive view of these patterns. Hotel development is overwhelmingly concentrated within the 0–5 km epicenter surrounding the circuit. By 2025, this zone contains more than seventy registered accommodations, while the transit corridor and rural periphery remain largely unchanged.
 
 Retail growth follows a different trajectory. Although the epicenter experiences the strongest expansion, commercial shops also increase within the transit corridor and, to a lesser extent, the rural periphery. This suggests that local businesses are more capable of capturing indirect economic opportunities generated by tourism-related development.
 
 Perhaps most importantly, both figures show that the majority of growth occurred between the project's announcement in 2016 and the circuit's completion in 2021. Hotel construction, commercial expansion, and physical development accelerated rapidly during the construction phase before transitioning into a slower, more mature growth pattern after the circuit became operational.
 
-This finding echoes the results from the previous chapter. The economic transformation associated with Mandalika appears to have been driven not only by tourism activity itself, but also by the massive wave of investment and construction that preceded the first race.
+This finding echoes the results from the previous section. The economic transformation associated with Mandalika appears to have been driven not only by tourism activity itself, but also by the massive wave of investment and construction that preceded the first race.
 
 # Discussion and Synthesis
 
@@ -235,7 +239,7 @@ When the regional trends, village-level patterns, and temporal analyses are view
 
 On one hand, tourism-related investments remain highly concentrated around the Special Economic Zone and the coastal corridor. Hotels and restaurants exhibit the strongest distance-decay effects in the analysis, indicating that high-end hospitality capital remains closely tied to the beach-front tourism economy.
 
-On the other hand, the benefits of the project are not confined entirely to the coast. Physical development, commercial shops, population growth, and nighttime economic activity display much weaker spatial decay. This suggests that the infrastructure investments supporting the SEZ like roads, utilities, transportation links, and public services have influenced a much wider area than the tourism zone itself.
+On the other hand, the benefits of the project are not confined entirely to the coast. Physical development, commercial shops, population growth, and nighttime economic activity display much weaker spatial decay. This suggests that the infrastructure investments supporting the SEZ, like roads, utilities, transportation links, and public services, have influenced a much wider area than the tourism zone itself.
 
 Perhaps the most important finding concerns timing. Across multiple indicators, the strongest period of growth occurred during the construction phase rather than after the circuit became operational. The years between 2017 and 2020 saw rapid expansion in built-up areas, commercial activity, and local economic development. By comparison, the post-2021 period is characterized by continued growth, but at a slower and more stable pace.
 

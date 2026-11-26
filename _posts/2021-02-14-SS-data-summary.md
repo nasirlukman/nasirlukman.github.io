@@ -1,14 +1,16 @@
 ---
 layout: post
-title: Quick Soil Sampling Data Summary With Python
+title: "Quick Soil Sampling Data Summary with Python"
 date: 2021-02-14 23:36:10
-description: Using pandas, matplotlib, and numpy to create a quick and dirty plot that summarized your data. Just enough to make your job easier.
-tags: GIS, soil, geology
+description: "A quick Python workflow using pandas, NumPy, and Matplotlib to summarize soil geochemistry data with statistics, histograms, a correlation matrix, and maps."
+tags: [soil-geochemistry, mineral-exploration, python, data-visualization]
+categories: ["Geoscience"]
+og_image: /assets/img/og/SS_data_summary_22_0.jpg
 ---
 
 Geologists often use soil sampling methods in mineral exploration to gather information about element anomalies in the soil of a certain area. The output of this activity is a database containing coordinates and various element concentrations from the sample taken at that point. Before diving deep into the data and doing any fancy analysis, it is always a good idea to familiarize ourselves with the data by looking into the summary statistics and the general and spatial relationship of the data as a whole. By using Python we can write a simple code to get the summary statistics and some useful graphs to summarize the data in just a few minutes.
 
-We will use `pandas`, `numpy`, and `matplotib` libraries for this code, so let's begin with importing our library
+We will use the `pandas`, `numpy`, and `matplotlib` libraries for this code, so let's begin by importing them:
 
 
 ```python
@@ -17,7 +19,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 ```
 
-We can use `pandas` to read our dataset and put it into a variable called *data*. We can then use `head()` function from `pandas` to look at the first 5 rows of the data.
+We can use `pandas` to read our dataset and put it into a variable called *data*. We can then use the `head()` function from `pandas` to look at the first 5 rows of the data.
 
 
 ```python
@@ -578,7 +580,7 @@ data.iloc[:,2:].describe()
 
 
 
-For practicality, `pandas` by default will not show the full range of rows and columns of our dataset. The first line of the code tells `pandas` to show the full range of the columns. In the second line, we use `iloc[:, 2:]` attribute to ignore the first two columns of our dataset because we don't need summary statistics of the x and y coordinate (unless for some reason you do).
+For practicality, `pandas` by default will not show the full range of rows and columns of our dataset. The first line of the code tells `pandas` to show the full range of the columns. In the second line, we use `iloc[:, 2:]` attribute to ignore the first two columns of our dataset because we don't need summary statistics of the x and y coordinates (unless for some reason you do).
 
 ## Histograms
 
@@ -590,9 +592,9 @@ Since we are dealing with a lot of 0's, we will add a very small value to all th
 data.iloc[:,2:] = np.log(data.iloc[:,2:]+0.0001)
 ```
 
-`np.log` is a natural logarithm with base *e* if we want logarithm transformation with base *10* we can use `np.log10`. Now if we call `data.head()` we will see that that the concentration of each element already transformed into its logarithmic value.
+`np.log` is the natural logarithm with base *e*; if we want a logarithmic transformation with base *10*, we can use `np.log10`. Now if we call `data.head()`, we will see that the concentration of each element has already been transformed into its logarithmic value.
 
->*Note: code above will return an error if there are still zero values in the datasets. There are various ways to deals with `0` and `NaN` value in our dataset and it was up to you which method you will use for your case. You can also ignore this line if you don't want to do any logarithmic transformation for your dataset*
+>*Note: the code above will return an error if there are still zero values in the dataset. There are various ways to deal with `0` and `NaN` values in a dataset, and it is up to you which method to use for your case. You can also skip this line if you don't want to apply any logarithmic transformation to your dataset.*
 
 
 ```python
@@ -890,7 +892,7 @@ data.head()
 
 
 
-Next, we will use `matplotlib` to define our canvas and axes and then loop into each element in our dataset to plot each histogram. 
+Next, we will use `matplotlib` to define our canvas and axes and then loop through each element in our dataset to plot each histogram. 
 
 
 ```python
@@ -916,18 +918,18 @@ plt.show()
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid 
-          path="/img/SS_data_summary_files/SS_data_summary_16_0.png" 
+          path="/img/SS_data_summary_files/SS_data_summary_16_0.webp" 
           class="img-fluid rounded" 
-          alt="Image of element concetration histogram in log ppm."
+          alt="Histograms of log-transformed soil sample element concentrations (log ppm) for 35 elements."
         %}
     </div>
 </div>
 <div class="caption">
-    Image 1. Elements concentration (log ppm)
+    Figure 1. Element concentrations (log ppm)
 </div>
 
 
-The code above can be separated into two sections. The first section of the code will define the figure and axis canvas for our plot. Since we are dealing with 35 variables we will divide our subplots into 7 rows and 5 columns. 
+The code above can be separated into two sections. The first section of the code will define the figure and axis canvas for our plot. Since we are dealing with 35 variables, we will divide our subplots into 7 rows and 5 columns. 
 
 We can check the length of our variable with:
 
@@ -959,7 +961,7 @@ Our next figure will be a correlation matrix. This is a very useful and neat gra
 - 0 = no correlation
 - 1 = perfect positive correlation.
 
-`Pandas` come in handy with its `corr()` function to calculate a correlation matrix of our dataset. Combine it with `matplotlib` functions such as: `matshow()` to draw the matrix into a figure; `cmap()` to denote it with colormap; and `colorbar()` to draw the legend, and we can get this informative graph.
+`pandas` comes in handy with its `corr()` function to calculate the correlation matrix of our dataset. Combine it with `matplotlib` functions such as `matshow()` to draw the matrix into a figure; `cmap()` to denote it with colormap; and `colorbar()` to draw the legend, and we can get this informative graph.
 
 
 ```python
@@ -983,21 +985,21 @@ plt.show()
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid 
-          path="/img/SS_data_summary_files/SS_data_summary_22_0.png" 
+          path="/img/SS_data_summary_files/SS_data_summary_22_0.webp" 
           class="img-fluid rounded" 
-          alt="Image of heatmap showing the correlation matrix between log-transformed elemental concentrations, where color intensity indicates the strength and direction of correlation between elements."
+          alt="Heatmap showing the correlation matrix between log-transformed elemental concentrations, where color intensity indicates the strength and direction of correlation between elements."
         %}
     </div>
 </div>
 <div class="caption">
-    Image 2. Elements concentration correlation matrix
+    Figure 2. Element concentration correlation matrix
 </div>
 
 
 
 ## Map plots
 
-With the same concept as the histogram plot, we can make quick and dirty map plots of our points to get a glimpse of the spatial correlation of each element. For this purpose, we use `scatter()` function with our UTM coordinates as its x and y value and denote the concentration value of each element to a color map using `cmap()`. We do this using `for` loop so it can loop to each *element* in our `grade` data.
+With the same concept as the histogram plot, we can make quick and dirty map plots of our points to get a glimpse of the spatial correlation of each element. For this purpose, we use `scatter()` function with our UTM coordinates as its x and y value and denote the concentration value of each element to a color map using `cmap()`. We do this using a `for` loop so it can loop through each *element* in our `grade` data.
 
 
 ```python
@@ -1025,14 +1027,14 @@ plt.show()
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid 
-          path="/img/SS_data_summary_files/SS_data_summary_25_0.png" 
+          path="/img/SS_data_summary_files/SS_data_summary_25_0.webp" 
           class="img-fluid rounded"
-          alt="Image of a set of spatial maps displaying the distribution of individual element concentrations across the survey area, with color gradients representing concentration levels."
+          alt="Set of spatial maps displaying the distribution of individual element concentrations across the survey area, with color gradients representing concentration levels."
         %}
     </div>
 </div>
 <div class="caption">
-    Image 3. Elements concentration map
+    Figure 3. Element concentration maps
 </div>
 
-And that's it. Your soil sampling data summary in just about a minute. You can download the full code on my [GitHub page](https://github.com/nasirlukman/project-dump/tree/main) and reuse it for your next project. Hope it can save you the trouble and you can be more focused on your real geologist work. Have fun exploring!
+And that's it: your soil sampling data summary in about a minute. You can download the full code on my [GitHub page](https://github.com/nasirlukman/project-dump/tree/main) and reuse it for your next project. I hope it saves you some trouble so you can focus on your real geology work. Have fun exploring!

@@ -3,22 +3,24 @@
 # -----------------------------------------------------------------------------
 
 title: Earth.etc # the website title (if blank, full name will be used instead)
+home_title: Muhamad Nasir Lukman | Remote Sensing & Geospatial Data Science # <title> used on the home page (SEO)
+job_title: Geospatial Data Scientist & Remote Sensing Analyst # used in Schema.org structured data
 first_name: Muhamad
 middle_name: Nasir
 last_name: Lukman
 email: muhamadnasirlukman@gmail.com
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
-  
+  Remote sensing and geospatial data science blog by Muhamad Nasir Lukman: hyperspectral imaging, radar, and machine learning for mining, forest, and environmental monitoring.
 footer_text: >
   Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.
   Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
-keywords: remote sensing, gis, image analysis, machine learning, geology, earth science, earth observation, geophysics, planetary science, satelite # add your own keywords or leave empty
+keywords: remote sensing, gis, geospatial data science, image analysis, machine learning, hyperspectral imaging, spectral geology, radar, insar, mining monitoring, deforestation, geology, earth science, earth observation, satellite # add your own keywords or leave empty
 lang: en # the language of your site (for example: en, fr, cn, ru, etc.)
 icon: 🌏 # the emoji used as the favicon (alternatively, provide image name in /assets/img/)
 
 url: https://nasirlukman.github.io # the base hostname & protocol for your site
 baseurl:  # the subpath of your site, e.g. /blog/. Leave blank for root
-last_updated: ture # set to true if you want to display last updated in the footer
+last_updated: true # set to true if you want to display last updated in the footer
 impressum_path: # set to path to include impressum link in the footer, use the same path as permalink in a page, helps to conform with EU GDPR
 
 # -----------------------------------------------------------------------------
@@ -60,13 +62,13 @@ max_width: 800px
 # see https://schema.org/docs/faq.html for more information
 serve_og_meta: true # Include Open Graph meta tags in the HTML head
 serve_schema_org: true # Include Schema.org in the HTML head
-og_image: # The site-wide (default for all links) Open Graph preview image
+og_image: /assets/img/og/profile_picture.jpg # The site-wide (default for all links) Open Graph preview image
 
 # -----------------------------------------------------------------------------
 # Social integration
 # -----------------------------------------------------------------------------
 
-github_username: # your GitHub user name
+github_username: nasirlukman # your GitHub user name
 gitlab_username: # your GitLab user name
 x_username: # your X handle
 mastodon_username: # your mastodon instance+username in the format instance.tld/@username
@@ -115,7 +117,7 @@ google_analytics: G-NY818B7N0G
 cronitor_analytics: # cronitor RUM analytics site ID (format: XXXXXXXXX)
 
 # For Google Search Console, see https://support.google.com/webmasters/answer/9008080?hl=en#meta_tag_verification&zippy=%2Chtml-tag
-google_site_verification: <meta name="google-site-verification" content="J8gUbUrDIfrV6xc8qbQht7JP22-dk7AGlCz8WwAUzYU" /> # your google-site-verification ID (Google Search Console)
+google_site_verification: J8gUbUrDIfrV6xc8qbQht7JP22-dk7AGlCz8WwAUzYU # your google-site-verification ID (Google Search Console)
 bing_site_verification: # out your bing-site-verification ID (Bing Webmaster)
 
 # -----------------------------------------------------------------------------
@@ -123,7 +125,7 @@ bing_site_verification: # out your bing-site-verification ID (Bing Webmaster)
 # -----------------------------------------------------------------------------
 
 blog_name: Earth.etc # blog_name will be displayed in your blog page
-blog_description: 
+blog_description: Notes, experiments, and case studies in remote sensing, hyperspectral imaging, and geospatial data science.
 permalink: /blog/:year/:title/
 
 # Pagination
@@ -254,7 +256,7 @@ jekyll-minifier:
 # -----------------------------------------------------------------------------
 
 jekyll-archives:
-  enabled: [year, categories] # enables year, tag and category archives (remove if you need to disable one of them).
+  enabled: [year, categories, tags] # enables year, tag and category archives (remove if you need to disable one of them).
   layouts:
     year: archive-year
     tag: archive-tag
@@ -265,7 +267,7 @@ jekyll-archives:
     category: "/blog/category/:name/"
 
 display_tags: false # these tags will be displayed on the front page of your blog
-display_categories: false # these categories will be displayed on the front page of your blog
+display_categories: ["Geoscience", "Environment", "OSINT", "Other"] # these categories will be displayed on the front page of your blog
 
 
 # -----------------------------------------------------------------------------
@@ -309,7 +311,7 @@ imagemagick:
 enable_google_analytics: true # enables google analytics
 enable_cronitor_analytics: false # enables cronitor RUM analytics
 enable_google_verification: true # enables google site verification
-enable_bing_verification: true # enables bing site verification
+enable_bing_verification: false # enables bing site verification
 enable_masonry: true # enables automatic project cards arrangement
 enable_math: true # enables math typesetting (uses MathJax)
 enable_tooltips: false # enables automatic tooltip links generated for each section titles on pages and posts

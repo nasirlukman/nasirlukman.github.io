@@ -1,4 +1,6 @@
 source 'https://rubygems.org'
+# no longer bundled with Ruby 4.0 (needed by jekyll-twitter-plugin)
+gem 'ostruct'
 group :jekyll_plugins do
     gem 'classifier-reborn'
     gem 'jekyll'

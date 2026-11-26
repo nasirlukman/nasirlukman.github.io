@@ -1,15 +1,17 @@
 ---
 layout: post
-title: Earthquake Playthrough 01
+title: "Earthquake Playthrough 01: Exploring Indonesian Seismicity with Python"
 date: 2021-08-01 23:36:10
-description: Practicing python with earthquake data from USGS libcomcat API
-tags: GIS, earthquake, geology
+description: "Using the USGS ComCat API (libcomcat) and Python to map, cross-section, and analyze earthquake depths and magnitudes along the Sunda Arc subduction zone."
+tags: [earthquakes, python, data-visualization, indonesia]
+categories: ["Geoscience"]
+og_image: /assets/img/og/Earthquake_Playthrough_01_18_1.jpg
 ---
-USGS provides a very useful API to their earthquake catalog called `libcomcat` which I think stands for [*library comprehensive catalog*](https://github.com/usgs/libcomcat). In this post, we will try to use `libcomcat` to get the earthquake dataset and make some data visualization from it. Hopefully, we can exercise a few python libraries while also learning a few interesting facts about earthquakes.
+USGS provides a very useful API to their earthquake catalog called `libcomcat` which I think stands for [*library comprehensive catalog*](https://github.com/usgs/libcomcat). In this post, we will try to use `libcomcat` to get the earthquake dataset and make some data visualization from it. Hopefully, we can exercise a few Python libraries while also learning a few interesting facts about earthquakes.
 
 # Using `libcomcat` to get our dataframe
 
-According to its [API Documentation](https://github.com/usgs/libcomcat/blob/master/docs/api.md) we can use the `search` module to get a `SummaryEvent` objects and use `get_summary_dataframe` to create a `pandas` Dataframe of basic information from a list of `SummaryEvent` object which contains the following columns:
+According to its [API documentation](https://github.com/usgs/libcomcat/blob/master/docs/api.md), we can use the `search` module to get `SummaryEvent` objects and use `get_summary_data_frame` to create a `pandas` DataFrame of basic information from a list of `SummaryEvent` objects, which contains the following columns:
 - id: Authoritative ComCat event ID.
 - time: Authoritative event origin time.
 - latitude: Authoritative event latitude.
@@ -31,7 +33,7 @@ etime = datetime.utcnow()
 minmag = 0.0
 maxmag = 9.9
 
-#download SummaryEvent objects based on our predifined search parameters
+#download SummaryEvent objects based on our predefined search parameters
 eventlist = search(starttime=stime,
                   endtime=etime,
                   minlatitude=bounds[2],
@@ -41,13 +43,13 @@ eventlist = search(starttime=stime,
                   minmagnitude=minmag,
                   maxmagnitude=maxmag)
 
-#write summary dataframe into pandas Dataframe
+#write summary data into a pandas DataFrame
 df = get_summary_data_frame(eventlist)
 ```
 
->Notes: Since we are trying to search SummaryEvent objects in a broad bounds area and wide time & magnitude range, this may take a few minutes
+>Note: Since we are searching for SummaryEvent objects over a broad area and a wide time & magnitude range, this may take a few minutes.
 
-we can inspect the first five rows of our Dataframe using `data.head()`
+We can inspect the first five rows of our DataFrame using `df.head()`.
 
 
 ```python
@@ -172,17 +174,17 @@ df.head()
 
 
 
-We must be cautious with the units of each variable in our data, which in this case are as follows :
+We must be cautious with the units of each variable in our data, which in this case are as follows:
 - x and y coordinates in decimal degrees
 - depths in kilometers below sea level
 - magnitude in Moment Magnitude (Mw)
 
 
-> We may be familiar with *the Ritcher Scale* as the unit of earthquake magnitude. Since there are a few proven inaccuracies in *the Ritcher Scale* most seismology authorities reported their magnitude in *Moment Magnitude*. These two units measure earthquake magnitude in base ten logarithmic scale and the difference between the units is quite low. Consult [wikipedia](https://en.wikipedia.org/wiki/Seismic_magnitude_scales) for more information about this.
+> We may be familiar with *the Richter scale* as the unit of earthquake magnitude. Since there are a few proven inaccuracies in *the Richter scale*, most seismology authorities report magnitudes in *Moment Magnitude*. Both scales measure earthquake magnitude on a base-ten logarithmic scale, and the difference between them is quite small. Consult [Wikipedia](https://en.wikipedia.org/wiki/Seismic_magnitude_scales) for more information about this.
 
 # Map plot with `Basemap`
 
-We already define our boundary area above that we use as one of the search parameters. Let's look at the map of our area using `Basemap`. Since our coordinates are in decimal degrees, we will use *EPSG:4326* as our projection parameters. We can look at IPSG code for other projections [here](http://epsg.io/).
+We already defined our boundary area above as one of the search parameters. Let's look at the map of our area using `Basemap`. Since our coordinates are in decimal degrees, we will use *EPSG:4326* as our projection parameters. We can look up EPSG codes for other projections [here](http://epsg.io/).
 
 
 ```python
@@ -208,21 +210,21 @@ plt.show()
  <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid 
-            path="/img/Earthquake_Playthrough_01_files/Earthquake_Playthrough_01_11_0.png" 
+            path="/img/Earthquake_Playthrough_01_files/Earthquake_Playthrough_01_11_0.webp" 
             class="img-fluid rounded" 
-            alt="Image of a shaded relief map of Southeast Asia showing the defined study area for earthquake analysis. The map spans southern Indonesia including Java, Bali, Lombok, and parts of Sumatra and Nusa Tenggara. Coastlines are overlaid in gray, and the map is rendered in EPSG:4326 projection, highlighting the spatial bounds used for earthquake data extraction."
+            alt="Shaded relief map of Southeast Asia showing the defined study area for earthquake analysis. The map spans southern Indonesia including Java, Bali, Lombok, and parts of Sumatra and Nusa Tenggara. Coastlines are overlaid in gray, and the map is rendered in EPSG:4326 projection, highlighting the spatial bounds used for earthquake data extraction."
         %}
     </div>
 </div>
 <div class="caption">
-    Image 1. Study area extent
+    Figure 1. Study area extent
 </div>   
 
     
 
 
 
-We can plot our earthquake on a map using `Basemap` scatter with *longitude* and *latitude* as its `x` and `y` parameters. While we're at it, let's try to add *depth* and *magnitude* as its `color` and `size` parameters.
+We can plot our earthquakes on a map using `Basemap` scatter with *longitude* and *latitude* as its `x` and `y` parameters. While we're at it, let's try to add *depth* and *magnitude* as its `color` and `size` parameters.
 
 
 ```python
@@ -253,20 +255,20 @@ plt.show()
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid 
-            path="/img/Earthquake_Playthrough_01_files/Earthquake_Playthrough_01_13_0.png" 
+            path="/img/Earthquake_Playthrough_01_files/Earthquake_Playthrough_01_13_0.webp" 
             class="img-fluid rounded" 
-            alt="Image of a scatterplot map overlaid on a shaded relief base map, showing earthquake epicenters across the study area. Each point represents an earthquake event, with color indicating depth (in kilometers) using a coolwarm colormap — shallow quakes are shown in blue and deeper ones in red. The size of each point reflects earthquake magnitude. There is an evident northward gradient in earthquake depth, consistent with a subducting slab."
+            alt="Scatterplot map overlaid on a shaded relief base map, showing earthquake epicenters across the study area. Each point represents an earthquake event, with color indicating depth (in kilometers) using a coolwarm colormap — shallow quakes are shown in blue and deeper ones in red. The size of each point reflects earthquake magnitude. There is an evident northward gradient in earthquake depth, consistent with a subducting slab."
         %}
     </div>
 </div>
 <div class="caption">
-    Image 2. Earthquake depth (km)
+    Figure 2. Earthquake depth (km)
 </div>
     
 
-It's interesting how the depth of the earthquake is increasing to the north. It's most probably related to the subducted oceanic crust depth which also must be increasing to the north. A section along the latitude would show the shape of the subducted oceanic crust, we will try to make it later. 
+It's interesting how the depth of the earthquakes increases to the north. This is most probably related to the depth of the subducted oceanic crust, which must also be increasing to the north. A section along the latitude would show the shape of the subducted oceanic crust; we will try to make one later. 
 
-Another piece of information that we can get from the plot above is that the earthquakes are not distributed uniformly along the subduction zone. There are several areas with significantly fewer earthquake occurrences than it's surroundings which are usually referred to as [*seismic gap*](https://en.wikipedia.org/wiki/Seismic_gap#:~:text=A%20seismic%20gap%20is%20a,segments%20along%20the%20same%20structure.). let's try to make a density heatmap to get a better visualization for this. We will use `np.histogram` to calculate a gridded density of the earthquake and plot it with `plt.pcolormash()` above our `Basemap`.
+Another piece of information that we can get from the plot above is that the earthquakes are not distributed uniformly along the subduction zone. There are several areas with significantly fewer earthquake occurrences than their surroundings, which are usually referred to as [*seismic gaps*](https://en.wikipedia.org/wiki/Seismic_gap#:~:text=A%20seismic%20gap%20is%20a,segments%20along%20the%20same%20structure.). Let's try to make a density heatmap to get a better visualization of this. We will use `np.histogram2d` to calculate a gridded density of the earthquakes and plot it with `plt.pcolormesh()` above our `Basemap`.
 
 
 ```python
@@ -302,21 +304,21 @@ plt.show()
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid 
-            path="/img/Earthquake_Playthrough_01_files/Earthquake_Playthrough_01_15_0.png" 
+            path="/img/Earthquake_Playthrough_01_files/Earthquake_Playthrough_01_15_0.webp" 
             class="img-fluid rounded" 
-            alt="Image of a 2D histogram-based heatmap overlaid on a shaded relief map of the study area, representing the spatial density of earthquake events. The density is shown using semi-transparent colored bins with higher intensities indicating higher concentrations of earthquakes. The map reveals several zones of seismic clustering and apparent gaps along the subduction zone."
+            alt="2D histogram-based heatmap overlaid on a shaded relief map of the study area, representing the spatial density of earthquake events. The density is shown using semi-transparent colored bins with higher intensities indicating higher concentrations of earthquakes. The map reveals several zones of seismic clustering and apparent gaps along the subduction zone."
         %}
     </div>
 </div>
 <div class="caption">
-    Image 3. Earthquake density map
+    Figure 3. Earthquake density map
 </div>  
     
 
 
-we can go one step further and use *kernel density estimation* to draw a smoother density heatmap by using `gaussian_kde` from `scipy`.
+We can go one step further and use *kernel density estimation* to draw a smoother density heatmap by using `gaussian_kde` from `scipy`.
 
->*kernel density estimation* or KDE for short is a statistical method to estimate the probability density function of a random variable based on a finite sample. [Here](https://mathisonian.github.io/kde/) is a very neat explanation of how KDE works on one-dimensional data.
+>*Kernel density estimation*, or KDE for short, is a statistical method to estimate the probability density function of a random variable based on a finite sample. [Here](https://mathisonian.github.io/kde/) is a very neat explanation of how KDE works on one-dimensional data.
 
 
 ```python
@@ -354,23 +356,23 @@ plt.show()
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid 
-            path="/img/Earthquake_Playthrough_01_files/Earthquake_Playthrough_01_18_1.png" 
+            path="/img/Earthquake_Playthrough_01_files/Earthquake_Playthrough_01_18_1.webp" 
             class="img-fluid rounded" 
-            alt="Image of a smooth kernel density estimate (KDE) heatmap of earthquake occurrences overlaid on a shaded relief map. The map uses color intensity to indicate probability density of earthquake epicenters, creating a continuous surface. Seismic gaps are visible as regions with noticeably lower density, particularly south of Central Java, Bali, and Nusa Tenggara."
+            alt="Smooth kernel density estimate (KDE) heatmap of earthquake occurrences overlaid on a shaded relief map. The map uses color intensity to indicate probability density of earthquake epicenters, creating a continuous surface. Seismic gaps are visible as regions with noticeably lower density, particularly south of Central Java, Bali, and Nusa Tenggara."
         %}
     </div>
 </div>
 <div class="caption">
-    Image 4. Earthquake kernel density map
+    Figure 4. Earthquake kernel density map
 </div>     
 
 
 
-We can see from the map above that the most notable *seismic gap* are located at the south of Central and West Java, Bali & Lombok, and NTT.
+We can see from the map above that the most notable *seismic gaps* are located south of Central and West Java, Bali & Lombok, and NTT.
 
 # Cross Section
 
-Now, to see the shape of subducting slabs below Java let's plot our earthquake datasets along the Y coordinate cross-section. To make a properly scaled cross-section first we need to transform our coordinate from latitude/longitude in decimal degrees, into UTM in the metric unit so it has the same measurement unit with the depth. Our problem is that we are dealing with a large area that spans multiple UTM zones here, and as far as I know, there is no simple and straightforward solution to this issue. Lucky for us, Google already solved this for us when they were facing the same issue for their Google Maps projects in 2005 by inventing a new projection system called [Web Mercator](https://en.wikipedia.org/wiki/Web_Mercator_projection). Let us make two new columns called 'X_WM' and 'Y_WM' for our X dan Y coordinate in Web Mercator Projection. We will use  `Transformer` from `pyproj` library to calculate our coordinates transformation.
+Now, to see the shape of the subducting slab below Java, let's plot our earthquake datasets along the Y coordinate cross-section. To make a properly scaled cross-section we first need to transform our coordinates from latitude/longitude in decimal degrees into a metric unit so they have the same measurement unit as the depth. Our problem is that we are dealing with a large area that spans multiple UTM zones here, and as far as I know, there is no simple and straightforward solution to this issue. Luckily, Google already solved this when they were facing the same issue for Google Maps in 2005 by inventing a new projection system called [Web Mercator](https://en.wikipedia.org/wiki/Web_Mercator_projection). Let's make two new columns called 'X_WM' and 'Y_WM' for our X and Y coordinates in the Web Mercator projection. We will use `Transformer` from the `pyproj` library to calculate our coordinates transformation.
 
 
 ```python
@@ -379,7 +381,7 @@ transformer = Transformer.from_crs("epsg:4326", "epsg:3857", always_xy=True)
 df['X_WM'], df['Y_WM'] = transformer.transform(df['longitude'].values, df['latitude'].values)
 ```
 
-now to make our cross-section in this case we want to use 'Y_WM' as our X-axis in the plot, and 'depth' as our Y-axis. Remember that depth in our database is still in a positive kilometer so we need to transform it to a negative meter value at our plot by multiplying it by -1000.
+Now, to make our cross-section, we want to use 'Y_WM' as the X-axis of the plot and 'depth' as the Y-axis. Remember that depth in our database is still in positive kilometers, so we need to transform it to negative meters in our plot by multiplying it by -1000.
 
 
 ```python
@@ -400,18 +402,18 @@ plt.show()
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid 
-            path="/img/Earthquake_Playthrough_01_files/Earthquake_Playthrough_01_24_0.png" 
+            path="/img/Earthquake_Playthrough_01_files/Earthquake_Playthrough_01_24_0.webp" 
             class="img-fluid rounded" 
-            alt="Image of a scatter plot of earthquake locations projected onto a vertical cross-section aligned along a specific latitudinal slice of the study area. The x-axis represents horizontal distance in kilometers (converted from geographic coordinates), and the y-axis represents depth below sea level. Earthquake points show subducting slab geometry, curving deeper as the section moves northward."
+            alt="Scatter plot of earthquake locations projected onto a vertical cross-section aligned along a specific latitudinal slice of the study area. The x-axis represents horizontal distance in kilometers (converted from geographic coordinates), and the y-axis represents depth below sea level. Earthquake points show subducting slab geometry, curving deeper as the section moves northward."
         %}
     </div>
 </div>
 <div class="caption">
-    Image 5. Y-axis cross-section of the earthquake depth shows a subduction slab shape
+    Figure 5. Y-axis cross-section of the earthquake depth shows a subduction slab shape
 </div>     
     
 
-Well, yeah, It's a subduction zone alright. I wonder what our plot would look like if we use 'X_WM' coordinate as our X-axis. Let's try to make one.
+Well, yeah, it's a subduction zone alright. I wonder what our plot would look like if we used the 'X_WM' coordinate as our X-axis. Let's try to make one.
 
 
 ```python
@@ -432,19 +434,19 @@ plt.show()
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid 
-            path="/img/Earthquake_Playthrough_01_files/Earthquake_Playthrough_01_26_0.png" 
+            path="/img/Earthquake_Playthrough_01_files/Earthquake_Playthrough_01_26_0.webp" 
             class="img-fluid rounded" 
-            alt="Image of an enhanced cross-sectional scatter plot showing earthquake locations with colors representing magnitude. The x-axis shows distance along the section line, and the y-axis shows earthquake depth. Point size is also scaled by magnitude. This visualization highlights the distribution of earthquake sizes along the subduction interface."
+            alt="East-west cross-sectional scatter plot showing earthquake locations with colors representing magnitude. The x-axis shows distance along the section line, and the y-axis shows earthquake depth. Point size is also scaled by magnitude. This visualization highlights the distribution of earthquake sizes along the subduction interface."
         %}
     </div>
 </div>
 <div class="caption">
-    Image 6. Y-axis cross-section of the earthquake depth highlight seismic gap at depth of 3km to 5 km.
+    Figure 6. X-axis (east-west) cross-section of earthquake depth highlights a seismic gap at depths of around 300 km to 500 km.
 </div>          
     
 
 
-Obviously, we cannot see the shape of our subduction slab in this cross-section, but we can still get a piece of good information with this visualization. Note another *seismic gap* around depth 3 km to 5 km. *Seismic gaps* do not only occur on a horizontal plane but also on a vertical plane. We cannot see this gap clearly on our previous cross-section because our visualization is distracted by an anomaly at the eastern part of our area where apparently there is not much seismic gap there. If you look back at our map plot, you can see that this anomalous area is in the southern part of Sulawesi. Well as any Geologist knows, there are a lot of suspicious things going on in Sulawesi's tectonic settings, so this kind of anomaly comes as no surprise.
+Obviously, we cannot see the shape of our subduction slab in this cross-section, but we can still get a good piece of information from this visualization. Note another *seismic gap* at depths of around 300 km to 500 km. *Seismic gaps* do not only occur on a horizontal plane but also on a vertical plane. We cannot see this gap clearly in our previous cross-section because the visualization is distracted by an anomaly in the eastern part of our area, where there is apparently not much of a seismic gap. If you look back at our map plot, you can see that this anomalous area is in the southern part of Sulawesi. Well, as any geologist knows, there are a lot of suspicious things going on in Sulawesi's tectonic settings, so this kind of anomaly comes as no surprise.
 
 # Depth and magnitude distribution
 
@@ -479,30 +481,30 @@ plt.show()
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid 
-        path="/img/Earthquake_Playthrough_01_files/Earthquake_Playthrough_01_29_0.png" 
+        path="/img/Earthquake_Playthrough_01_files/Earthquake_Playthrough_01_29_0.webp" 
         class="img-fluid rounded" 
-        alt="Image of histograms of Depths and Magnitudes."
+        alt="Histograms of earthquake depth and magnitude distributions."
         %}
     </div>
 </div>
 <div class="caption">
-    Image 7. Histograms of Depths and Magnitudes.
+    Figure 7. Histograms of depths and magnitudes.
 </div>          
 
     
-The interesting thing to notice in this depth distribution is the anomaly at the deep-focal earthquake, earthquake frequency seems to get lower with depth and reach its lowest point at around 300 km, this is expected due to the increasing plasticity of slabs with depths due to increasing pressure and temperature. What is quite unexpected is the rise of the frequency at around 500 km (it is important to note that deep-focus earthquakes are only observed around a subduction zone, so it is safe to assume that it is directly related to subduction activity). One possible explanation of the deep-focus earthquake is transformational faulting in metastable peridotite wedges within
-a cold slab. Where the mechanical faulting at those depths is hard to explain, some models suggest that transformational faulting due to polymorphic reactions in which olivine transforms to the spinel structure and clinoenstatite transforms to ilmenite may cause such shear instability ([Kirby et al., 1996](https://www.earth.northwestern.edu/public/emile/PDF/EAO104.pdf)).
-This effect of decreasing seismic activity with depth until it reaches the depth where olivine and clinoesntatie transformation occurs where there is a little bump in the earthquake frequency caused an apparent seismic gap in the vertical plane which occurs at around 300 to 500 km.
+The interesting thing to notice in this depth distribution is the anomaly in deep-focus earthquakes. Earthquake frequency seems to decrease with depth and reaches its lowest point at around 300 km. This is expected due to the increasing plasticity of slabs with depths due to increasing pressure and temperature. What is quite unexpected is the rise of the frequency at around 500 km (it is important to note that deep-focus earthquakes are only observed around a subduction zone, so it is safe to assume that it is directly related to subduction activity). One possible explanation of the deep-focus earthquake is transformational faulting in metastable peridotite wedges within
+a cold slab. While mechanical faulting at those depths is hard to explain, some models suggest that transformational faulting due to polymorphic reactions in which olivine transforms to the spinel structure and clinoenstatite transforms to ilmenite may cause such shear instability ([Kirby et al., 1996](https://www.earth.northwestern.edu/public/emile/PDF/EAO104.pdf)).
+This pattern of seismic activity decreasing with depth until it reaches the depth where the olivine and clinoenstatite transformations occur, where there is a small bump in earthquake frequency, creates an apparent seismic gap in the vertical plane at around 300 to 500 km.
 
 
-What is surprising for me is the distribution of the magnitude which closely resembles a normal distribution with mean and median values close to each other (or we can say it a log-normal distribution since the magnitudes are in the Ritcher Scale which is a logarithmic scale) rather than resembling a power-law distribution.
-As for now, I can't find any explanation for this, whether this is really the case or we actually have a problem with our datasets where USGS has difficulties in detecting the smaller magnitude earthquakes. This [wikipedia page](https://en.wikipedia.org/wiki/Gutenberg%E2%80%93Richter_law#Background) suggests the latter would be the case but also mentions some earthquake dynamics models that explain the lower frequency in lower magnitude earthquakes physically.
+What is surprising to me is the distribution of magnitudes, which closely resembles a normal distribution with mean and median values close to each other (or we could call it a log-normal distribution, since magnitude is measured on a logarithmic scale) rather than a power-law distribution.
+As for now, I can't find any explanation for this, whether this is really the case or we actually have a problem with our datasets where USGS has difficulties in detecting the smaller magnitude earthquakes. This [Wikipedia page](https://en.wikipedia.org/wiki/Gutenberg%E2%80%93Richter_law#Background) suggests the latter would be the case but also mentions some earthquake dynamics models that explain the lower frequency in lower magnitude earthquakes physically.
 
 Now it is probably a good idea to split our dataset into several categories and see the distribution of each. Let's split the depth into three categories based on [USGS classification](https://www.usgs.gov/natural-hazards/earthquake-hazards/science/determining-depth-earthquake?qt-science_center_objects=0#qt-science_center_objects) into:
 
 - shallow earthquake (0-70)km
 - intermediate earthquake (70-300)km
-- deep earthquake(>300)km
+- deep earthquake (>300)km
 
 
 
@@ -511,9 +513,9 @@ df['depth_classification'] = df['depth'].apply(lambda x: 'shallow' if x <=70 els
 
 ```
 
-In the line above we will use `apply()` and `lambda` to make a new column called `'depth_classification'` in `df` Dataframe and put values on it based on the condition in column `depth`.
+In the line above, we use `apply()` and `lambda` to make a new column called `'depth_classification'` in `df` Dataframe and put values on it based on the condition in column `depth`.
 
-Since we need to draw a lot of histograms for depth and magnitude distribution in every classification, let's write a function to draw it more efficiently
+Since we need to draw a lot of histograms for depth and magnitude distribution in every classification, let's write a function to draw them more efficiently.
 
 
 ```python
@@ -544,7 +546,7 @@ def classification_histogram(class_list, classification_type, nrows, ncols):
     plt.tight_layout()
 ```
 
-the function above is pretty simple and straightforward, the inline string syntax is not the most pleasant syntax to read, but it is pretty efficient.
+The function above is pretty simple and straightforward. The inline string syntax is not the most pleasant syntax to read, but it is pretty efficient.
 
 
 ```python
@@ -558,19 +560,19 @@ classification_histogram(depth_class_list,'depth',2 ,3)
  <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid 
-            path="/img/Earthquake_Playthrough_01_files/Earthquake_Playthrough_01_36_0.png" 
+            path="/img/Earthquake_Playthrough_01_files/Earthquake_Playthrough_01_36_0.webp" 
             class="img-fluid rounded" 
-            alt="Image of histograms of different earthquake depth classification."
+            alt="Histograms of earthquake depth and magnitude for shallow, intermediate, and deep earthquake classes."
         %}
     </div>
 </div>
 <div class="caption">
-    Image 8. Histograms of different earthquake depth classification.
+    Figure 8. Histograms of each earthquake depth class.
 </div>   
 
   
 
-At this stage, I think the normality assumption is reasonable and it could be the basis to split our depth dataset into several groups in our classification. If we look at depth distribution in our present classification, there are still indications of mixing population since we still don't have an unimodal distribution. I think it is a good idea to try multiple Gaussian fixes in the data in the future, for now, we will settle with this USGS classification.
+At this stage, I think the normality assumption is reasonable and it could be the basis to split our depth dataset into several groups in our classification. If we look at depth distribution in our present classification, there are still indications of mixed populations since we still don't have a unimodal distribution. I think it is a good idea to try fitting multiple Gaussians to the data in the future; for now, we will settle with this USGS classification.
 
 I still don't think it is a good idea to assume normality in magnitude distribution since I assume that smaller magnitude earthquake occurrences are exponentially higher than larger magnitude occurrences. But since our initial dataset distribution for magnitude shows a normal behavior, I imagine our classification should preserve the shape of the original data (which is the case for this classification), since I assume that earthquake magnitude spreads with the same behavior in all depths. Well, let's try to split our magnitude to see if that assumption holds!
 
@@ -606,19 +608,19 @@ classification_histogram(magnitude_class_list,'magnitude',2 ,5)
  <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid 
-            path="/img/Earthquake_Playthrough_01_files/Earthquake_Playthrough_01_40_0.png" 
+            path="/img/Earthquake_Playthrough_01_files/Earthquake_Playthrough_01_40_0.webp" 
             class="img-fluid rounded" 
-            alt="Image of histograms of different earthquake magnitude classification."
+            alt="Histograms of earthquake depth and magnitude for minor, light, moderate, strong, and great earthquake classes."
         %}
     </div>
 </div>
 <div class="caption">
-    Image 9. Histograms of different earthquake magnitude classification.
+    Figure 9. Histograms of each earthquake magnitude class.
 </div>      
     
 
 
-We can see from the depth histograms that every magnitude group has the same depth distribution pattern which means that our assumption still holds. From the magnitude histograms on the second row, at minor earthquake magnitude distribution, we can see that data are absent at a magnitude around 1 and 2. That is very suspicious and most probably due to incomplete data records. That is probably the reason why we have an unexpected normal distribution of our magnitude data. we can see from another group from light to great earthquake magnitude distribution that the distribution more resembles a power-law distribution. The apparent normal-like distribution that we see from our initial data is most probably due to missing a big chunk of data on the left side of our distribution.
+We can see from the depth histograms that every magnitude group has the same depth distribution pattern which means that our assumption still holds. From the magnitude histograms on the second row, at minor earthquake magnitude distribution, we can see that data are absent at magnitudes of around 1 and 2. That is very suspicious and most probably due to incomplete data records. That is probably the reason why we have an unexpected normal distribution of our magnitude data. We can see from the other groups, from light to great earthquakes, that the distribution more closely resembles a power-law distribution. The apparent normal-like distribution that we see from our initial data is most probably due to missing a big chunk of data on the left side of our distribution.
 
-I think that is probably all for our today's playthrough with USGS earthquake data catalog. I believe it is a nice way to exercise Python libraries while acquiring a nice insight into the nature of earthquakes. There is so much that we can still do to our data, a few ideas that I will try for the next few weeks are trying to split our dataset into more detailed categories with multiple Gaussian fit, and calculating energy release in spatial and temporal perspective. And I am pretty sure that there is still so much to explore along the way. I'll make sure to post my notebook update next week!
+I think that is probably all for today's playthrough with the USGS earthquake catalog. I believe it is a nice way to exercise Python libraries while acquiring a nice insight into the nature of earthquakes. There is so much that we can still do to our data, a few ideas that I will try for the next few weeks are trying to split our dataset into more detailed categories with multiple Gaussian fits, and calculating energy release from spatial and temporal perspectives. And I am pretty sure that there is still so much to explore along the way. I'll make sure to post my notebook update next week!
              

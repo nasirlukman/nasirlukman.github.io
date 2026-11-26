@@ -1,9 +1,11 @@
 ---
 layout: post
-title: "Operational Near Real Time Forest Disturbance Alert System using Radar Satelite"
+title: "Operational Near-Real-Time Forest Disturbance Alerts with Sentinel-1 Radar"
 date: 2026-07-04 16:36:10
-description: Building a lightweeight regional radar-based early warning system by combining Bayesian change detection with deforestation risk maps and dynamic land cover information.
-tags: radar, deforestation, forest_disturbance
+description: "Building a lightweight regional Sentinel-1 early warning system that combines Bayesian change detection with deforestation risk maps and dynamic land cover."
+tags: [forest-monitoring, deforestation, change-detection, sentinel-1, sar, bayesian]
+categories: ["Environment"]
+og_image: /assets/img/og/post_17_harmonic_baseline.jpg
 ---
 
 # Introduction
@@ -13,14 +15,14 @@ In practice, the terms forest disturbance alerts and deforestation alerts are of
 
 A deforestation alert system focuses on detecting abrupt and substantial changes in forest cover that are highly indicative of land-clearing activities. These systems are generally designed to identify events that are very likely to represent permanent forest loss.
 
-A forest disturbance alert system, on the other hand, also aims to detect more subtle changes in forest structure. These disturbances may result from selective logging, small-scale clearing, small road deevelopmenet, early stages of deforestation, etc. Because the goal is to detect changes as early as possible, disturbance monitoring typically requires higher detection sensitivity. The trade-off is that it is also more susceptible to noise and false positives, making careful filtering and validation essential.
+A forest disturbance alert system, on the other hand, also aims to detect more subtle changes in forest structure. These disturbances may result from selective logging, small-scale clearing, small road development, early stages of deforestation, etc. Because the goal is to detect changes as early as possible, disturbance monitoring typically requires higher detection sensitivity. The trade-off is that it is also more susceptible to noise and false positives, making careful filtering and validation essential.
 
-Optical satellites such as [Sentinel-2](https://www.esa.int/Applications/Observing_the_Earth/Copernicus/Sentinel-2) and [LANDSAT](https://science.nasa.gov/mission/landsat/) have become the standard for forest monitoring, but they suffer from one major limitation in tropical regions: cloud cover. Radar satellites, particularly [Sentinel-1](https://www.esa.int/Applications/Observing_the_Earth/Copernicus/Sentinel-1), overcome this problem by providing observations regardless of weather or daylight, making them ideal for operational near real-time monitoring.
+Optical satellites such as [Sentinel-2](https://www.esa.int/Applications/Observing_the_Earth/Copernicus/Sentinel-2) and [Landsat](https://science.nasa.gov/mission/landsat/) have become the standard for forest monitoring, but they suffer from one major limitation in tropical regions: cloud cover. Radar satellites, particularly [Sentinel-1](https://www.esa.int/Applications/Observing_the_Earth/Copernicus/Sentinel-1), overcome this problem by providing observations regardless of weather or daylight, making them ideal for operational near-real-time monitoring.
 
 
-## Why build another alert system?
+## Why Build Another Alert System?
 
-Several excellent [global deforestation alert](https://data.globalforestwatch.org/datasets/gfw::integrated-deforestation-alerts/about) products already exist. One of the most notable is the Radar for Detecting Deforestation [(RADD)](https://www.wur.nl/en/research/products-services/radd-forest-disturbance-alert) alert system, which provides global near real-time disturbance alerts based on Sentinel-1 data. So why develop another system?
+Several excellent [global deforestation alert](https://data.globalforestwatch.org/datasets/gfw::integrated-deforestation-alerts/about) products already exist. One of the most notable is the Radar for Detecting Deforestation [(RADD)](https://www.wur.nl/en/research/products-services/radd-forest-disturbance-alert) alert system, which provides global near-real-time disturbance alerts based on Sentinel-1 data. So why develop another system?
 
 Global products are designed to work reasonably well everywhere. Local systems, however, can be optimized for a specific region and integrated with local datasets that are unavailable to global products. This allows:
 
@@ -33,7 +35,7 @@ Global products are designed to work reasonably well everywhere. Local systems, 
 The goal is not to replace global alerts, but to build a system that is better suited for operational monitoring within a specific landscape.
 
 
-# My previous approach
+# My Previous Approach
 
 I previously developed a [Sentinel-1 forest disturbance monitoring workflow](https://nasirlukman.github.io/blog/2025/sentinel1-change-detection/) based on long radar time series.
 
@@ -47,32 +49,32 @@ Although the method produced reliable results, it had two important limitations:
 This motivated me to explore a lighter and more operational approach.
 
 
-# Current methodology
+# Current Methodology
 
 The current system follows the general framework of the [RADD algorithm](https://iopscience.iop.org/article/10.1088/1748-9326/abd0a8). Instead of modeling the entire radar time series, it uses a [Bayesian](https://en.wikipedia.org/wiki/Bayesian_inference) approach that updates the probability of forest disturbance as new Sentinel-1 observations become available. This greatly reduces computational cost while remaining suitable for continuous monitoring over large areas.
 
 Since my focus is regional rather than global monitoring, I introduced several modifications.
 
-## 1. Harmonic baseline to capture wet and dry seeason condition
+## 1. Harmonic Baseline to Capture Wet and Dry Season Conditions
 
-A two-year rolling baseline is used to model the expected radar backscatter for each pixel. For every new observation, a harmonic function is fitted to the previous two years of Sentinel-1 data to capture the seasonal variation associated with wet and dry conditions (Image 1).
+A two-year rolling baseline is used to model the expected radar backscatter for each pixel. For every new observation, a harmonic function is fitted to the previous two years of Sentinel-1 data to capture the seasonal variation associated with wet and dry conditions (Figure 1).
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid 
-            path="assets/img/post_17_harmonic_baseline.png" 
+            path="assets/img/post_17_harmonic_baseline.webp" 
             class="img-fluid rounded" 
-            alt="A graph showing 2 years data of Sentinel-1 VH backscattere and a harmonic line that fitt the data"
+            alt="Graph showing two years of Sentinel-1 VH backscatter data for a forest pixel and the fitted harmonic baseline."
         %}
     </div>
 </div>
 <div class="caption">
-    Image 1. Fitted harmonic baselinee for a single foreste pixel as an example
+    Figure 1. Fitted harmonic baseline for a single forest pixel as an example
 </div>
 
 By explicitly modeling these seasonal fluctuations, the system can distinguish normal environmental variability from genuine forest disturbance. This reduces false alerts that would otherwise occur during transitions between the wet and dry seasons, when changes in soil and vegetation moisture naturally affect radar backscatter.
 
-## 2. Spatial prior based on deforestation risk
+## 2. Spatial Prior Based on Deforestation Risk
 
 Rather than using a static prior probability, the Bayesian model uses a spatially varying prior derived from a deforestation risk map that I developed previously.
 
@@ -85,26 +87,26 @@ The risk model incorporates factors such as:
 
 Areas with higher baseline risk therefore require less evidence before being flagged as potential disturbances, while remote intact forests require stronger evidence.
 
-## 3. Dynamic land cover masking
+## 3. Dynamic Land Cover Masking
 
-The alert system is also integrated with [annual national land cover model](https://nasirlukman.github.io/blog/2025/satellite-embeddings/) {Image 2}.
+The alert system is also integrated with my [annual national land cover model](https://nasirlukman.github.io/blog/2025/satellite-embeddings/) (Figure 2).
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid 
-            path="assets/img/post_17_land_cover.png" 
+            path="assets/img/post_17_land_cover.webp" 
             class="img-fluid rounded" 
-            alt="Snippet of national land cover model showing various land cover class in Kalimantan/Borneo"
+            alt="Snippet of the national land cover model showing various land cover classes in Kalimantan, Borneo."
         %}
     </div>
 </div>
 <div class="caption">
-    Image 2. Snippet of land cover map integrated with the alert system. This land cover map is automatically updatd every year to make sure that thee system always use the latest land cover data.
+    Figure 2. Snippet of land cover map integrated with the alert system. This land cover map is automatically updated every year to make sure that the system always uses the latest land cover data.
 </div>
 
 Instead of relying on a fixed forest mask, the system uses an updated land cover map each year, allowing it to adapt to changing landscapes while reducing alerts over non-forest areas.
 
-## 4. Class-specific parameter tuning
+## 4. Class-Specific Parameter Tuning
 
 Different land cover classes exhibit different radar variability.
 
@@ -117,29 +119,30 @@ Rather than applying a single detection threshold everywhere, I use land-cover-s
 This makes the system more sensitive where genuine disturbances are expected while reducing false positives in naturally noisy environments.
 
 
-# Result
+# Results
 
-The result example are presented in Image 3 below. The new framework is substantially lighter computationally than my previous implementation while improving sensitivity to small forest disturbances. Integrating spatial risk information and dynamic land cover masks also reduces false alarms compared with a uniform detection strategy.
+Example results are presented in Figure 3 below. The new framework is substantially lighter computationally than my previous implementation while improving sensitivity to small forest disturbances. Integrating spatial risk information and dynamic land cover masks also reduces false alarms compared with a uniform detection strategy.
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid 
-            path="assets/img/post_17_12_days_alert.gif" 
+            path="assets/img/post_17_12_days_alert.webp"
+            animated=true
             class="img-fluid rounded" 
-            alt="Animation of the forest disturbance alert from 2023 to 2025 showing the eexpansion of palm oil plantation to the surrounding forests"
+            alt="Animation of Sentinel-1 forest disturbance alerts from 2023 to 2025 showing the expansion of palm oil plantations into the surrounding forests."
         %}
     </div>
 </div>
 <div class="caption">
-    Image 3. Animation of the forest disturbance alert from 2023 to 2025 showing the rapid expansion of palm oil plantation to the surrounding forests since latee 2023 to end of 2025.
+    Figure 3. Animation of the forest disturbance alert from 2023 to 2025 showing the rapid expansion of palm oil plantations into the surrounding forests from late 2023 to the end of 2025.
 </div>
 
 The alerts were visually validated using Planet Monthly Basemaps and show good agreement with observed forest disturbances, suggesting that the system is capable of producing timely and reliable alerts.
 
-Without additional post-processing, the resulting alert map does not produce perfectly clean deforestation patches. However, this is by not a failure in the system. The objective of the system is not to generate accurate deforestation polygons or estimate deforested area. Instead, it is intended to provide early, reliable alerts that can trigger further investigation or field verification. Delineating the final extent of disturbance can be handled in a separate mapping workflow.
+Without additional post-processing, the resulting alert map does not produce perfectly clean deforestation patches. However, this is not a failure of the system. The objective of the system is not to generate accurate deforestation polygons or estimate deforested area. Instead, it is intended to provide early, reliable alerts that can trigger further investigation or field verification. Delineating the final extent of disturbance can be handled in a separate mapping workflow.
 
 
-# Future outlook
+# Future Outlook
 
 The current system is limited by the revisit frequency of a single Sentinel-1 orbit, resulting in updates approximately every 12 days. While this is sufficient for many monitoring applications, there is significant potential to reduce the time between observations.
 
@@ -151,4 +154,4 @@ If these satellite constellations are successfully integrated, it may become pos
 
 Global forest alert systems have transformed the way we monitor forests. However, there is still considerable value in developing regional systems that can leverage local datasets, local knowledge, and application-specific tuning.
 
-For organizations managing protected areas, carbon projects, or concession monitoring, these local adaptations can produce alerts that are both more sensitive and more operationally useful than a one-size-fits-all global solution..
+For organizations managing protected areas, carbon projects, or concession monitoring, these local adaptations can produce alerts that are both more sensitive and more operationally useful than a one-size-fits-all global solution.

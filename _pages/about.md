@@ -3,6 +3,7 @@ layout: about
 title: about
 permalink: /
 subtitle: Hi! I'm Nasir 👋🏻
+description: Muhamad Nasir Lukman is a geospatial data scientist and remote sensing analyst working on satellite environmental, mining, and illicit activity monitoring.
 
 profile:
   align: right
@@ -17,12 +18,15 @@ social: false # includes social icons at the bottom of the page
 <div style="text-align: justify">
 
 <p>
-I work as a geospatial data scientist and remote sensing analyst focused on Earth systems, environmental monitoring, and illicit activity monitoring. I analyze satellite data using spectroscopy, backscatter analysis, and machine learning to understand patterns on the Earth’s surface and turn them into actionable information.
+I'm a geospatial data scientist with about ten years of experience in advanced geospatial analysis, turning satellite and field data into decisions for mining, environmental projects and law enforcement. I started out as a geologist, exploring for tin, coal, oil and gas, before moving into Earth observation with an MSc (cum laude) from ITC, University of Twente.
 </p>
 
 <p>
-Satellite observation data is one of the most information rich data sources available, yet it remains underutilized. In this blog, I explore how to use that data through projects, notes, and experiments focused on practical use cases and analysis. The goal is to push how this data is used, making it less opaque, more accessible, and more useful for solving complex global challenges.
+Today I build operational remote sensing systems: radar change detection and forest disturbance alerts, machine learning land cover models, object detection models, hyperspectral mineral mapping, concession site due diligence and monitoring of illegal mining. I care about my models being robust, scalable, scientifically credible and, most importantly, useful.
 </p>
 
+<p>
+This blog is where I write up projects and experiments with satellite data in my free time. If you find something interesting here, or want to chat about Earth observation and geospatial intelligence, reach me by <a href="mailto:muhamadnasirlukman@gmail.com">email</a> or on <a href="https://www.linkedin.com/in/nasirlukman/">LinkedIn</a>.
+</p>
 
 </div>

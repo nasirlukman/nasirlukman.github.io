@@ -2,8 +2,10 @@
 layout: post
 title: "Watching an Open-Pit Mine From Space: Growth, Active Fronts, and Ground Movement"
 date: 2026-11-20 20:36:10
-description: From annual land cover maps to monthly updates, active mining fronts, and centimetre-scale ground movement, using only free satellite data
-tags: remote_sensing, monitoring, mining, radar, InSAR, multispectral, machine_learning, GIS
+description: "Mapping an open-pit mine's growth, monthly changes, active fronts, and centimeter-scale ground movement (InSAR) using only free satellite data."
+tags: [mine-monitoring, insar, sar, sentinel-1, land-cover, machine-learning, indonesia]
+categories: ["Geoscience", "Environment"]
+og_image: /assets/img/og/post_17_ground_movement_map.jpg
 ---
 
 For the past few weeks, I've been building a monitoring system for an open-pit mine in Indonesia. Mapping a mine from space is not new; I have written about it [before](https://nasirlukman.github.io/blog/2025/illegal-mining/). Most mine maps, though, answer only one question: *how big is the mine?* Once you start talking to the people who actually run (or oversee) a mine, the questions become more specific. What changed this month? Where are they actually digging right now? And is the ground they are *not* touching staying put?
@@ -12,21 +14,22 @@ So instead of a single map, I ended up with four layers, each answering one of t
 
 ## 1. The Annual Map: How Big Is the Mine?
 
-The foundation is an annual land cover map. For every year from 2015 to 2025, I built a yearly stack on a 30 m grid: medians of optical bands and indices from HLS, Sentinel-1 backscatter statistics, and PALSAR-2 L-band backscatter. A Random Forest model trained on labelled points then classifies each pixel as forest/other, mining, water, built-up, or vegetation clearing. A bit of post-processing (majority filter, removing tiny speckles) cleans up the result.
+The foundation is an annual land cover map. For every year from 2015 to 2025, I built a yearly stack on a 30 m grid: medians of optical bands and indices from HLS, Sentinel-1 backscatter statistics, and PALSAR-2 L-band backscatter. A Random Forest model trained on labeled points then classifies each pixel as forest/other, mining, water, built-up, or vegetation clearing. A bit of post-processing (majority filter, removing tiny speckles) cleans up the result.
 
 Combining sensors matters here. Optical data tells bare ground apart from vegetation very well, but the tropics are cloudy, so some years have big gaps. Radar sees through clouds and adds information about surface roughness and structure, which helps to separate, for example, a fresh clearing from an actual mine pit.
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid 
-            path="assets/img/post_17_annual_land_cover.gif" 
+            path="assets/img/post_17_annual_land_cover.webp"
+            animated=true
             class="img-fluid rounded" 
-            alt="Animation from 2015 to 2025. Left: yearly median HLS true colour image of an open-pit mine surrounded by forest. Right: the land cover map of the same year, with the mine in brown on a pale green background, water in blue and built-up in dark grey. The mine grows from a small patch in the south-west to a large complex."
+            alt="Animation from 2015 to 2025. Left: yearly median HLS true color image of an open-pit mine surrounded by forest. Right: the land cover map of the same year, with the mine in brown on a pale green background, water in blue and built-up in dark gray. The mine grows from a small patch in the south-west to a large complex."
         %}
     </div>
 </div>
 <div class="caption">
-    Figure 1. Yearly HLS true colour composite (left) and the land cover map (right), 2015 to 2025.
+    Figure 1. Yearly HLS true color composite (left) and the land cover map (right), 2015 to 2025.
 </div>
 
 The mine grew from about **200 ha in 2015 to 1,440 ha in 2025**, roughly seven times bigger in ten years (Figure 2). The growth is not constant: it accelerated after 2022, with around 250 ha opened per year between 2022 and 2024.
@@ -34,7 +37,7 @@ The mine grew from about **200 ha in 2015 to 1,440 ha in 2025**, roughly seven t
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid 
-            path="assets/img/post_17_annual_area.png" 
+            path="assets/img/post_17_annual_area.webp" 
             class="img-fluid rounded" 
             alt="Line chart of the mine area per year from 2015 to 2025, rising from 201 ha to 1,440 ha, with steeper growth after 2022."
         %}
@@ -51,7 +54,7 @@ Between 2017 and 2024, about **195 ha** of mine land turned green again, with a 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid 
-            path="assets/img/post_17_annual_revegetation.png" 
+            path="assets/img/post_17_annual_revegetation.webp" 
             class="img-fluid rounded" 
             alt="Bar chart of mine land turning green again per year: 9 ha in 2017, 19 in 2018, 27 in 2019, 31 in 2020, 20 in 2021, 28 in 2022, 20 in 2023 and 41 in 2024, about 195 ha in total. The 2025 bar, 56 ha, is hatched and marked provisional."
         %}
@@ -78,9 +81,10 @@ The rules are deliberately simple:
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid 
-            path="assets/img/post_17_monthly_maps.gif" 
+            path="assets/img/post_17_monthly_maps.webp"
+            animated=true
             class="img-fluid rounded" 
-            alt="Monthly animation for 2025 showing the mine in brown, unconfirmed openings in purple, vegetation openings in ochre, water in blue and buildings in dark grey on a pale green vegetation background. New openings appear at the mine edges through the year."
+            alt="Monthly animation for 2025 showing the mine in brown, unconfirmed openings in purple, vegetation openings in ochre, water in blue and buildings in dark gray on a pale green vegetation background. New openings appear at the mine edges through the year."
         %}
     </div>
 </div>
@@ -93,7 +97,7 @@ In 2025, the system found about **300 ha of new mining** (Figure 5). The months 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid 
-            path="assets/img/post_17_monthly_new_mining.png" 
+            path="assets/img/post_17_monthly_new_mining.webp" 
             class="img-fluid rounded" 
             alt="Bar chart of new mining per month in 2025: zero from January to March, 88 ha in April, 40 in May, 31 in June, 97 in July, then between 2 and 18 ha per month until December. About 298 ha in the year."
         %}
@@ -105,7 +109,7 @@ In 2025, the system found about **300 ha of new mining** (Figure 5). The months 
 
 How good is it? I checked an earlier version of the detector visually, patch by patch: about 86% of the new-mining patches were correct, or 99% by area, because the wrong ones were mostly small fragments at the mine edges. Good enough for monthly reporting.
 
-## 3. Active vs Inactive Front: Where Are They Actually Digging?
+## 3. Active vs. Inactive Front: Where Are They Actually Digging?
 
 Here is something the mine area alone does not tell you. A 1,600 ha mine is not 1,600 ha of digging. Large parts are old benches, waste dumps, haul roads or areas waiting for the next phase. So where is the actual activity?
 
@@ -116,9 +120,10 @@ Of course, it is not that simple. Rain between the two dates also destroys coher
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid 
-            path="assets/img/post_17_active_inactive.gif" 
+            path="assets/img/post_17_active_inactive.webp"
+            animated=true
             class="img-fluid rounded" 
-            alt="Monthly animation for 2025 of the mine split into active front in vermilion and inactive front in brown, with water in blue and built-up in dark grey on a pale green background. Active patches move around the pits from month to month; a haul road stays active."
+            alt="Monthly animation for 2025 of the mine split into active front in vermilion and inactive front in brown, with water in blue and built-up in dark gray on a pale green background. Active patches move around the pits from month to month; a haul road stays active."
         %}
     </div>
 </div>
@@ -131,7 +136,7 @@ Only **12 to 29% of the mine is active in any given month** (Figure 7), between 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid 
-            path="assets/img/post_17_active_inactive.png" 
+            path="assets/img/post_17_active_inactive_chart.webp"
             class="img-fluid rounded" 
             alt="Stacked bar chart per month of 2025: active front in vermilion at the bottom and inactive front in brown on top. The total mine grows from 1,322 to 1,618 ha; the active share ranges from 12% in January to 29% in October."
         %}
@@ -145,7 +150,7 @@ I have not validated this layer against ground data yet, so take the exact numbe
 
 ## 4. Ground Movement: Is the Idle Ground Stable?
 
-This is the part I'm most excited about. The same radar pairs carry another piece of information: the *phase* of the signal. The phase difference between two passes measures the change in distance between the ground and the satellite, and one full colour cycle in an interferogram is only 2.8 cm. In principle, this lets us measure ground movement of a few centimetres from a satellite almost 900 km away.
+This is the part I'm most excited about. The same radar pairs carry another piece of information: the *phase* of the signal. The phase difference between two passes measures the change in distance between the ground and the satellite, and one full color cycle in an interferogram is only 2.8 cm. In principle, this lets us measure ground movement of a few centimeters from a satellite almost 900 km away.
 
 In practice, it only works where the ground keeps its fingerprint, so I only used the part of the mine that was **never active in 2025** (about 520 ha). The steps are:
 
@@ -162,26 +167,26 @@ But is it real, or just the weather? Real movement keeps its direction, while we
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid 
-            path="assets/img/post_17_ground_movement_map.png" 
+            path="assets/img/post_17_ground_movement_map.webp" 
             class="img-fluid rounded" 
-            alt="Map of the average ground movement in 2025 in centimetres per month, on the parts of the mine that were never active. Red areas move away from the satellite (settling), blue areas move towards it. Significant areas are outlined. The parts of the mine that were active at some point in the year are shown in light grey."
+            alt="Map of the average ground movement in 2025 in centimeters per month, on the parts of the mine that were never active. Red areas move away from the satellite (settling), blue areas move towards it. Significant areas are outlined. The parts of the mine that were active at some point in the year are shown in light gray."
         %}
     </div>
 </div>
 <div class="caption">
-    Figure 8. Average ground movement in 2025 in the never-active part of the mine. Red: away from the satellite (settling). Blue: towards the satellite. Outlined: significant movement. Grey: parts of the mine that were active at some point in the year (not measured).
+    Figure 8. Average ground movement in 2025 in the never-active part of the mine. Red: away from the satellite (settling). Blue: towards the satellite. Outlined: significant movement. Gray: parts of the mine that were active at some point in the year (not measured).
 </div>
 
 More than half of the idle mine is stable within ±0.5 cm/month. But there are two clear groups of movement (Figure 9):
 
-* **About 84 ha are settling** at around 1 cm/month, about 11 cm over the year. And they are slowing down: around 1.4 cm/month from January to March, down to about 0.5 cm/month at the end of the year. That is the typical behaviour of waste dumps or backfill compacting after they were placed. A few hectares settle faster than 2 cm/month; those are the spots I would ask a geotechnical engineer to look at.
+* **About 84 ha are settling** at around 1 cm/month, about 11 cm over the year. And they are slowing down: around 1.4 cm/month from January to March, down to about 0.5 cm/month at the end of the year. That is the typical behavior of waste dumps or backfill compacting after they were placed. A few hectares settle faster than 2 cm/month; those are the spots I would ask a geotechnical engineer to look at.
 
 * **About 51 ha move towards the satellite** at a similar pace. This one needs careful interpretation, because "towards the satellite" does *not* necessarily mean the ground is rising. Sentinel-1 on this track looks westward and down, so ground sliding eastward, for example down an east-facing dump slope, also moves towards the satellite. It could also be the floor of a recently excavated pit rebounding after the weight above it was removed. Interestingly, 70% of these areas were first mined in 2022–2024, so this is young ground.
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid 
-            path="assets/img/post_17_ground_movement_series.png" 
+            path="assets/img/post_17_ground_movement_series.webp" 
             class="img-fluid rounded" 
             alt="Line chart of cumulative ground movement through 2025: the settling areas reach about -11 cm and the towards areas about +10 cm by the end of the year, both curving slightly flatter over time; the rest of the never-active mine stays near 0."
         %}
@@ -197,4 +202,4 @@ There are important limitations here. With only one viewing direction, I cannot 
 
 What I like about this exercise is how much more a mine "says" once you look at it with different sensors and at different time scales. The annual map shows how big it is. The monthly update shows what is new. Coherence shows where the activity actually is. And the phase shows whether the ground that is left alone is really stable. Each layer answers a question the previous one cannot.
 
-All of this runs on free and open data, on a normal workstation. Ten years ago, centimetre-scale ground movement monitoring of a mine was something you would buy from a specialised company, if you could afford it at all. Today, the main bottleneck is no longer data or computing power, but careful interpretation: knowing what the signal can and cannot tell you, and being honest about it.
+All of this runs on free and open data, on a normal workstation. Ten years ago, centimeter-scale ground movement monitoring of a mine was something you would buy from a specialized company, if you could afford it at all. Today, the main bottleneck is no longer data or computing power, but careful interpretation: knowing what the signal can and cannot tell you, and being honest about it.

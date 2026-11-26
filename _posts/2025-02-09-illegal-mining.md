@@ -1,9 +1,11 @@
 ---
 layout: post
-title: Illegal Mining From Space
+title: "Monitoring Illegal Mining from Space with Satellite Imagery and Deep Learning"
 date: 2025-02-09 23:36:10
-description: Using satellite imagery to monitor illegal mining 
-tags: remote_sensing, monitoring, mining, security, data_science, machine_learning, deep_learning, multispectral, radar, GIS, environment
+description: "How satellite imagery, a U-Net deep learning model, and geospatial data layers can map artisanal gold mining and assess mining compliance in Indonesia."
+tags: [illegal-mining, artisanal-mining, mining-compliance, deep-learning, gis, indonesia]
+categories: ["Geoscience", "Environment", "OSINT"]
+og_image: /assets/img/og/post_5_vhr_example.jpg
 ---
 
 High-resolution satellite imagery provides us with global time-series data, which can be applied to various interesting applications. One such application is monitoring mining activities. There are literally thousands of mining sites across the globe, which are inherently dynamic (i.e., they undergo rapid changes over time) and often located in remote areas. This creates significant challenges for effective monitoring.
@@ -20,19 +22,19 @@ A wealth of information related to mining activities can be obtained from very h
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid 
-            path="assets/img/post_5_vhr_example.png" 
+            path="assets/img/post_5_vhr_example.webp" 
             class="img-fluid rounded" 
             alt="Satellite imagery from WorldView showing various mining activities in Indonesia, including distinct alluvial gold and tin mining operations that appear informal and lack structured infrastructure."
         %}
     </div>
 </div>
 <div class="caption">
-    Image 1. Different type of mining activity in Indonesia from WorldView imagery.
+    Figure 1. Different types of mining activity in Indonesia from WorldView imagery.
 </div>
 
 One key indicator of illegal mining that can be extracted from satellite data is the mining method. Mining activities are often categorized as formal or informal. Formal mining is conducted using appropriate tools and is planned and executed by certified engineers, resulting in well-structured mining pits and infrastructure that are clearly visible from space. In contrast, informal mining is often chaotic and sporadic, lacking proper planning and adherence to good mining practices. The latter type is frequently associated with illegal mining activity, although this is not always the case.
 
-In Image 1 above, we can clearly see that the alluvial gold and tin mining example can be classified as informal mining. There are no visible mining infrastructures in the area, and the mining pit appears sporadic and abandoned, resembling a pond.
+In Figure 1 above, we can clearly see that the alluvial gold and tin mining examples can be classified as informal mining. There is no visible mining infrastructure in the area, and the mining pits appear sporadic and abandoned, resembling a pond.
 
 While proven to be very useful, a significant drawback of very high-resolution images is that they are mostly not open data, making access to large spatial and temporal-scale datasets prohibitively expensive. For this reason, large-scale studies often rely more on high-resolution images, using only scarce and limited amounts of very high-resolution data for creating training datasets and/or validation.
 
@@ -41,55 +43,57 @@ While proven to be very useful, a significant drawback of very high-resolution i
 
 Given the large spatial and temporal scales involved, especially for time-series analysis on a regional or global level, an automated approach to mining area delineation and classification is essential. As previously mentioned, human experts interpret mining areas based on visual aspects rather than spectral characteristics (though hyperspectral imagery can improve accuracy). These mining areas are primarily recognized by their spatial patterns. Until recently, deep learning models have proven to be the most effective solution for this type of problem.
 
-I develop a small scale deep learning model to automate delinitation of artisinal/small-scale gold mining (ASGM) in some portecteed forest area in Indonesia. I used coarser-resolution NICFI satellite data with a pixel size of 5 meters, which is still sufficient for this purpose. Even lower-resolution satellite images, such as those from Sentinel-2 or Landsat, can produce good results for delineation. The training labels for ASGM boundary were manually delineated from very high-resolution WorldView images, which were then transferred to NICFI images from the same month. The model used was a U-Net architecture, trained on 39 tiles of 256x256 pixels, augmented to 195 images through flipping and rotation. Despite the relatively small training dataset, the model performed well in tracking the development of illegal alluvial gold mining in a protected forest in Indonesia.
+I developed a small-scale deep learning model to automate the delineation of artisanal and small-scale gold mining (ASGM) in several protected forest areas in Indonesia. I used coarser-resolution NICFI satellite data with a pixel size of 5 meters, which is still sufficient for this purpose. Even lower-resolution satellite images, such as those from Sentinel-2 or Landsat, can produce good results for delineation. The training labels for ASGM boundaries were manually delineated from very high-resolution WorldView images, which were then transferred to NICFI images from the same month. The model used was a U-Net architecture, trained on 39 tiles of 256x256 pixels, augmented to 195 images through flipping and rotation. Despite the relatively small training dataset, the model performed well in tracking the development of illegal alluvial gold mining in a protected forest in Indonesia.
 
-Below are the accuracy assessments from the validation images. The overall accuracy are 98%. Here, I only show a few validation images containing difficult scenery and look-alike features, such as large active channel bars, formal coal mining areas, and deforestation for agriculture. The model correctly labeled most of these as non-artisanal and small-scale gold mining (ASGM). Some notable false positives were detected in the ponds of formal coal mining areas. It is important to note that the current training data contain no examples of other mining types besides ASGM. Given this limitation, the fact that the model does not classify the entire area of coal mining as ASGM is already a strong result. Incorporating additional, more diverse training data would likely improve the model's accuracy further.
+Below are the accuracy assessments from the validation images. The overall accuracy is 98%. Here, I only show a few validation images containing difficult scenes and look-alike features, such as large active channel bars, formal coal mining areas, and deforestation for agriculture. The model correctly labeled most of these as non-artisanal and small-scale gold mining (ASGM). Some notable false positives were detected in the ponds of formal coal mining areas. It is important to note that the current training data contain no examples of other mining types besides ASGM. Given this limitation, the fact that the model does not classify the entire area of coal mining as ASGM is already a strong result. Incorporating additional, more diverse training data would likely improve the model's accuracy further.
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid 
-            path="assets/img/post_5_unet_validation.png" 
+            path="assets/img/post_5_unet_validation.webp" 
             class="img-fluid rounded" 
             alt="Visual comparison between manually labeled validation data and the model’s predictions for artisanal/small-scale gold mining (ASGM) areas, highlighting the model's ability to differentiate between ASGM and other mining types like formal coal mining."
         %}
     </div>
 </div>
 <div class="caption">
-    Image 2. Visual comparison between the validation data labels and the model prediction.
+    Figure 2. Visual comparison between the validation data labels and the model prediction.
 </div>
 
-After the model get a good accuracy in the testing stage, the model are deployed for a time series analysis in the subset of the study area:
+After the model achieved good accuracy in the testing stage, it was deployed for a time-series analysis over a subset of the study area:
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid 
-            path="assets/img/post_5_timeseries_result.gif" 
+            path="assets/img/post_5_timeseries_result.webp"
+            animated=true
             class="img-fluid rounded" 
             alt="Time-series classification animation of artisanal/small-scale gold mining (ASGM) areas, roads, and huts, as delineated by the deep learning model, visualizing the development of mining activities over time."
         %}
     </div>
 </div>
 <div class="caption">
-    Image 3. Timeseries classification result of ASGM areas, roads, and huts.
+    Figure 3. Time-series classification result of ASGM areas, roads, and huts.
 </div>
 
-Since this project also aimed to test early detection approach of mining activity, we included labels for hauling roads and mining huts, which often appear before intense mining activity begins. The model also able to deliniate huts and hauling roads as long as it is visible in the imagery by human eyes.
+Since this project also aimed to test an early detection approach for mining activity, we included labels for hauling roads and mining huts, which often appear before intense mining activity begins. The model is also able to delineate huts and hauling roads, as long as they are visible to the human eye in the imagery.
 
 ## Environmental Impact
 
-As mentioned earlier, satellite imagery can also provide insights into various environmental impacts. Below, we show an empirical model of turbidity levels in rivers downstream of the previously modeled alluvial gold mining sites from Sentinel 2 imagery. By comparing the graph of mining activity with turbidity levels, we can observe a temporary pause in mining activity from late 2019 to 2021, likely due to the COVID-19 pandemic. During the same period, we also observed a decrease in river turbidity, suggesting a direct link between mining activity and river pollution.
+As mentioned earlier, satellite imagery can also provide insights into various environmental impacts. Below, we show an empirical model of turbidity levels in rivers downstream of the previously modeled alluvial gold mining sites from Sentinel-2 imagery. By comparing the graph of mining activity with turbidity levels, we can observe a temporary pause in mining activity from late 2019 to 2021, likely due to the COVID-19 pandemic. During the same period, we also observed a decrease in river turbidity, suggesting a direct link between mining activity and river pollution.
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid 
-            path="assets/img/post_5_turbidity.gif" 
+            path="assets/img/post_5_turbidity.webp"
+            animated=true
             class="img-fluid rounded" 
             alt="Turbidity levels animation in rivers downstream of alluvial gold mining sites, observed through Sentinel-2 imagery, showing a decrease in turbidity levels following a pause in mining activity during the COVID-19 pandemic."
         %}
     </div>
 </div>
 <div class="caption">
-    Image 4. Turbidity level downstream of the mining area.
+    Figure 4. Turbidity levels downstream of the mining area.
 </div>
 
 
@@ -97,33 +101,33 @@ As mentioned earlier, satellite imagery can also provide insights into various e
 
 For legal and compliance analysis, a reasonable first step is to overlay the generated mining area outlines with other geospatial data layers linked to regulations governing mining activities in a specific country. For example, in Indonesia, we can use mining concession boundaries to determine whether mining activities are conducted within valid permit areas. We can also add data layers related to environmentally restricted areas, such as conservation zones, protected forests, and riparian zones, where mining is prohibited. This is a first-order approach to analyzing compliance levels. As previously stated, the complete regulatory framework for mining is complex, and further detailed analysis is needed for conclusive statements. However, this level of analysis is often sufficient to assess and estimate compliance at a national level.
 
-Below is an example of the national level overlay results in Indonesia using data from 2019. Note that the data used in this example are not official and may be incorrect, false, or inaccurate. Nevertheless, the purpose of this post is to demonstrate how compliance levels of mining activities can be assessed using remote sensing and basic geospatial analysis.The results of this data overlay include the percentage of mining areas inside and outside concession boundaries, as well as the percentage of mining areas within environmentally restricted zones. 
+Below is an example of the national-level overlay results in Indonesia using data from 2019. Note that the data used in this example are not official and may be incorrect, false, or inaccurate. Nevertheless, the purpose of this post is to demonstrate how compliance levels of mining activities can be assessed using remote sensing and basic geospatial analysis. The results of this data overlay include the percentage of mining areas inside and outside concession boundaries, as well as the percentage of mining areas within environmentally restricted zones. 
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid 
-            path="assets/img/post_5_donut_chart.png" 
+            path="assets/img/post_5_donut_chart.webp" 
             class="img-fluid rounded" 
             alt="Donut chart displaying the percentage of mining areas located inside and outside of mining concession boundaries and environmentally restricted areas in Indonesia, based on data from 2019."
         %}
     </div>
 </div>
 <div class="caption">
-    Image 5. Donut chart of the mining are classified by its location relative to concession area and environmentally restricted area.
+    Figure 5. Donut chart of mining areas classified by their location relative to concession areas and environmentally restricted areas.
 </div>
 
 
-## Complience Analysis
+## Compliance Analysis
 
 To better understand the overlay results, we need to consider relevant regulations. In this study, we incorporated data layers related to mining permits and land-use-based environmental restrictions. These layers help analyze the compliance of mining activities with legal and environmental regulations. Below are the key regulatory frameworks considered:
 
 1. According to *UU No. 4 Tahun 2009*, mining activities outside of their designated exploitation concession boundaries are strictly prohibited.
 2. According to *UU No. 41 Tahun 1999*, any land-use activity, including mining, is prohibited within conservation areas.
-3. According to *UU No. 41 Tahun 1999*, surface mining in protected forests is prohibited. Underground mining activity. However, underground mining may be allowed under specific conditions.
+3. According to *UU No. 41 Tahun 1999*, surface mining in protected forests is prohibited. However, underground mining may be allowed under specific conditions.
 4. According to *UU No. 41 Tahun 1999*, surface mining in production forests is prohibited. Nevertheless, special licenses may be granted to permit mining activities under additional requirements.
 5. According to *PP No. 38 Tahun 2011*, any land-use activity, including mining, is prohibited within riparian zones. However, special licenses may be issued to allow the redirection of river flows and riparian zones under certain conditions.
 
-based on these we will classify mining activity activity into three different complience category:
+Based on these, we classify mining activity into three different compliance categories:
 1. **Category 1: High Compliance**
 This is the highest compliance class. Mining areas in this category are located:
 - Within exploitation concession boundaries, and
@@ -136,59 +140,59 @@ Mining areas in this category are:
 - If these mining activities have obtained the necessary additional permits to operate in production forests and/or redirect rivers, their compliance status aligns with Category 1.
 
 3. **Category 3: Low Compliance**
-This is the least compliance class in this analysis. The mining area are This is the least compliant category. Mining areas in this class are either:
+This is the least compliant category in this analysis. Mining areas in this class are either:
 - Located within exploitation concession boundaries but also in protected forests or conservation areas, where mining is strictly prohibited, or
 - Situated outside any concession boundaries, regardless of other restrictions.
 
-The chart below visualize the categorization of the mining areas:
+The chart below visualizes the categorization of the mining areas:
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid 
-            path="assets/img/post_5_classification_diagram.gif" 
+            path="assets/img/post_5_classification_diagram.webp"
+            animated=true
             class="img-fluid rounded" 
             alt="Diagram illustrating the classification of mining areas into three compliance categories: High Compliance, Conditional Compliance, and Low Compliance, based on the overlay of mining areas with concession boundaries and environmental restrictions."
         %}
     </div>
 </div>
 <div class="caption">
-    Image 6. Complience category based on overlay results
+    Figure 6. Compliance categories based on overlay results
 </div>
 
-The result can also be visualized on province basis using pie chart map as shown below:
+The results can also be visualized on a provincial basis using a pie chart map, as shown below:
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid 
-            path="assets/img/post_5_category_pie_chart.png" 
+            path="assets/img/post_5_category_pie_chart.webp" 
             class="img-fluid rounded" 
             alt="Pie chart showing the percentage of mining areas within each compliance category across different provinces, providing a visual representation of compliance levels."
         %}
     </div>
 </div>
 <div class="caption">
-    Image 7. Pie chart showing the percentage area of each category for every province.
+    Figure 7. Pie chart showing the percentage area of each category for every province.
 </div>
 
-## Further analysis
+## Further Analysis
 
 I also think it would be interesting to combine this dataset with detailed census data. For example, I attempted to combine it with the WorldPop gridded population dataset to estimate the number of people living within a 10 km buffer of mining areas. This helps identify the potential population directly impacted by mining activities. Further analysis of health, education, and income data for this population could be valuable for future research.
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid 
-            path="assets/img/post_5_pop.png" 
+            path="assets/img/post_5_pop.webp" 
             class="img-fluid rounded" 
-            alt="Map showing the total population living within a 10 km buffer zone around mining areas, using the WorldPop gridded population dataset to assess potential impacts on local communities.
-"
+            alt="Map showing the total population living within a 10 km buffer zone around mining areas, using the WorldPop gridded population dataset to assess potential impacts on local communities."
         %}
     </div>
 </div>
 <div class="caption">
-    Image 8. Total population living within 10 km buffer of mining areas
+    Figure 8. Total population living within a 10 km buffer of mining areas
 </div>
 
 
-## Conclussion
+## Conclusion
 
-Satellite imagery provides extensive spatial and temporal coverage, making it a valuable tool for large-scale monitoring of terrestrial activities, including illegal mining. Using satellite data alone, we can extract information such as mining boundaries over time, mining methods, commodities, and environmental impacts. In our small-scale test, we demonstrated how deep learning can automate the mining boundary delineation process with good accuracy. To assess the compliance status of mining activities, additional geospatial data layers are required. In this example, we used unofficial mining concession boundaries and environmentally restricted area boundaries as an example. This simple yet effective approach enables high-scale monitoring to identify trends in mining activities and their compliance with regulations.
+Satellite imagery provides extensive spatial and temporal coverage, making it a valuable tool for large-scale monitoring of terrestrial activities, including illegal mining. Using satellite data alone, we can extract information such as mining boundaries over time, mining methods, commodities, and environmental impacts. In our small-scale test, we demonstrated how deep learning can automate the mining boundary delineation process with good accuracy. To assess the compliance status of mining activities, additional geospatial data layers are required. In this example, we used unofficial mining concession boundaries and environmentally restricted area boundaries for illustration. This simple yet effective approach enables large-scale monitoring to identify trends in mining activities and their compliance with regulations.
