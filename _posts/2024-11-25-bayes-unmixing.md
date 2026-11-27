@@ -12,6 +12,8 @@ In the [previous post](https://nasirlukman.github.io/blog/2024/distance/), we di
 
 In this post, we'll take a brief look at the **Bayesian approach** to **spectral unmixing**, which explicitly accounts for these uncertainties. By incorporating them into the model, we propagate the uncertainty through to the final results. Instead of a single vector of mineral abundances, the Bayesian approach provides a probability distribution for these abundances, offering deeper insight into the confidence we have in our estimates.
 
+> Code: the sampler, the Hapke conversions and the thesis experiments are on GitHub at [nasirlukman/bayesian-spectral-unmixing](https://github.com/nasirlukman/bayesian-spectral-unmixing).
+
 While we won’t dive too deeply into the math, a basic formulation helps set the stage. The linear mixture model can be expressed as:
 
 $$ \mathbf{y} = \mathbf{E} \mathbf{a} + \mathbf{e} $$

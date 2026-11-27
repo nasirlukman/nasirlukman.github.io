@@ -13,6 +13,8 @@ Because hyperspectral sensors differ in their spectral resolution, spectral samp
 
 Recently, as part of my participation in the [Tanager Open Data Competition](https://learn.planet.com/2026-Tanager-Open-Data-Competition.html), I started working with Tanager-1 data and decided to compare it with EnMAP over the same geological target. The objective is not to perform a controlled sensor calibration or validation, but rather to explore how the two sensors represent the same mineralogical target and whether differences in their characteristics become apparent during spectral analysis and mineral mapping.
 
+> Code: the full workflow, from finding overlapping scenes to the figures in this post, is on GitHub at [nasirlukman/Tanager-EnMap-Case-Study](https://github.com/nasirlukman/Tanager-EnMap-Case-Study).
+
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid 
