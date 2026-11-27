@@ -222,3 +222,7 @@ Overall, these results suggest that Tanager-1 is better able to resolve subtle a
 ## Remarks
 
 Overall, both Tanager-1 and EnMAP captured the main spectral and mineralogical characteristics of the study area and demonstrated their capability for detailed mineral mapping. Tanager-1 showed an advantage in its smoother spectra and apparent ability to resolve finer spectral variations and subtle absorption-wavelength shifts. However, this does not indicate that Tanager-1 is generally superior to EnMAP. The differences observed here may also reflect the specific acquisition conditions and sensor characteristics. Further comparisons across different sites, datasets, and field measurements are needed to assess how consistent these results are and to validate their mineralogical significance.
+
+### Code
+
+The overlap search, preprocessing and spectral comparison used in this post are on GitHub: [nasirlukman/Tanager-EnMap-Case-Study](https://github.com/nasirlukman/Tanager-EnMap-Case-Study).

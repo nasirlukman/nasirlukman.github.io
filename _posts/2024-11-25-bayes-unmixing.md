@@ -211,3 +211,7 @@ It's important to highlight that quantification through imaging techniques like 
 The inclusion of uncertainty measurement in spectral unmixing offers important insights into the reliability of the results. Rather than relying solely on point estimates, we gain a more nuanced understanding of the possible variations and correlations in parameter space. This is particularly valuable when making decisions based on complex data, as it helps avoid overconfidence and identifies parameters requiring further refinement. In mineral quantification, understanding uncertainties can reveal how robust the mineral abundance estimates are, guiding both data interpretation and future analyses.
 
 Hyperspectral imaging, as demonstrated in this example, has the potential to be a faster and more cost-effective alternative for mineral abundance mapping compared to other laboratory methods. Moreover, it can scale up to airborne and satellite platforms, making it a one-of-a-kind method for larger-scale mineral mapping and monitoring.
+
+### Code
+
+The sampler and the Hapke conversions behind this post and my thesis are on GitHub: [nasirlukman/bayesian-spectral-unmixing](https://github.com/nasirlukman/bayesian-spectral-unmixing).
