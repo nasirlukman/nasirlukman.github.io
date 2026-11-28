@@ -15,7 +15,7 @@ social: false # includes social icons at the bottom of the page
 <div style="text-align: justify">
 
 <p>
-I'm a geospatial data scientist with about ten years of experience in advanced geospatial analysis, turning satellite and field data into decisions for mining, environmental projects and law enforcement. I started out as a geologist, exploring for tin, coal, oil and gas, before moving into Earth observation with an MSc (cum laude) from ITC, University of Twente.
+I'm a geospatial data scientist with about ten years of experience in advanced geospatial analysis, turning satellite and field data into decisions for mining, environmental projects and law enforcement. I started out as a geologist, exploring for tin, REE, coal, oil and gas, before moving into Earth observation with an MSc (cum laude) from ITC, University of Twente.
 </p>
 
 <p>
